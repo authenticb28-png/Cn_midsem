@@ -325,6 +325,8 @@ def main():
 
     # scripts
     scripts = sorted(PRACTICE.glob("*.py"))
+    if ONLY:
+        scripts = [f for f in scripts if f.name.lower().startswith(ONLY)]
     for f in scripts:
         txt = f.read_text(encoding="utf-8")
         m = PLACEHOLDER.search(txt)
@@ -334,8 +336,6 @@ def main():
     ran = 0
     if not FAST:
         for f in scripts:
-            if ONLY and not f.name.lower().startswith(ONLY):
-                continue
             try:
                 p = subprocess.run([sys.executable, str(f)], capture_output=True, text=True, timeout=60, cwd=str(PRACTICE))
                 ran += 1
