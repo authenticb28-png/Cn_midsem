@@ -1,0 +1,682 @@
+{
+ "subject": "Computer Networks",
+ "generated_at": "2026-10-04T13:06:21+00:00",
+ "courses": [
+  {
+   "kind": "Lectures",
+   "code": "CN",
+   "lectures": [
+    {
+     "n": 1,
+     "date": "2026-08-10",
+     "title": "Computer Networks",
+     "topics": [
+      "Computer Networks"
+     ],
+     "files": []
+    },
+    {
+     "n": 2,
+     "date": "2026-08-12",
+     "title": "Circuit Switching, Packet Switching, Loss and throughput, Delay",
+     "topics": [
+      "Circuit Switching",
+      "Packet Switching",
+      "Loss and throughput",
+      "Delay"
+     ],
+     "files": []
+    },
+    {
+     "n": 3,
+     "date": "2026-08-17",
+     "title": "OSI Model",
+     "topics": [
+      "OSI Model"
+     ],
+     "files": []
+    },
+    {
+     "n": 4,
+     "date": "2026-08-19",
+     "title": "TCP/IP Model, Network Devices",
+     "topics": [
+      "Network Devices",
+      "TCP/IP Model"
+     ],
+     "files": []
+    },
+    {
+     "n": 5,
+     "date": "2026-08-24",
+     "title": "Network Topologies, Cloud Networking, Application Layer",
+     "topics": [
+      "Network Topologies",
+      "Application Layer",
+      "Cloud Networking"
+     ],
+     "files": []
+    },
+    {
+     "n": 6,
+     "date": "2026-08-26",
+     "title": "Client-Server Architecture, HTTP Protocols, HTTP Version",
+     "topics": [
+      "Client-Server Architecture",
+      "HTTP Protocols",
+      "HTTP Version"
+     ],
+     "files": []
+    },
+    {
+     "n": 7,
+     "date": "2026-08-31",
+     "title": "REST API(s), Presentation Layer, HTTPS, TLS/SSL",
+     "topics": [
+      "HTTPS",
+      "REST API(s)",
+      "TLS/SSL",
+      "Presentation Layer"
+     ],
+     "files": []
+    },
+    {
+     "n": 8,
+     "date": "2026-09-02",
+     "title": "Email Protocols, Application Services, Cryptography",
+     "topics": [
+      "Email Protocols",
+      "Cryptography",
+      "Application Services"
+     ],
+     "files": []
+    },
+    {
+     "n": 9,
+     "date": "2026-09-07",
+     "title": "DNS",
+     "topics": [
+      "DNS"
+     ],
+     "files": [
+      "The Transport Layer — Multiplexing, Ports, UDP, and the TCP Connection.pdf"
+     ]
+    },
+    {
+     "n": 10,
+     "date": "2026-09-09",
+     "title": "Transport Layer, Caching, Content Delivery Network (CDN), Route 53 DNS Service,  ...",
+     "topics": [
+      "TCP",
+      "UDP",
+      "TCP Handshake",
+      "Route 53 DNS Service",
+      "Caching",
+      "Content Delivery Network (CDN)",
+      "TCP Flow Control",
+      "TCP Sliding Window",
+      "Transport Layer"
+     ],
+     "files": [
+      "Reliable Data Transfer and TCP Flow Control.pdf"
+     ]
+    },
+    {
+     "n": 11,
+     "date": "2026-09-14",
+     "title": "Congestion Avoidance, TCP Congestion Control, Slow Start",
+     "topics": [
+      "TCP Congestion Control",
+      "Slow Start",
+      "Congestion Avoidance"
+     ],
+     "files": [
+      "TCP Congestion Control Algorithms.pdf"
+     ]
+    },
+    {
+     "n": 12,
+     "date": "2026-09-16",
+     "title": "Elastic Load Balancing (ELB), Network Load Balancer (NLB), Application Load Bala ...",
+     "topics": [
+      "Cloud Networking",
+      "Elastic Load Balancing (ELB)",
+      "Network Load Balancer (NLB)",
+      "Application Load Balancer (ALB)",
+      "Target Groups",
+      "EC2 Targets",
+      "Auto Scaling",
+      "High Availability"
+     ],
+     "files": [
+      "Cloud Load Balancing — ALB vs. NLB, Elastic Load Balancing, and High Availability.pdf"
+     ]
+    },
+    {
+     "n": 13,
+     "date": "2026-09-21",
+     "title": "IPv4, IP Address",
+     "topics": [
+      "IP Address",
+      "IPv4"
+     ],
+     "files": [
+      "Addressing the World IPv4, Classful History, and CIDR.pdf"
+     ]
+    },
+    {
+     "n": 14,
+     "date": "2026-09-23",
+     "title": "CIDR Notation, Network Layer, Classful",
+     "topics": [
+      "Network Layer",
+      "CIDR Notation",
+      "Classful"
+     ],
+     "files": [
+      "Subnetting in Practice — and Designing an AWS VPC.pdf"
+     ]
+    },
+    {
+     "n": 15,
+     "date": "2026-09-28",
+     "title": "AWS VPC, Subnetting",
+     "topics": [
+      "Subnetting",
+      "AWS VPC"
+     ],
+     "files": [
+      "Lecture 15 — NAT, PAT, DHCP & VPC Routing.pdf"
+     ]
+    },
+    {
+     "n": 16,
+     "date": "2026-09-30",
+     "title": "Dynamic Host Configuration Protocol (DHCP), Routing Tables, NAT & PAT",
+     "topics": [
+      "Dynamic Host Configuration Protocol (DHCP)",
+      "NAT & PAT",
+      "Routing Tables"
+     ],
+     "files": []
+    }
+   ],
+   "assignments": [
+    {
+     "assignment": "CN_LAB_DHCP_SectionD",
+     "title": "Dual-LAN DHCP: Router as DHCP Server with Relay",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>Objective</h2>\r\n\r\n<p>Configure <strong>Router0</strong> as the DHCP server for two separate LANs. <strong>LAN-A</strong> (10.0.1.0/24) holds two PCs and an HTTP server; <strong>LAN-B</strong> (10.0.2.0/24) holds two more PCs whose DHCP requests are relayed back to Router0 via <code>ip helper-address</code>. At the end, PC0 must be able to reach PC2 across both LANs.</p>\r\n\r\n<h2>Topology to Build</h2>\r\n\r\n<p>Place all devices on the canvas and connect them with straight-through cables as shown below:</p>\r\n\r\n<ul>\r\n\t<li><strong>Router0</strong> Gi0/0 &rarr; <strong>ManagedSwitch0</strong> (LAN-A switch)</li>\r\n\t<li><strong>ManagedSwitch0</strong> &rarr; <strong>PC0</strong>, <strong>PC1</strong>, <strong>Server0</strong></li>\r\n\t<li><strong>Router0</strong> Gi0/1 &rarr; <strong>ManagedSwitch1</strong> (LAN-B switch)</li>\r\n\t<li><strong>ManagedSwitch1</strong> &rarr; <strong>PC2</strong>, <strong>PC3</strong></li>\r\n</ul>\r\n\r\n<h2>IP Address Table</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Device</th>\r\n\t\t\t<th>Interface</th>\r\n\t\t\t<th>IP Address</th>\r\n\t\t\t<th>Subnet Mask</th>\r\n\t\t\t<th>Assigned By</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0</td>\r\n\t\t\t<td>10.0.1.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/1</td>\r\n\t\t\t<td>10.0.2.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC0</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.1.2</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC1</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.1.3</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Server0</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.1.4</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC2</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.2.2</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC3</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.2.3</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h2>Configuration Steps</h2>\r\n\r\n<h3>Step 1 &mdash; Configure Router0</h3>\r\n\r\n<p>Open Router0&#39;s CLI and run the following commands:</p>\r\n\r\n<pre>\r\n<code>enable\r\nconfigure terminal\r\n\r\ninterface GigabitEthernet0/0\r\n ip address 10.0.1.1 255.255.255.0\r\n no shutdown\r\n exit\r\n\r\ninterface GigabitEthernet0/1\r\n ip address 10.0.2.1 255.255.255.0\r\n ip helper-address 10.0.1.1\r\n no shutdown\r\n exit\r\n\r\nip dhcp pool LAN-A\r\n network 10.0.1.0 255.255.255.0\r\n default-router 10.0.1.1\r\n exit\r\n\r\nip dhcp pool LAN-B\r\n network 10.0.2.0 255.255.255.0\r\n default-router 10.0.2.1\r\n exit</code></pre>\r\n\r\n<p>The <code>ip helper-address 10.0.1.1</code> command on Gi0/1 forwards DHCP broadcast messages from LAN-B clients to Router0&#39;s own DHCP server (at 10.0.1.1), which then hands out addresses from the <strong>LAN-B pool</strong>.</p>\r\n\r\n<h3>Step 2 &mdash; Enable HTTP on Server0</h3>\r\n\r\n<ol>\r\n\t<li>Click <strong>Server0</strong> &rarr; <strong>Services</strong> tab &rarr; <strong>HTTP</strong>.</li>\r\n\t<li>Confirm the service is <strong>On</strong>.</li>\r\n\t<li>Add any HTML content you like to the page body.</li>\r\n</ol>\r\n\r\n<h3>Step 3 &mdash; Assign DHCP addresses (strict order)</h3>\r\n\r\n<p>Open <strong>Desktop &rarr; IP Configuration</strong> on each device and select <strong>DHCP</strong>. Then open <strong>Desktop &rarr; Command Prompt</strong> and run <code>ipconfig</code> to request the lease. Follow this exact order:</p>\r\n\r\n<ol>\r\n\t<li><strong>PC0</strong> &mdash; set DHCP, run <code>ipconfig</code></li>\r\n\t<li><strong>PC1</strong> &mdash; set DHCP, run <code>ipconfig</code></li>\r\n\t<li><strong>Server0</strong> &mdash; set DHCP in IP Configuration, run <code>ipconfig</code></li>\r\n\t<li><strong>PC2</strong> &mdash; set DHCP, run <code>ipconfig</code></li>\r\n\t<li><strong>PC3</strong> &mdash; set DHCP, run <code>ipconfig</code></li>\r\n</ol>\r\n\r\n<p><strong>Important:</strong> You must run <code>ipconfig</code> on every device before clicking <em>Run Tests</em> &mdash; the DHCP lease checks will fail if a device has not yet requested its address.</p>\r\n\r\n<h3>Step 4 &mdash; (Optional) Test HTTP access</h3>\r\n\r\n<ol>\r\n\t<li>On <strong>PC0</strong>, open <strong>Desktop &rarr; Web Browser</strong>.</li>\r\n\t<li>Enter <code>http://10.0.1.4</code> and click <strong>Go</strong>.</li>\r\n\t<li>You should see the HTML page hosted on Server0.</li>\r\n</ol>\r\n\r\n<h2>Verification</h2>\r\n\r\n<ul>\r\n\t<li>Click <strong>Run Tests</strong> &mdash; all checks should pass.</li>\r\n\t<li>From PC0&#39;s Command Prompt, run <code>ping 10.0.2.2</code> &mdash; a successful reply proves Router0 is routing between both LANs.</li>\r\n\t<li>Switch to <strong>Simulation</strong> mode and trace the ping to see the Router0 hop and both ARP exchanges.</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": "",
+     "my_solution": {
+      "topology_file": "CN_LAB_DHCP_SectionD - Dual-LAN DHCP- Router as DHCP Server with Relay.xml"
+     }
+    },
+    {
+     "assignment": "CN_Lab_Router on stick_Section D",
+     "title": "Lab: VLAN Trunking and Router-on-a-Stick",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>Objective</h2>\r\n\r\n<p>Configure a University network with three VLANs &mdash; <strong>Student</strong> (VLAN 10), <strong>Staff</strong> (VLAN 20), and <strong>Admin</strong> (VLAN 30) &mdash; all on a single <strong>ManagedSwitch0</strong>. Use a <em>Router-on-a-Stick</em> topology: Router0&#39;s <code>GigabitEthernet0/0</code> connects to the switch trunk port, and three <code>802.1Q</code> subinterfaces route between VLANs. Configure per-VLAN DHCP pools on Router0 so all nine PCs receive addresses automatically. At the end, a Student PC must be able to ping an Admin PC across VLANs.</p>\r\n\r\n<h2>Topology to Build</h2>\r\n\r\n<p>Place all devices and connect with straight-through cables:</p>\r\n\r\n<ul>\r\n\t<li><strong>Router0</strong> Gi0/0 &rarr; <strong>ManagedSwitch0</strong> Fa0/1 (trunk)</li>\r\n\t<li><strong>ManagedSwitch0</strong> Fa0/2, Fa0/3, Fa0/4 &rarr; <strong>PC0</strong>, <strong>PC1</strong>, <strong>PC2</strong> (VLAN 10 &mdash; Student)</li>\r\n\t<li><strong>ManagedSwitch0</strong> Fa0/5, Fa0/6, Fa0/7 &rarr; <strong>PC3</strong>, <strong>PC4</strong>, <strong>PC5</strong> (VLAN 20 &mdash; Staff)</li>\r\n\t<li><strong>ManagedSwitch0</strong> Fa0/8, Fa0/9, Fa0/10 &rarr; <strong>PC6</strong>, <strong>PC7</strong>, <strong>PC8</strong> (VLAN 30 &mdash; Admin)</li>\r\n</ul>\r\n\r\n<h2>IP Address Table</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Device</th>\r\n\t\t\t<th>Interface</th>\r\n\t\t\t<th>IP Address</th>\r\n\t\t\t<th>Subnet Mask</th>\r\n\t\t\t<th>Assigned By</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0.10</td>\r\n\t\t\t<td>10.0.1.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0.20</td>\r\n\t\t\t<td>10.0.2.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0.30</td>\r\n\t\t\t<td>10.0.3.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC0, PC1, PC2</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.1.x</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC3, PC4, PC5</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.2.x</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC6, PC7, PC8</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.0.3.x</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h2>Configuration Steps</h2>\r\n\r\n<h3>Step 1 &mdash; Configure ManagedSwitch0</h3>\r\n\r\n<p>Open ManagedSwitch0&#39;s CLI and run:</p>\r\n\r\n<pre>\r\n<code>enable\r\nconfigure terminal\r\n\r\nvlan 10\r\n name Student\r\n exit\r\n\r\nvlan 20\r\n name Staff\r\n exit\r\n\r\nvlan 30\r\n name Admin\r\n exit\r\n\r\ninterface FastEthernet0/1\r\n switchport mode trunk\r\n exit\r\n\r\ninterface FastEthernet0/2\r\n switchport mode access\r\n switchport access vlan 10\r\n exit\r\n\r\ninterface FastEthernet0/3\r\n switchport mode access\r\n switchport access vlan 10\r\n exit\r\n\r\ninterface FastEthernet0/4\r\n switchport mode access\r\n switchport access vlan 10\r\n exit\r\n\r\ninterface FastEthernet0/5\r\n switchport mode access\r\n switchport access vlan 20\r\n exit\r\n\r\ninterface FastEthernet0/6\r\n switchport mode access\r\n switchport access vlan 20\r\n exit\r\n\r\ninterface FastEthernet0/7\r\n switchport mode access\r\n switchport access vlan 20\r\n exit\r\n\r\ninterface FastEthernet0/8\r\n switchport mode access\r\n switchport access vlan 30\r\n exit\r\n\r\ninterface FastEthernet0/9\r\n switchport mode access\r\n switchport access vlan 30\r\n exit\r\n\r\ninterface FastEthernet0/10\r\n switchport mode access\r\n switchport access vlan 30\r\n exit</code></pre>\r\n\r\n<h3>Step 2 &mdash; Configure Router0 (Router-on-a-Stick)</h3>\r\n\r\n<p>Open Router0&#39;s CLI and run:</p>\r\n\r\n<pre>\r\n<code>enable\r\nconfigure terminal\r\n\r\ninterface GigabitEthernet0/0\r\n no shutdown\r\n exit\r\n\r\ninterface GigabitEthernet0/0.10\r\n encapsulation dot1Q 10\r\n ip address 10.0.1.1 255.255.255.0\r\n exit\r\n\r\ninterface GigabitEthernet0/0.20\r\n encapsulation dot1Q 20\r\n ip address 10.0.2.1 255.255.255.0\r\n exit\r\n\r\ninterface GigabitEthernet0/0.30\r\n encapsulation dot1Q 30\r\n ip address 10.0.3.1 255.255.255.0\r\n exit\r\n\r\nip dhcp pool STUDENT\r\n network 10.0.1.0 255.255.255.0\r\n default-router 10.0.1.1\r\n exit\r\n\r\nip dhcp pool STAFF\r\n network 10.0.2.0 255.255.255.0\r\n default-router 10.0.2.1\r\n exit\r\n\r\nip dhcp pool ADMIN\r\n network 10.0.3.0 255.255.255.0\r\n default-router 10.0.3.1\r\n exit</code></pre>\r\n\r\n<p>The physical interface <code>GigabitEthernet0/0</code> must be <code>no shutdown</code> first. Each subinterface (<code>.10</code>, <code>.20</code>, <code>.30</code>) tags its frames with the matching VLAN ID using <code>encapsulation dot1Q</code>, acting as the default gateway for that VLAN.</p>\r\n\r\n<h3>Step 3 &mdash; Assign IP addresses using DHCP (strict order)</h3>\r\n\r\n<p>Open <strong>Desktop &rarr; IP Configuration</strong> on each PC and select <strong>DHCP</strong>. Then open <strong>Desktop &rarr; Command Prompt</strong> and run <code>ipconfig</code> to request the lease. Follow this order:</p>\r\n\r\n<ol>\r\n\t<li><strong>PC0</strong>, <strong>PC1</strong>, <strong>PC2</strong> &mdash; set DHCP, run <code>ipconfig</code> on each</li>\r\n\t<li><strong>PC3</strong>, <strong>PC4</strong>, <strong>PC5</strong> &mdash; set DHCP, run <code>ipconfig</code> on each</li>\r\n\t<li><strong>PC6</strong>, <strong>PC7</strong>, <strong>PC8</strong> &mdash; set DHCP, run <code>ipconfig</code> on each</li>\r\n</ol>\r\n\r\n<p><strong>Important:</strong> You must run <code>ipconfig</code> on every PC before clicking <em>Run Tests</em> &mdash; the DHCP lease checks will fail if a device has not yet requested its address.</p>\r\n\r\n<h2>Verification</h2>\r\n\r\n<ul>\r\n\t<li>Click <strong>Run Tests</strong> &mdash; all checks should pass.</li>\r\n\t<li>From PC0&#39;s Command Prompt, run <code>ping 10.0.3.2</code> &mdash; a successful reply confirms inter-VLAN routing is working via Router0&#39;s subinterfaces.</li>\r\n\t<li>Switch to <strong>Simulation</strong> mode and trace the ping from PC0 to PC6; observe the dot1Q-tagged frames passing through the trunk and Router0&#39;s subinterface hop.</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": "",
+     "my_solution": {
+      "topology_file": "CN_Lab_Router on stick_Section D - Lab- VLAN Trunking and Router-on-a-Stick.xml"
+     }
+    }
+   ],
+   "quizzes": [
+    {
+     "title": "Computer Networks - Revision",
+     "questions": [
+      {
+       "question": "<p>Which access network technology would a student in a university lecture hall MOST likely be using?</p>",
+       "options": {
+        "A": "Geostationary satellite",
+        "B": "Home DSL broadband",
+        "C": "Enterprise/campus Ethernet or campus WiFi",
+        "D": "Tier-1 backbone fibre"
+       },
+       "answer": "C",
+       "explanation": "<p><strong>Correct Answer: C</strong></p><p>University campus networks use enterprise Ethernet infrastructure with WiFi access points. DSL is a home technology; backbone fibre is the core, not the edge.</p>",
+       "marks": 1
+      },
+      {
+       "question": "<p>What does the term &#39;network of networks&#39; mean in the context of the Internet?</p>",
+       "options": {
+        "A": "Every device must connect to every other device directly",
+        "B": "The Internet consists of thousands of independently administered ISPs and networks that interconnect using shared protocols",
+        "C": "There is one master network owned by ICANN that all ISPs plug into",
+        "D": "Networks are physically layered on top of each other in data centres"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>'Network of networks' describes the Internet's decentralised structure: independent ISPs and networks interconnect voluntarily using standard protocols, with no single owner.</p>",
+       "marks": 1
+      },
+      {
+       "question": "<p>A friend abroad loads the same Instagram reel instantly; yours is slow. TWO best network reasons?</p>",
+       "options": {
+        "A": "They have better phone hardware and your CPU is slow",
+        "B": "A Edge server is closer to them; your last-mile access network link is the bottleneck",
+        "C": "Instagram throttles users in your country",
+        "D": "TCP is faster in their country"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>CDN geography means edge nodes are closer to some users, reducing propagation delay. The last-mile is often the bottleneck for local users.</p>",
+       "marks": 3
+      },
+      {
+       "question": "<p>Your reel buffers on cellular data but never on home WiFi. Where do you begin investigating?</p>",
+       "options": {
+        "A": "Instagram's origin data centre — they throttle cellular users",
+        "B": "The network core — backbone routers drop cellular packets",
+        "C": "The access network — cellular last-mile bandwidth or signal quality is the most likely bottleneck",
+        "D": "DNS servers — cellular DNS is slower"
+       },
+       "answer": "C",
+       "explanation": "<p><strong>Correct Answer: C</strong></p><p>Buffering on cellular but not WiFi points to the access network. The core and origin server are shared by both paths, so they are unlikely to be the cause.</p>",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "Circuit Switching, Packet Switching, Loss and throughput, Delay - Revision",
+     "questions": [
+      {
+       "question": "<p>In the store-and-forward model, when can a router begin forwarding a packet to the next link?</p>",
+       "options": {
+        "A": "As soon as the first bit arrives",
+        "B": "Only after the entire packet has been received and checked",
+        "C": "After half the packet arrives",
+        "D": "Immediately, without waiting"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>Store-and-forward: the router must receive the complete packet before transmitting it on the outbound link. This adds a full packet-transmission-time delay at each hop.</p>",
+       "marks": 1
+      },
+      {
+       "question": "<p>One scenario where circuit switching is still preferable over packet switching?</p>",
+       "options": {
+        "A": "Downloading a large file — guaranteed bandwidth for the whole transfer",
+        "B": "A traditional PSTN voice call requiring guaranteed constant bandwidth with predictable delay",
+        "C": "Web browsing — packets need to be reserved",
+        "D": "DNS lookups — they require dedicated paths"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>Classic PSTN telephony benefits from circuit switching's guaranteed bit-rate and deterministic delay — essential for voice quality. Bursty applications are better served by packet switching.</p>",
+       "marks": 2
+      },
+      {
+       "question": "<p>A 10,000-bit packet crosses three links with rates 10 Mbps, 2 Mbps, and 5 Mbps. What are the three transmission delays and which link is the bottleneck?</p>",
+       "options": {
+        "A": "1 ms, 5 ms, 2 ms — bottleneck is the 2 Mbps link",
+        "B": "0.1 ms, 2 ms, 0.5 ms — bottleneck is the 5 Mbps link",
+        "C": "1 ms, 5 ms, 2 ms — bottleneck is the 5 Mbps link",
+        "D": "1 ms, 2 ms, 5 ms — bottleneck is the 10 Mbps link"
+       },
+       "answer": "A",
+       "explanation": "<p><strong>Correct Answer: A</strong></p><p>10,000/10M=1 ms; 10,000/2M=5 ms; 10,000/5M=2 ms. Throughput is limited by the slowest link: 2 Mbps.</p>",
+       "marks": 3
+      },
+      {
+       "question": "<p>A geostationary satellite link is advertised at 500 Mbps but feels sluggish for video calls. Which delay dominates, and why doesn&#39;t more bandwidth fix it?</p>",
+       "options": {
+        "A": "Queuing delay — more bandwidth adds queue space",
+        "B": "Propagation delay — the satellite orbits ~35,000 km up; d/s ≈ 240 ms one-way regardless of link rate",
+        "C": "Transmission delay — 500 Mbps is too low for HD video",
+        "D": "Processing delay — satellite routers are slow"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>Geostationary satellites are ~35,786 km away. Propagation delay ≈ 179 ms one-way (~360 ms RTT). This is purely distance/speed-of-light and does not decrease with higher bandwidth.</p>",
+       "marks": 3
+      },
+      {
+       "question": "<p>Your home plan is 300 Mbps but a 4K stream still buffers. Where is the most likely bottleneck?</p>",
+       "options": {
+        "A": "The Internet backbone — tier-1 ISPs cannot handle 4K",
+        "B": "The bottleneck could be your WiFi radio, the streaming server's uplink, or a congested link inside your ISP — not necessarily your advertised plan speed",
+        "C": "Your router's DNS cache",
+        "D": "The CDN edge — they never cache 4K"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>End-to-end throughput equals the minimum link rate on the path. The bottleneck could be your WiFi effective speed, the server's capacity, or a congested ISP link.</p>",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "OSI Model - Revision",
+     "questions": [
+      {
+       "question": "<p>What is the main benefit of layering in network design?</p>",
+       "options": {
+        "A": "It increases the speed of every packet by splitting work across layers",
+        "B": "Each layer is independent — you can change one layer (e.g., swap WiFi for Ethernet) without affecting the others, giving modularity and interoperability",
+        "C": "Layering removes all headers to reduce packet size",
+        "D": "It forces every vendor to use identical hardware"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>Layering provides modularity (swap link technology without touching the app), interoperability (mix vendors), and manageability (debug one layer at a time). Each layer only talks to the layer directly above or below it.</p>",
+       "marks": 1
+      },
+      {
+       "question": "<p>You click a YouTube link. At which TCP/IP layer does the URL request exist, and what is the PDU called at that layer?</p>",
+       "options": {
+        "A": "Network layer — the PDU is called a datagram",
+        "B": "Transport layer — the PDU is called a segment",
+        "C": "Application layer — the PDU is called a message",
+        "D": "Link layer — the PDU is called a frame"
+       },
+       "answer": "C",
+       "explanation": "<p><strong>Correct Answer: C</strong></p><p>The HTTP request (containing the URL) is an Application-layer message. As it moves down the stack it becomes a Transport segment, then a Network datagram, then a Link frame, then physical bits.</p>",
+       "marks": 1
+      }
+     ]
+    },
+    {
+     "title": "TCP/IP Model, Network Devices - Revision",
+     "questions": [
+      {
+       "question": "<p>Which of the following correctly lists all five TCP/IP layers from top to bottom?</p>",
+       "options": {
+        "A": "Physical → Link → Network → Transport → Application",
+        "B": "Application → Transport → Network → Link → Physical",
+        "C": "Application → Network → Transport → Link → Physical",
+        "D": "Transport → Application → Network → Physical → Link"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>The TCP/IP 5-layer model top-to-bottom: Application, Transport, Network, Link, Physical. Remembering the order is the foundation for understanding encapsulation and which protocol belongs where.</p>",
+       "marks": 1
+      },
+      {
+       "question": "<p>In the OSI model, the Presentation and Session layers sit between Application and Transport. Where do these functions go in the practical TCP/IP model?</p>",
+       "options": {
+        "A": "They become separate layers between Transport and Network in TCP/IP",
+        "B": "They are folded into the TCP/IP Application layer — the application handles encoding, encryption, and session management itself",
+        "C": "They are handled by the TCP/IP Physical layer",
+        "D": "They are removed entirely and never used on the Internet"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Correct Answer: B</strong></p><p>OSI is the reference model with 7 layers; TCP/IP is what actually runs on the Internet with 5 layers. The Presentation and Session functions are absorbed into the Application layer in TCP/IP — there are no separate layers for them.</p>",
+       "marks": 2
+      }
+     ]
+    },
+    {
+     "title": "Email Protocols, Application Services, Cryptography - Revision",
+     "questions": [
+      {
+       "question": "<p>Secure IMAP port?</p>",
+       "options": {
+        "A": "110",
+        "B": "993",
+        "C": "587",
+        "D": "995"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Transport Layer, Caching, Content Delivery Network (CDN), Route 53 DNS Service,  ... - Revision",
+     "questions": [
+      {
+       "question": "<p>Cache hit reduces:</p>",
+       "options": {
+        "A": "Storage",
+        "B": "Latency and origin load",
+        "C": "TLS",
+        "D": "Email size"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Explanation:</strong> Cached data is reused.</p>",
+       "marks": 2
+      },
+      {
+       "question": "<p>Cache miss occurs when:</p>",
+       "options": {
+        "A": "Fresh cache exists",
+        "B": "Object missing/expired",
+        "C": "Browser offline",
+        "D": "SMTP fails"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Explanation:</strong> Origin fetch required.</p>",
+       "marks": 2
+      },
+      {
+       "question": "<p>Cache-Control max-age primarily defines:</p>",
+       "options": {
+        "A": "TLS life",
+        "B": "Cache lifetime",
+        "C": "SMTP retry",
+        "D": "DNS TTL"
+       },
+       "answer": "B",
+       "explanation": "<p><strong>Explanation:</strong> Cache freshness.</p>",
+       "marks": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Labs",
+   "code": "CN",
+   "lectures": [
+    {
+     "n": 1,
+     "date": "2026-08-11",
+     "title": "Lab-1",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 2,
+     "date": "2026-08-13",
+     "title": "Lab-2",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 3,
+     "date": "2026-08-18",
+     "title": "Lab-1",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 4,
+     "date": "2026-08-20",
+     "title": "Lab-2",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 5,
+     "date": "2026-08-25",
+     "title": "Computer Networks",
+     "topics": [
+      "Computer Networks"
+     ],
+     "files": []
+    },
+    {
+     "n": 6,
+     "date": "2026-08-27",
+     "title": "lab-02",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 7,
+     "date": "2026-09-01",
+     "title": "CLI Tool, Device, Topology",
+     "topics": [
+      "CLI Tool",
+      "Device",
+      "Topology"
+     ],
+     "files": []
+    },
+    {
+     "n": 8,
+     "date": "2026-09-03",
+     "title": "Application Layer",
+     "topics": [
+      "Application Layer"
+     ],
+     "files": []
+    },
+    {
+     "n": 9,
+     "date": "2026-09-08",
+     "title": "Web Inspect, Computer Networks",
+     "topics": [
+      "Computer Networks",
+      "Web Inspect"
+     ],
+     "files": []
+    },
+    {
+     "n": 10,
+     "date": "2026-09-10",
+     "title": "Wireshark",
+     "topics": [
+      "Wireshark"
+     ],
+     "files": []
+    },
+    {
+     "n": 11,
+     "date": "2026-09-15",
+     "title": "NPT",
+     "topics": [
+      "NPT"
+     ],
+     "files": []
+    },
+    {
+     "n": 12,
+     "date": "2026-09-17",
+     "title": "AWS",
+     "topics": [
+      "AWS"
+     ],
+     "files": []
+    },
+    {
+     "n": 13,
+     "date": "2026-09-22",
+     "title": "VPC",
+     "topics": [
+      "VPC"
+     ],
+     "files": []
+    },
+    {
+     "n": 14,
+     "date": "2026-09-24",
+     "title": "Subnet",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 15,
+     "date": "2026-09-29",
+     "title": "Subnet",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 16,
+     "date": "2026-10-01",
+     "title": "Subnet",
+     "topics": [
+      "Subnet"
+     ],
+     "files": []
+    }
+   ],
+   "assignments": [
+    {
+     "assignment": "Sample CN Contest Coding",
+     "title": "Sample of Contest",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>CSAI321 &mdash; Q3. Launch a Web Server and Lock Down Its Firewall</h2>\r\n\r\n<p><strong>Duration:</strong> 20 minutes &nbsp;&middot;&nbsp; <strong>Marks:</strong> 15 &nbsp;&middot;&nbsp; <strong>Environment:</strong> AWS Academy Learner Lab, AWS Console only, region <code>us-east-1</code>, Amazon Linux 2023, <code>t3.micro</code>.</p>\r\n\r\n<h3>Scenario</h3>\r\n\r\n<p>A web server has to be reachable by the public on HTTP and HTTPS, while administration stays locked to <strong>your</strong> machine alone. Build the security group first, then launch one instance behind it.</p>\r\n\r\n<p><strong>You do not build a network in this question.</strong> Use the <strong>default VPC</strong> that already exists in your lab account &mdash; do not create a VPC, subnet, internet gateway or route table. The whole exercise is the instance and its firewall.</p>\r\n\r\n<p>Use the exact names given. The grader matches names literally, and a security group&#39;s name <strong>cannot be changed after creation</strong> &mdash; so read Part A before you start typing.</p>\r\n\r\n<h3>Mandatory tagging contract</h3>\r\n\r\n<p>Your work is found <em>only</em> through this tag. Both resources you create must carry it, in <code>us-east-1</code>:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Tag key</th>\r\n\t\t\t<th>Tag value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>csai321:lab</code></td>\r\n\t\t\t<td><code>ec2-firewall</code></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Applies to: the <strong>security group</strong> and the <strong>EC2 instance</strong>. <strong>Either one missing this tag is invisible to the grader and scores zero.</strong> Both can be tagged at creation time &mdash; the console offers a tags panel on each.</p>\r\n\r\n<h3>Part A &mdash; The security group and its inbound rules (9 marks)</h3>\r\n\r\n<p><em>Note:</em> AWS reserves the <code>sg-</code> prefix for security group IDs and will reject a name that starts with it. The name below is <code>web-sg</code>, not <code>sg-web</code>. Type it exactly &mdash; it cannot be edited afterwards.</p>\r\n\r\n<p><strong>EC2 &rarr; Security groups &rarr; Create security group</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Field</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td><code>web-sg</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Description</td>\r\n\t\t\t<td><code>csai321 public web server</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VPC</td>\r\n\t\t\t<td>the <strong>default</strong> VPC</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Add <strong>exactly three</strong> inbound rules &mdash; no more, no fewer:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>#</th>\r\n\t\t\t<th>Type</th>\r\n\t\t\t<th>Protocol</th>\r\n\t\t\t<th>Port</th>\r\n\t\t\t<th>Source</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1</td>\r\n\t\t\t<td>SSH</td>\r\n\t\t\t<td>TCP</td>\r\n\t\t\t<td>22</td>\r\n\t\t\t<td><strong>My IP</strong> &mdash; must resolve to a single <code>/32</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>HTTP</td>\r\n\t\t\t<td>TCP</td>\r\n\t\t\t<td>80</td>\r\n\t\t\t<td><code>0.0.0.0/0</code> (Anywhere-IPv4)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>3</td>\r\n\t\t\t<td>HTTPS</td>\r\n\t\t\t<td>TCP</td>\r\n\t\t\t<td>443</td>\r\n\t\t\t<td><code>0.0.0.0/0</code> (Anywhere-IPv4)</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Leave <strong>outbound at its default</strong> (all traffic allowed). Do not add an IPv6 source to any rule &mdash; an <em>Anywhere-IPv6</em> entry counts as a fourth rule and will cost you the rule-count mark.</p>\r\n\r\n<p>The whole point of the split: <strong>ports 80 and 443 are public, port 22 is not.</strong> SSH open to <code>0.0.0.0/0</code> scores zero for that item even though the server would still work &mdash; an administrative port exposed to the internet is the single most common way a lab instance gets compromised.</p>\r\n\r\n<h3>Part B &mdash; The instance (5 marks)</h3>\r\n\r\n<p><strong>EC2 &rarr; Instances &rarr; Launch instances</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Setting</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td><code>web-server</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>AMI</td>\r\n\t\t\t<td>Amazon Linux 2023</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Instance type</td>\r\n\t\t\t<td><code>t3.micro</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Key pair</td>\r\n\t\t\t<td>create new, <code>key-web</code>, RSA, <code>.pem</code> (or proceed without one)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Network</td>\r\n\t\t\t<td>the <strong>default</strong> VPC, any default subnet</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Auto-assign public IP</td>\r\n\t\t\t<td><strong>Enable</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Security group</td>\r\n\t\t\t<td>select existing &rarr; <code>web-sg</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Storage</td>\r\n\t\t\t<td>default</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Nothing needs to be installed on it. Leave the instance <strong>running</strong>, and confirm on the instance detail page that it has a public IPv4 and that <code>web-sg</code> is attached.</p>\r\n\r\n<p><strong>Launch exactly one instance named <code>web-server</code>.</strong> If an earlier attempt is still around, terminate it &mdash; two instances carrying that name make the grading ambiguous and the part scores zero.</p>\r\n\r\n<h3>Part C &mdash; Concept tag (1 mark)</h3>\r\n\r\n<p>The concept is graded through a tag value, so the answer must be exact. Add this <strong>extra</strong> tag to the <code>web-server</code> instance:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Tag key</th>\r\n\t\t\t<th>What to enter</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>csai321:defaultrules</code></td>\r\n\t\t\t<td>The number of <strong>inbound</strong> rules a brand-new security group has before you add any, digits only</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>No spaces, no units, no punctuation.</p>\r\n\r\n<h3>Grading summary</h3>\r\n\r\n<p>Every part is scored automatically from your account when you submit. Each item is scored independently &mdash; a mistake in one does not cascade into the others.</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Part</th>\r\n\t\t\t<th>Checks</th>\r\n\t\t\t<th>Marks</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>A</td>\r\n\t\t\t<td>SSH on 22 from a single <code>/32</code> and not the world (3); HTTP on 80 admitted (2); HTTPS on 443 admitted (2); exactly three inbound rules in total (2)</td>\r\n\t\t\t<td>9</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>B</td>\r\n\t\t\t<td><code>web-server</code> is a running <code>t3.micro</code> with a public IPv4, carrying <code>web-sg</code></td>\r\n\t\t\t<td>5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>C</td>\r\n\t\t\t<td><code>csai321:defaultrules</code> on the instance matches the expected value</td>\r\n\t\t\t<td>1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t\t<td>Either resource missing <code>csai321:lab = ec2-firewall</code> is invisible to the grader and scores zero</td>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t<td><strong>Total</strong></td>\r\n\t\t\t<td><strong>15</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h3>How to submit</h3>\r\n\r\n<p>Finish the build, confirm <code>web-server</code> shows state <strong>running</strong> and that both it and <code>web-sg</code> carry <code>csai321:lab = ec2-firewall</code>, then paste your Learner Lab credentials (Access Key ID, Secret Access Key, Session Token) and the region <code>us-east-1</code> into the form below and submit. The grader reads your account <strong>read-only</strong>; nothing is uploaded and your credentials are not stored.</p>\r\n\r\n<h3>Do not terminate</h3>\r\n\r\n<p>Leave both resources in place until your run has been scored. Stopping the Learner Lab session is fine; terminating the instance or deleting the security group is not.</p>\r\n\r\n<h3>Notes for the Learner Lab</h3>\r\n\r\n<ul>\r\n\t<li><strong>Session resets (~4h):</strong> build and submit in the <em>same</em> lab session, before your resources are torn down and your credentials expire.</li>\r\n\t<li><strong>Region:</strong> everything must be created in <code>us-east-1</code>. Resources in another region are invisible to the grader and score zero, with no warning.</li>\r\n\t<li><strong>&quot;My IP&quot;</strong> fills in your current public address as a <code>/32</code>. If your network changes between building and submitting, the rule is still a <code>/32</code> and still scores &mdash; it does not have to match where you are sitting at submission time.</li>\r\n\t<li>Log in to the lab from the AWS Academy course page (link in your class portal).</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Application Layer - In Class",
+     "title": "Csai321-vpc-reach",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Easy",
+     "question": "<h2>CSAI321 &mdash; Q1. Build a Custom VPC and a Reachable Instance Inside It</h2>\r\n\r\n<p><strong>Duration:</strong> 30 minutes &nbsp;&middot;&nbsp; <strong>Marks:</strong> 20 &nbsp;&middot;&nbsp; <strong>Environment:</strong> AWS Academy Learner Lab, AWS Console only, region <code>us-east-1</code>, Amazon Linux 2023, <code>t3.micro</code>.</p>\r\n\r\n<h3>Scenario</h3>\r\n\r\n<p>Build a small network from scratch &mdash; <strong>not</strong> the default VPC &mdash; place one instance inside it, and leave it reachable on SSH. Nothing is hosted on the instance. Every step is done through the AWS Console.</p>\r\n\r\n<p>Use the <strong>exact</strong> names, CIDRs, and tag values given. The grader matches strings literally; a renamed or re-sized resource is a wrong resource. (Names you type in the console are stored as <code>Name</code> tags; that is what is compared.)</p>\r\n\r\n<h3>Mandatory tagging contract</h3>\r\n\r\n<p>The grader finds your work <em>only</em> through this tag. Every resource you create must carry it, in <code>us-east-1</code>:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Tag key</th>\r\n\t\t\t<th>Tag value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>csai321:lab</code></td>\r\n\t\t\t<td><code>vpc-reach</code></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Applies to: the VPC, both subnets, the internet gateway, <strong>the route table</strong>, the security group, and the EC2 instance. <strong>Any resource missing this tag is invisible to the grader and scores zero.</strong></p>\r\n\r\n<p><strong>The route table is the one people forget.</strong> An untagged route table is invisible to the grader, and a subnet whose routing cannot be seen reads as private &mdash; which silently costs you the routing marks in Part B on a build that looks correct in the console. Tag it.</p>\r\n\r\n<p><em>Tip:</em> the VPC creation wizard can apply a tag to every resource it creates in one pass. Use it, then confirm the tag landed on each resource individually.</p>\r\n\r\n<h3>Part A &mdash; VPC and subnets (7 marks)</h3>\r\n\r\n<p><strong>VPC &rarr; Your VPCs &rarr; Create VPC</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Setting</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td><code>vpc-lab</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>IPv4 CIDR</td>\r\n\t\t\t<td><code>10.20.0.0/16</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>IPv6</td>\r\n\t\t\t<td>none</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Tenancy</td>\r\n\t\t\t<td>default</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p><strong>VPC &rarr; Subnets &rarr; Create subnet</strong>, inside <code>vpc-lab</code>:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Name</th>\r\n\t\t\t<th>CIDR</th>\r\n\t\t\t<th>Availability Zone</th>\r\n\t\t\t<th>Auto-assign public IPv4</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>subnet-a</code></td>\r\n\t\t\t<td><code>10.20.1.0/24</code></td>\r\n\t\t\t<td><code>us-east-1a</code></td>\r\n\t\t\t<td>Enable</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>subnet-b</code></td>\r\n\t\t\t<td><code>10.20.2.0/24</code></td>\r\n\t\t\t<td><code>us-east-1b</code></td>\r\n\t\t\t<td>Leave disabled</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Auto-assign is set after creation via <strong>Actions &rarr; Edit subnet settings</strong>.</p>\r\n\r\n<p><code>subnet-b</code> stays empty. It exists so the grader can confirm you placed two subnets in two distinct Availability Zones inside one region.</p>\r\n\r\n<h3>Part B &mdash; Internet gateway and routing (4 marks)</h3>\r\n\r\n<ol>\r\n\t<li><strong>Internet gateways &rarr; Create internet gateway</strong>, name <code>igw-lab</code>.</li>\r\n\t<li><strong>Actions &rarr; Attach to VPC &rarr; <code>vpc-lab</code></strong>.</li>\r\n\t<li><strong>Route tables &rarr; Create route table</strong>, name <code>rt-public</code>, VPC <code>vpc-lab</code>.</li>\r\n\t<li>Open it &rarr; <strong>Routes &rarr; Edit routes</strong> &rarr; add route: destination <code>0.0.0.0/0</code>, target <code>igw-lab</code>.</li>\r\n\t<li><strong>Subnet associations &rarr; Edit subnet associations</strong>: tick <code>subnet-a</code> <em>only</em>. <code>subnet-b</code> must stay on the main route table.</li>\r\n</ol>\r\n\r\n<h3>Part C &mdash; Security group (3 marks)</h3>\r\n\r\n<p><em>Note:</em> AWS reserves the <code>sg-</code> prefix for security group IDs and will reject a name that starts with it, which is why the name below is <code>admin-sg</code> and not <code>sg-admin</code>. Use it exactly as written &mdash; the grader matches the name literally, and a security group name cannot be changed after creation.</p>\r\n\r\n<p><strong>VPC &rarr; Security groups &rarr; Create security group</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Field</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td><code>admin-sg</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Description</td>\r\n\t\t\t<td><code>csai321 admin access</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VPC</td>\r\n\t\t\t<td><code>vpc-lab</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Inbound</td>\r\n\t\t\t<td>exactly one rule &mdash; Type SSH, Protocol TCP, Port 22, Source <strong>My IP</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Outbound</td>\r\n\t\t\t<td>leave at default</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>The source must resolve to a single <code>/32</code>. Port 22 open to <code>0.0.0.0/0</code> scores zero for this part, and so does a second inbound rule.</p>\r\n\r\n<h3>Part D &mdash; EC2 instance (5 marks)</h3>\r\n\r\n<p><strong>EC2 &rarr; Instances &rarr; Launch instances</strong></p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Setting</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Name</td>\r\n\t\t\t<td><code>ec2-lab</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>AMI</td>\r\n\t\t\t<td>Amazon Linux 2023</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Instance type</td>\r\n\t\t\t<td><code>t3.micro</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Key pair</td>\r\n\t\t\t<td>create new, <code>key-lab</code>, RSA, <code>.pem</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VPC</td>\r\n\t\t\t<td><code>vpc-lab</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Subnet</td>\r\n\t\t\t<td><code>subnet-a</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Auto-assign public IP</td>\r\n\t\t\t<td>Enable</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Security group</td>\r\n\t\t\t<td>select existing &rarr; <code>admin-sg</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Storage</td>\r\n\t\t\t<td>default</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Leave the instance <strong>running</strong>. On the instance detail page confirm it has both a private IPv4 in <code>10.20.1.x</code> and a public IPv4.</p>\r\n\r\n<p>Optional self-check from your own terminal (<em>not graded</em>):</p>\r\n\r\n<pre>\r\n<code>chmod 400 key-lab.pem\r\nssh -i key-lab.pem ec2-user@&lt;PUBLIC_IPv4&gt;</code></pre>\r\n\r\n<p>If it fails, the cause is almost always the route table association or a missing public IP.</p>\r\n\r\n<h3>Part E &mdash; Concept tag (1 mark)</h3>\r\n\r\n<p>The concept is graded through a tag value, so the answer must be exact. Add this <strong>extra</strong> tag to <code>vpc-lab</code> &mdash; on the VPC only:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Tag key</th>\r\n\t\t\t<th>What to enter</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>csai321:hosts</code></td>\r\n\t\t\t<td>The number of usable host addresses in <code>10.20.1.0/24</code>, digits only</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>No spaces, no units, no punctuation.</p>\r\n\r\n<h3>Grading summary</h3>\r\n\r\n<p>Every part is scored automatically from your account when you submit. Each item is scored independently &mdash; a mistake in one part does not cascade into the others.</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Part</th>\r\n\t\t\t<th>Checks</th>\r\n\t\t\t<th>Marks</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>A</td>\r\n\t\t\t<td>VPC CIDR is <code>10.20.0.0/16</code>; two subnets in two distinct AZs</td>\r\n\t\t\t<td>7</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>B</td>\r\n\t\t\t<td>IGW attached to the VPC; only one subnet routes <code>0.0.0.0/0</code> to it</td>\r\n\t\t\t<td>4</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>C</td>\r\n\t\t\t<td><code>admin-sg</code> has exactly one inbound rule, TCP 22, from a single <code>/32</code></td>\r\n\t\t\t<td>3</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>D</td>\r\n\t\t\t<td><code>ec2-lab</code> is a running <code>t3.micro</code> in <code>subnet-a</code>, carrying <code>admin-sg</code>, with a public IPv4</td>\r\n\t\t\t<td>5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>E</td>\r\n\t\t\t<td><code>csai321:hosts</code> on the VPC matches the expected value</td>\r\n\t\t\t<td>1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t\t<td>Any resource missing <code>csai321:lab = vpc-reach</code> is invisible to the grader and scores zero</td>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t<td><strong>Total</strong></td>\r\n\t\t\t<td><strong>20</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h3>How to submit</h3>\r\n\r\n<p>Finish the build, confirm <code>ec2-lab</code> shows state <strong>running</strong> and every resource carries <code>csai321:lab = vpc-reach</code>, then paste your Learner Lab credentials (Access Key ID, Secret Access Key, Session Token) and the region <code>us-east-1</code> into the form below and submit. The grader reads your account <strong>read-only</strong>; nothing is uploaded and your credentials are not stored.</p>\r\n\r\n<h3>Do not terminate</h3>\r\n\r\n<p>Leave all resources in place until your run has been scored. Stopping the Learner Lab session is fine; terminating the instance or deleting the VPC is not.</p>\r\n\r\n<h3>Notes for the Learner Lab</h3>\r\n\r\n<ul>\r\n\t<li><strong>Session resets (~4h):</strong> build and submit in the <em>same</em> lab session, before your resources are torn down and your credentials expire.</li>\r\n\t<li><strong>Region:</strong> everything must be created in <code>us-east-1</code>. Resources in another region are invisible to the grader and score zero, with no warning.</li>\r\n\t<li>Log in to the lab from the AWS Academy course page (link in your class portal).</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "CN_Lab_NPT_D",
+     "title": "Gaming Lab LAN",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>Objective</h2>\r\n\r\n<p>Configure a <strong>Gaming Lab LAN</strong> for a gaming center. Router0 acts as the default gateway, DHCP server, and DNS resolver for the entire network. Server0 runs an HTTP game portal. Three gaming PCs (PC0&ndash;PC2) must receive their IPs automatically via DHCP and be able to browse to the game server by name. You will discover the configuration commands yourself using the router&#39;s built-in CLI help system.</p>\r\n\r\n<h2>Topology to Build</h2>\r\n\r\n<p>Add all six devices and connect them with straight-through cables:</p>\r\n\r\n<ul>\r\n\t<li><strong>Router0</strong> GigabitEthernet0/0 &rarr; <strong>ManagedSwitch0</strong> FastEthernet0/1</li>\r\n\t<li><strong>ManagedSwitch0</strong> FastEthernet0/2 &rarr; <strong>Server0</strong></li>\r\n\t<li><strong>ManagedSwitch0</strong> FastEthernet0/3 &rarr; <strong>PC0</strong></li>\r\n\t<li><strong>ManagedSwitch0</strong> FastEthernet0/4 &rarr; <strong>PC1</strong></li>\r\n\t<li><strong>ManagedSwitch0</strong> FastEthernet0/5 &rarr; <strong>PC2</strong></li>\r\n</ul>\r\n\r\n<h2>IP Address Table</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Device</th>\r\n\t\t\t<th>Interface</th>\r\n\t\t\t<th>IP Address</th>\r\n\t\t\t<th>Subnet Mask</th>\r\n\t\t\t<th>Assigned By</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0</td>\r\n\t\t\t<td>192.168.10.1</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Server0</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>192.168.10.10</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>PC0, PC1, PC2</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>192.168.10.x</td>\r\n\t\t\t<td>255.255.255.0</td>\r\n\t\t\t<td>DHCP</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<h2>Configuration Steps</h2>\r\n\r\n<p>There are no step-by-step commands provided in this lab &mdash; you must configure the network by exploring the CLI help system. Use the <code>?</code> character at any prompt to discover available commands and their syntax.</p>\r\n\r\n<h3>Goal 1 &mdash; Configure Router0 interface</h3>\r\n\r\n<p>Assign IP address <code>192.168.10.1 255.255.255.0</code> to <code>GigabitEthernet0/0</code> and bring it up. Inside <code>configure terminal</code>, try typing <code>interface ?</code> to see interface options, then enter the interface and type <code>ip ?</code> to explore address configuration.</p>\r\n\r\n<h3>Goal 2 &mdash; Create DHCP pool on Router0</h3>\r\n\r\n<p>Create a DHCP pool named exactly <strong>GAMING</strong> that serves the <code>192.168.10.0 255.255.255.0</code> network with default gateway <code>192.168.10.1</code>. In global config mode, type <code>ip ?</code> and look for the <code>dhcp</code> keyword. Explore further with <code>ip dhcp ?</code>.</p>\r\n\r\n<h3>Goal 3 &mdash; Add a DNS host entry on Router0</h3>\r\n\r\n<p>Map the hostname <strong>game-server</strong> to IP <code>192.168.10.10</code> so PCs can reach the server by name. In global config mode, type <code>ip ?</code> and look for the <code>host</code> keyword. The required commands are:</p>\r\n\r\n<ul>\r\n\t<li><code>ip host &lt;hostname&gt; &lt;ip&gt;</code> &mdash; Add a static DNS entry</li>\r\n\t<li><code>no ip host &lt;hostname&gt;</code> &mdash; Remove a static DNS entry</li>\r\n</ul>\r\n\r\n<p>Use <code>ip host ?</code> to see the exact syntax before entering the command.</p>\r\n\r\n<h3>Goal 4 &mdash; Configure Server0</h3>\r\n\r\n<p>Set Server0&#39;s IP address to <code>192.168.10.10 255.255.255.0</code> with gateway <code>192.168.10.1</code> using the <strong>Desktop &rarr; IP Configuration</strong> tab. In the <strong>Services &rarr; HTTP</strong> tab, enable the HTTP service and edit the default page so it contains the text <strong>Welcome to Game Server</strong>.</p>\r\n\r\n<h3>Goal 5 &mdash; Configure PCs</h3>\r\n\r\n<p>On each PC (PC0, PC1, PC2), open <strong>Desktop &rarr; IP Configuration</strong> and select <strong>DHCP</strong>. Then open <strong>Desktop &rarr; Command Prompt</strong> and run <code>ipconfig</code> to request a lease. Do this for all three PCs before clicking <em>Run Tests</em>.</p>\r\n\r\n<h2>Verification</h2>\r\n\r\n<ul>\r\n\t<li>From PC0&#39;s Command Prompt, run <code>ipconfig</code> &mdash; the IP should be in the <code>192.168.10.0/24</code> range with gateway <code>192.168.10.1</code>.</li>\r\n\t<li>From PC0&#39;s Command Prompt, run <code>ping 192.168.10.10</code> &mdash; the ping should succeed.</li>\r\n\t<li>Open PC0&#39;s <strong>Desktop &rarr; Web Browser</strong> and visit <code>http://192.168.10.10</code> &mdash; the game portal page must load.</li>\r\n\t<li>Click <strong>Run Tests</strong> &mdash; all checks must pass.</li>\r\n</ul>\r\n\r\n<h2>Hint</h2>\r\n\r\n<p>In the router CLI, entering <code>configure terminal</code> and then typing a partial command followed by <code>?</code> (for example <code>ip dhcp ?</code>) displays a list of all sub-commands and their descriptions. This is the primary way to explore commands without referring to external documentation. The DHCP pool sub-mode also accepts <code>?</code>.</p>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": "",
+     "my_solution": {
+      "topology_file": "CN_Lab_NPT_D - Gaming Lab LAN.xml"
+     }
+    },
+    {
+     "assignment": "CN_Lab_NPT_D",
+     "title": "Industrial Multi-Segment Network",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>Objective</h2>\r\n\r\n<p>Configure an <strong>Industrial Multi-Segment Network</strong> for a manufacturing facility. The network has five separate segments: two <em>physically isolated</em> LANs (IT and Operations departments) connected to dedicated router interfaces, and three <em>VLANs</em> (Engineering, Manufacturing, Management) carried over a single trunk link to a managed switch. Router0 acts as the gateway, DHCP server, and DNS resolver for all five segments. You will discover every configuration command yourself using the CLI&nbsp;help system.</p>\r\n\r\n<h2>Topology to Build</h2>\r\n\r\n<p>Add all devices and connect with straight-through cables. The two physical LANs each have their own unmanaged switch. The three VLANs share one ManagedSwitch0 via a trunk.</p>\r\n\r\n<ul>\r\n\t<li><strong>Router0</strong> GigabitEthernet0/0 &rarr; <strong>ManagedSwitch0</strong> FastEthernet0/1 (LAN-A, IT)</li>\r\n\t<li><strong>Router0</strong> GigabitEthernet0/1 &rarr; <strong>ManagedSwitch1</strong> FastEthernet0/1 (LAN-B, Operations)</li>\r\n\t<li><strong>Router0</strong> GigabitEthernet0/2 &rarr; <strong>ManagedSwitch2</strong> FastEthernet0/1 (trunk)</li>\r\n\t<li><strong>ManagedSwitch0</strong> Fa0/2 &rarr; <strong>PC0</strong>, Fa0/3 &rarr; <strong>PC1</strong></li>\r\n\t<li><strong>ManagedSwitch1</strong> Fa0/2 &rarr; <strong>PC2</strong>, Fa0/3 &rarr; <strong>PC3</strong></li>\r\n\t<li><strong>ManagedSwitch2</strong> Fa0/2 &rarr; <strong>Server0</strong> (Engineering), Fa0/3 &rarr; <strong>PC4</strong></li>\r\n\t<li><strong>ManagedSwitch2</strong> Fa0/4 &rarr; <strong>Server1</strong> (Manufacturing), Fa0/5 &rarr; <strong>PC5</strong></li>\r\n\t<li><strong>ManagedSwitch2</strong> Fa0/6 &rarr; <strong>PC6</strong> (Management)</li>\r\n</ul>\r\n\r\n<h2>IP Address Table</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Segment</th>\r\n\t\t\t<th>Device</th>\r\n\t\t\t<th>Interface</th>\r\n\t\t\t<th>IP / Gateway</th>\r\n\t\t\t<th>Assigned By</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>LAN-A (IT)</td>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/0</td>\r\n\t\t\t<td>192.168.1.1 /24</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>LAN-A (IT)</td>\r\n\t\t\t<td>PC0, PC1</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>192.168.1.x &mdash; gw 192.168.1.1</td>\r\n\t\t\t<td>DHCP pool <strong>LAN-A</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>LAN-B (Ops)</td>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/1</td>\r\n\t\t\t<td>192.168.2.1 /24</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>LAN-B (Ops)</td>\r\n\t\t\t<td>PC2, PC3</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>192.168.2.x &mdash; gw 192.168.2.1</td>\r\n\t\t\t<td>DHCP pool <strong>LAN-B</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 10 (Engineering)</td>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/2.10</td>\r\n\t\t\t<td>10.10.10.1 /24</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 10 (Engineering)</td>\r\n\t\t\t<td>Server0</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.10.10.10 &mdash; gw 10.10.10.1</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 10 (Engineering)</td>\r\n\t\t\t<td>PC4</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.10.10.x &mdash; gw 10.10.10.1</td>\r\n\t\t\t<td>DHCP pool <strong>ENGINEERING</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 20 (Manufacturing)</td>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/2.20</td>\r\n\t\t\t<td>10.10.20.1 /24</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 20 (Manufacturing)</td>\r\n\t\t\t<td>Server1</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.10.20.10 &mdash; gw 10.10.20.1</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 20 (Manufacturing)</td>\r\n\t\t\t<td>PC5</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.10.20.x &mdash; gw 10.10.20.1</td>\r\n\t\t\t<td>DHCP pool <strong>MANUFACTURING</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 30 (Management)</td>\r\n\t\t\t<td>Router0</td>\r\n\t\t\t<td>GigabitEthernet0/2.30</td>\r\n\t\t\t<td>10.10.30.1 /24</td>\r\n\t\t\t<td>Static</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>VLAN 30 (Management)</td>\r\n\t\t\t<td>PC6</td>\r\n\t\t\t<td>FastEthernet0</td>\r\n\t\t\t<td>10.10.30.x &mdash; gw 10.10.30.1</td>\r\n\t\t\t<td>DHCP pool <strong>MANAGEMENT</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p><strong>DNS entries on Router0:</strong> <code>eng-server &rarr; 10.10.10.10</code>, <code>mfg-server &rarr; 10.10.20.10</code></p>\r\n\r\n<h2>Configuration Steps</h2>\r\n\r\n<p>No step-by-step commands are provided. Use the <code>?</code> help character in the CLI to explore available commands at every point. Below are the configuration <em>goals</em> you need to achieve.</p>\r\n\r\n<h3>Goal 1 &mdash; Router0 physical interfaces (LAN-A and LAN-B)</h3>\r\n\r\n<p>Assign IP addresses to <code>GigabitEthernet0/0</code> (192.168.1.1 /24) and <code>GigabitEthernet0/1</code> (192.168.2.1 /24). Both interfaces must be brought up. Enter each interface and use <code>ip ?</code> to see address options.</p>\r\n\r\n<h3>Goal 2 &mdash; Router0 trunk interface and subinterfaces (VLANs)</h3>\r\n\r\n<p>Bring up <code>GigabitEthernet0/2</code> (no IP address; it is the physical trunk). Then create three subinterfaces using the dot notation: <code>GigabitEthernet0/2.10</code>, <code>.20</code>, and <code>.30</code>. Inside each subinterface, use <code>encapsulation dot1Q &lt;vlan-id&gt;</code> to tag VLAN traffic and assign the gateway IP. Use <code>encapsulation ?</code> to confirm the syntax.</p>\r\n\r\n<h3>Goal 3 &mdash; DHCP pools on Router0</h3>\r\n\r\n<p>Create five DHCP pools with these exact names (case-sensitive): <strong>LAN-A</strong>, <strong>LAN-B</strong>, <strong>ENGINEERING</strong>, <strong>MANUFACTURING</strong>, <strong>MANAGEMENT</strong>. In global config mode, type <code>ip ?</code> to locate the <code>dhcp</code> keyword. The following commands are available to explore:</p>\r\n\r\n<ul>\r\n\t<li><code>ip dhcp pool &lt;name&gt;</code> &mdash; Create or edit a DHCP pool</li>\r\n\t<li><code>no ip dhcp pool &lt;name&gt;</code> &mdash; Delete a DHCP pool</li>\r\n</ul>\r\n\r\n<p>Inside the DHCP pool sub-mode, type <code>?</code> to see sub-commands like <code>network</code> and <code>default-router</code>.</p>\r\n\r\n<h3>Goal 4 &mdash; DNS host entries on Router0</h3>\r\n\r\n<p>Add two static DNS entries so devices can reach servers by hostname: <strong>eng-server &rarr; 10.10.10.10</strong> and <strong>mfg-server &rarr; 10.10.20.10</strong>. In global config mode, explore using:</p>\r\n\r\n<ul>\r\n\t<li><code>ip host &lt;hostname&gt; &lt;ip&gt;</code> &mdash; Add a static DNS entry</li>\r\n\t<li><code>no ip host &lt;hostname&gt;</code> &mdash; Remove a static DNS entry</li>\r\n</ul>\r\n\r\n<h3>Goal 5 &mdash; ManagedSwitch2 VLAN and trunk configuration</h3>\r\n\r\n<p>In ManagedSwitch2&#39;s CLI, create VLANs 10, 20, and 30 with names <strong>Engineering</strong>, <strong>Manufacturing</strong>, and <strong>Management</strong>. Configure <code>ManagedSwitch2</code>&#39;s <code>FastEthernet0/1</code> as a trunk port. Assign each remaining port to its VLAN. Explore with <code>switchport ?</code> inside an interface to see available switchport modes.</p>\r\n\r\n<h3>Goal 6 &mdash; Server and PC configuration</h3>\r\n\r\n<p>Set Server0 (IP 10.10.10.10 /24, gw 10.10.10.1) and Server1 (IP 10.10.20.10 /24, gw 10.10.20.1) using <strong>Desktop &rarr; IP Configuration</strong>. Enable HTTP on both servers via <strong>Services &rarr; HTTP</strong> and add a custom page for each.</p>\r\n\r\n<p>On PC0&ndash;PC3 (physical LANs) and PC4&ndash;PC6 (VLANs), select DHCP in <strong>Desktop &rarr; IP Configuration</strong>, then run <code>ipconfig</code> in the <strong>Command Prompt</strong> to request a lease. Do this for all graded PCs before clicking <em>Run Tests</em>.</p>\r\n\r\n<h2>Verification</h2>\r\n\r\n<ul>\r\n\t<li>From PC0 Command Prompt: <code>ipconfig</code> &rarr; IP in 192.168.1.0/24, gateway 192.168.1.1.</li>\r\n\t<li>From PC4 Command Prompt: <code>ipconfig</code> &rarr; IP in 10.10.10.0/24, gateway 10.10.10.1.</li>\r\n\t<li>From PC4 Command Prompt: <code>ping 10.10.20.10</code> &rarr; success (cross-VLAN via Router0).</li>\r\n\t<li>From PC4 Web Browser: <code>http://10.10.20.10</code> &rarr; Manufacturing server page loads.</li>\r\n\t<li>Click <strong>Run Tests</strong> &mdash; all checks must pass.</li>\r\n</ul>\r\n\r\n<h2>Hint</h2>\r\n\r\n<p>For the subinterface trunk, remember to bring up the <em>physical</em> interface (<code>GigabitEthernet0/2</code>, <code>no shutdown</code>) before configuring subinterfaces &mdash; the subinterfaces inherit the physical interface&#39;s up/down state. On ManagedSwitch0, the trunk port (<code>FastEthernet0/1</code>) must be configured <em>before</em> VLAN-tagged traffic from the router reaches access ports. Use <code>show running-config</code> on any device to review your settings.</p>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": "",
+     "my_solution": {
+      "topology_file": "CN_Lab_NPT_D - Industrial Multi-Segment Network.xml"
+     }
+    },
+    {
+     "assignment": "CN_LAB_NAT_D",
+     "title": "Static NAT: Publishing Internal Servers",
+     "type": "game",
+     "status": "Attempted",
+     "difficulty": "Medium",
+     "question": "<meta charset=\"UTF-8\" />\r\n<title></title>\r\n<style type=\"text/css\">body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #1a1a2e; margin: 0; padding: 24px; }\r\n    .card { background: #fff; border-radius: 10px; padding: 28px 36px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }\r\n    h1 { font-size: 1.5rem; color: #0d3b66; margin-bottom: 4px; }\r\n    .badge { display: inline-block; background: #d93025; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; margin-left: 10px; vertical-align: middle; }\r\n    h2 { font-size: 1.1rem; color: #0d3b66; margin-top: 0; }\r\n    p, li { font-size: 0.95rem; line-height: 1.7; }\r\n    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }\r\n    th { background: #0d3b66; color: #fff; text-align: left; padding: 8px 12px; }\r\n    td { padding: 7px 12px; border-bottom: 1px solid #e0e4ea; }\r\n    tr:nth-child(even) td { background: #f7f9fc; }\r\n    .tip  { background: #e8f4fd; border-left: 4px solid #1a73e8; padding: 10px 16px; border-radius: 4px; margin: 12px 0; font-size: 0.9rem; }\r\n    .warn { background: #fef7e0; border-left: 4px solid #f9ab00; padding: 10px 16px; border-radius: 4px; margin: 12px 0; font-size: 0.9rem; }\r\n    .key  { background: #e6f4ea; border-left: 4px solid #137333; padding: 10px 16px; border-radius: 4px; margin: 12px 0; font-size: 0.9rem; }\r\n    code { background: #eef2f7; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em; }\r\n    .inside  { color: #1a73e8; font-weight: 700; }\r\n    .outside { color: #d93025; font-weight: 700; }\r\n    .nat     { color: #8430ce; font-weight: 700; }\r\n    .topology-box { background: #f0f4ff; border: 1px solid #b8c8f0; border-radius: 8px; padding: 16px 20px; font-family: monospace; font-size: 0.88rem; line-height: 1.9; white-space: pre; }\r\n</style>\r\n<div class=\"card\">\r\n<h1>Static NAT: Publishing Internal Servers <span class=\"badge\">&nbsp;24 pts</span></h1>\r\n\r\n<p><em>Newton School of Technology NAT Gateway Configuration</em></p>\r\n\r\n<div class=\"tip\"><strong>Discovery Mode:</strong> No CLI commands are given.&nbsp;</div>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Scenario</h2>\r\n\r\n<p>NST&#39;s internal network is split into three VLANs:&nbsp;<strong class=\"inside\">Office (VLAN 10)</strong>, <strong class=\"inside\">Admin (VLAN 20)</strong>, and <strong class=\"inside\">Staff (VLAN 30)</strong>&nbsp;all served by <strong>Router0</strong> using router-on-a-stick. Each VLAN has a server that must be reachable from the internet.</p>\r\n\r\n<p><strong>Router0</strong> is the NAT boundary. A WAN cable connects it to <strong>Router1</strong>, which represents the internet-side gateway. <strong>PC6</strong> on Router1&#39;s LAN acts as an external client. Using <span class=\"nat\">Static NAT</span>, each internal server gets its own <em>public IP</em> &mdash; Router0 translates the public IP to the private IP on the fly.</p>\r\n\r\n<div class=\"key\"><strong>Static NAT in a sentence:</strong> <code>ip nat inside source static &lt;private&gt; &lt;public&gt;</code> tells the router &quot;any packet arriving for &lt;public&gt; on the outside should go to &lt;private&gt; inside, and vice-versa.&quot; its always One-one.</div>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Network Addresses</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Segment</th>\r\n\t\t\t<th>Router/Interface</th>\r\n\t\t\t<th>IP / Subnet</th>\r\n\t\t\t<th>DHCP Pool</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"inside\">Office VLAN 10</span></td>\r\n\t\t\t<td>Router0 Gi0/2.10</td>\r\n\t\t\t<td>10.0.10.1 / 255.255.255.0</td>\r\n\t\t\t<td>OFFICE</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"inside\">Admin VLAN 20</span></td>\r\n\t\t\t<td>Router0 Gi0/2.20</td>\r\n\t\t\t<td>10.0.20.1 / 255.255.255.0</td>\r\n\t\t\t<td>ADMIN</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"inside\">Staff VLAN 30</span></td>\r\n\t\t\t<td>Router0 Gi0/2.30</td>\r\n\t\t\t<td>10.0.30.1 / 255.255.255.0</td>\r\n\t\t\t<td>STAFF</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"outside\">WAN (Router0)</span></td>\r\n\t\t\t<td>Router0 Gi0/3</td>\r\n\t\t\t<td>100.1.1.1 / 255.255.255.248 (/29)</td>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span class=\"outside\">WAN (Router1)</span></td>\r\n\t\t\t<td>Router1 Gi0/0</td>\r\n\t\t\t<td>100.1.1.2 / 255.255.255.248 (/29)</td>\r\n\t\t\t<td>&mdash;</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>External LAN</td>\r\n\t\t\t<td>Router1 Gi0/1</td>\r\n\t\t\t<td>192.168.100.1 / 255.255.255.0</td>\r\n\t\t\t<td>EXTERNAL</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Servers (Static IPs) and NAT Public Addresses</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Device</th>\r\n\t\t\t<th>VLAN</th>\r\n\t\t\t<th>Private IP</th>\r\n\t\t\t<th><span class=\"nat\">Public NAT IP</span></th>\r\n\t\t\t<th>HTTP page must contain</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Server0</strong></td>\r\n\t\t\t<td>VLAN 10 (Office)</td>\r\n\t\t\t<td>10.0.10.2 /24, gw 10.0.10.1</td>\r\n\t\t\t<td class=\"nat\">100.1.1.3</td>\r\n\t\t\t<td><em>Office Server</em></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Server1</strong></td>\r\n\t\t\t<td>VLAN 20 (Admin)</td>\r\n\t\t\t<td>10.0.20.2 /24, gw 10.0.20.1</td>\r\n\t\t\t<td class=\"nat\">100.1.1.4</td>\r\n\t\t\t<td><em>Admin Server</em></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Server2</strong></td>\r\n\t\t\t<td>VLAN 30 (Staff)</td>\r\n\t\t\t<td>10.0.30.2 /24, gw 10.0.30.1</td>\r\n\t\t\t<td class=\"nat\">100.1.1.5</td>\r\n\t\t\t<td><em>Staff Server</em></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Physical Topology</h2>\r\n\r\n<div class=\"topology-box\"><span class=\"inside\">Inside (private)</span> <span class=\"outside\">Outside (public/WAN)</span><br />\r\nRouter0 Gi0/2 ── ManagedSwitch0 (trunk)<br />\r\n├─ Fa0/2,Fa0/3,Fa0/4 VLAN10 ── Server0, PC0, PC1 (Office 10.0.10.0/24)<br />\r\n├─ Fa0/5,Fa0/6,Fa0/7 VLAN20 ── Server1, PC2, PC3 (Admin 10.0.20.0/24)<br />\r\n└─ Fa0/8,Fa0/9,Fa0/10 VLAN30 ── Server2, PC4, PC5 (Staff 10.0.30.0/24)<br />\r\nRouter0 Gi0/3 ═══crossover══ Router1 Gi0/0 (WAN 100.1.1.0/29)<br />\r\nRouter1 Gi0/1 ── ManagedSwitch1 ── PC6 (External 192.168.100.0/24)</div>\r\n\r\n<p>Use a <strong>crossover cable</strong> for the Router0&ndash;Router1 WAN link.</p>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>ManagedSwitch0 &mdash; VLAN &amp; Port Configuration</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Port</th>\r\n\t\t\t<th>Mode</th>\r\n\t\t\t<th>VLAN</th>\r\n\t\t\t<th>Connected to</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>FastEthernet0/1</td>\r\n\t\t\t<td>trunk</td>\r\n\t\t\t<td>all</td>\r\n\t\t\t<td>Router0 Gi0/2</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fa0/2, Fa0/3, Fa0/4</td>\r\n\t\t\t<td>access</td>\r\n\t\t\t<td>VLAN 10</td>\r\n\t\t\t<td>Server0, PC0, PC1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fa0/5, Fa0/6, Fa0/7</td>\r\n\t\t\t<td>access</td>\r\n\t\t\t<td>VLAN 20</td>\r\n\t\t\t<td>Server1, PC2, PC3</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fa0/8, Fa0/9, Fa0/10</td>\r\n\t\t\t<td>access</td>\r\n\t\t\t<td>VLAN 30</td>\r\n\t\t\t<td>Server2, PC4, PC5</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>VLAN names: VLAN 10 &rarr; <strong>Office</strong>, VLAN 20 &rarr; <strong>Admin</strong>, VLAN 30 &rarr; <strong>Staff</strong>.</p>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Your Tasks</h2>\r\n\r\n<ol>\r\n\t<li><strong>Build the topology</strong> &mdash; place all devices and connect them. Use a crossover cable for Router0 Gi0/3 &rarr; Router1 Gi0/0.</li>\r\n\t<li><strong>Configure Router0 subinterfaces</strong> &mdash; bring up Gi0/2 (no IP), then create Gi0/2.10, Gi0/2.20, Gi0/2.30 with <code>encapsulation dot1Q</code> and gateway IPs.</li>\r\n\t<li><strong>Configure Router0 Gi0/3</strong> (WAN) &mdash; IP 100.1.1.1, mask 255.255.255.248, bring up.</li>\r\n\t<li><strong>Configure Router1 Gi0/0 and Gi0/1</strong> &mdash; WAN IP 100.1.1.2/29, LAN IP 192.168.100.1/24, both up.</li>\r\n\t<li><strong>Add default routes on both routers</strong> &mdash; Router0 default next-hop 100.1.1.2, Router1 default next-hop 100.1.1.1. Use <code>ip route ?</code> to find the syntax.</li>\r\n\t<li><strong>Create DHCP pools on Router0</strong> &mdash; OFFICE (10.0.10.0/24), ADMIN (10.0.20.0/24), STAFF (10.0.30.0/24).</li>\r\n\t<li><strong>Create DHCP pool EXTERNAL on Router1</strong> &mdash; 192.168.100.0/24, gw 192.168.100.1.</li>\r\n\t<li><strong>Configure VLANs on ManagedSwitch0</strong> &mdash; create VLANs 10/20/30 with names, set Fa0/1 as trunk, assign access VLANs on Fa0/2&ndash;Fa0/10.</li>\r\n\t<li><strong>Set static IPs on Server0, Server1, Server2</strong> &mdash; enable HTTP and edit the index page.</li>\r\n\t<li><strong>Mark NAT interfaces on Router0</strong> &mdash; in each subinterface config, type <code>ip nat ?</code> and choose <strong>inside</strong>. On Gi0/3, choose <strong>outside</strong>.</li>\r\n\t<li><strong>Add static NAT mappings on Router0</strong> &mdash; three <code>ip nat inside source static &lt;private&gt; &lt;public&gt;</code> commands (one per server).</li>\r\n\t<li><strong>Set PC0&ndash;PC5 and PC6 to DHCP mode</strong>. Run <code>ipconfig</code> on each.</li>\r\n</ol>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Verification Checklist</h2>\r\n\r\n<ul>\r\n\t<li>Router0 CLI &rarr; <code>show ip nat translations</code> &rarr; three static entries visible ✓</li>\r\n\t<li>PC0 <code>ipconfig</code> &rarr; IP in <strong>10.0.10.0/24</strong>, gateway 10.0.10.1 ✓</li>\r\n\t<li>PC6 <code>ipconfig</code> &rarr; IP in <strong>192.168.100.0/24</strong>, gateway 192.168.100.1 ✓</li>\r\n\t<li>PC6 &rarr; Web Browser &rarr; <strong>http://100.1.1.3</strong> &rarr; <em>Office Server</em> page loads ✓</li>\r\n\t<li>PC6 &rarr; Web Browser &rarr; <strong>http://100.1.1.4</strong> &rarr; <em>Admin Server</em> page loads ✓</li>\r\n</ul>\r\n\r\n<div class=\"warn\"><strong>Run <code>ipconfig</code> on every PC before clicking Run Tests</strong> &mdash; the grader checks live DHCP lease state.</div>\r\n</div>\r\n\r\n<div class=\"card\">\r\n<h2>Hints (direction only &mdash; no commands)</h2>\r\n\r\n<ul>\r\n\t<li><strong>NAT interface direction</strong> is set inside the interface config mode (not global config). Enter <code>interface GigabitEthernet0/2.10</code> then type <code>ip nat ?</code>. Do this for each subinterface (inside) and for Gi0/3 (outside).</li>\r\n\t<li><strong>Static NAT mappings</strong> are global config commands. Go back to global config (<code>exit</code> from interface mode or use <code>end</code> + <code>configure terminal</code>) and type <code>ip nat inside source static ?</code> to see the syntax.</li>\r\n\t<li>The <strong>/29 mask</strong> is 255.255.255.248. It gives only 6 usable hosts in 100.1.1.0/29 (addresses .1 through .6). The two routers use .1 and .2; the three NAT public IPs use .3, .4, .5.</li>\r\n\t<li>If PC6 can browse 100.1.1.3 but not 100.1.1.4, the NAT mapping or the Gi0/2.20 subinterface config for Server1 may be wrong check <code>show ip nat translations</code> and <code>show ip interface brief</code> on Router0.</li>\r\n</ul>\r\n</div>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    }
+   ],
+   "quizzes": []
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topology version="2">
+  <devices>
+    <device id="router-1790670320904-0" type="router" name="Router0" x="229" y="1125.5" ipv6UnicastRouting="false">
+      <interface id="gig0" name="GigabitEthernet0/0" mac="AA:BB:00:00:00:01" status="up" ip="192.168.10.1" subnet="255.255.255.0" />
+      <interface id="gig1" name="GigabitEthernet0/1" mac="AA:BB:00:00:00:02" status="down" />
+      <interface id="gig2" name="GigabitEthernet0/2" mac="AA:BB:00:00:00:03" status="down" />
+      <interface id="gig3" name="GigabitEthernet0/3" mac="AA:BB:00:00:00:04" status="down" />
+      <interface id="ser0" name="Serial0/0/0" mac="" status="down" />
+      <interface id="ser1" name="Serial0/0/1" mac="" status="down" />
+      <interface id="console0" name="Console0" mac="AA:BB:00:00:00:05" status="down" />
+      <dhcp-pool name="GAMING" network="192.168.10.0" mask="255.255.255.0" gateway="192.168.10.1" dnsServer="192.168.10.1" />
+      <dns-record hostname="game-server" ip="192.168.10.10" type="A" />
+    </device>
+    <device id="switch-1790670336974-0" type="switch" name="ManagedSwitch0" x="382" y="1180.5">
+      <interface id="fa1" name="FastEthernet0/1" mac="AA:BB:00:00:00:06" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa2" name="FastEthernet0/2" mac="AA:BB:00:00:00:07" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa3" name="FastEthernet0/3" mac="AA:BB:00:00:00:08" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa4" name="FastEthernet0/4" mac="AA:BB:00:00:00:09" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa5" name="FastEthernet0/5" mac="AA:BB:00:00:00:0A" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa6" name="FastEthernet0/6" mac="AA:BB:00:00:00:0B" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa7" name="FastEthernet0/7" mac="AA:BB:00:00:00:0C" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa8" name="FastEthernet0/8" mac="AA:BB:00:00:00:0D" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa9" name="FastEthernet0/9" mac="AA:BB:00:00:00:0E" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa10" name="FastEthernet0/10" mac="AA:BB:00:00:00:0F" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa11" name="FastEthernet0/11" mac="AA:BB:00:00:00:10" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa12" name="FastEthernet0/12" mac="AA:BB:00:00:00:11" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa13" name="FastEthernet0/13" mac="AA:BB:00:00:00:12" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa14" name="FastEthernet0/14" mac="AA:BB:00:00:00:13" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa15" name="FastEthernet0/15" mac="AA:BB:00:00:00:14" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa16" name="FastEthernet0/16" mac="AA:BB:00:00:00:15" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa17" name="FastEthernet0/17" mac="AA:BB:00:00:00:16" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa18" name="FastEthernet0/18" mac="AA:BB:00:00:00:17" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa19" name="FastEthernet0/19" mac="AA:BB:00:00:00:18" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa20" name="FastEthernet0/20" mac="AA:BB:00:00:00:19" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa21" name="FastEthernet0/21" mac="AA:BB:00:00:00:1A" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa22" name="FastEthernet0/22" mac="AA:BB:00:00:00:1B" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa23" name="FastEthernet0/23" mac="AA:BB:00:00:00:1C" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="fa24" name="FastEthernet0/24" mac="AA:BB:00:00:00:1D" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="gig1" name="GigabitEthernet0/1" mac="AA:BB:00:00:00:1E" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="gig2" name="GigabitEthernet0/2" mac="AA:BB:00:00:00:1F" status="up" switchportMode="access" switchportVlan="1" />
+      <interface id="console0" name="Console0" mac="AA:BB:00:00:00:20" status="down" />
+      <vlan id="1" name="default" />
+    </device>
+    <device id="server-1790670347403-0" type="server" name="Server0" x="332" y="1319.5" gateway="192.168.10.1" dnsServer="192.168.10.1" httpEnabled="true" httpContent="Welcome to Game Server" dnsEnabled="false" dhcpEnabled="false" ftpEnabled="true">
+      <interface id="fa0" name="FastEthernet0" mac="AA:BB:00:00:00:21" status="up" ip="192.168.10.10" subnet="255.255.255.0" ipv6Addresses="fe80::a8bb:ff:fe00:21/64" />
+      <ftp-user username="newton" password="newton" write="true" read="true" delete="true" rename="true" list="true" />
+    </device>
+    <device id="pc-1790670355581-0" type="pc" name="PC0" x="317" y="1047.5" gateway="192.168.10.1" dnsServer="192.168.10.1" dhcpMode="true">
+      <interface id="fa0" name="FastEthernet0" mac="AA:BB:00:00:00:22" status="up" ip="192.168.10.2" subnet="255.255.255.0" ipv6Addresses="fe80::a8bb:ff:fe00:22/64" />
+      <interface id="rs232" name="RS-232" mac="AA:BB:00:00:00:23" status="up" />
+    </device>
+    <device id="pc-1790670370190-1" type="pc" name="PC1" x="150" y="1219.5" dhcpMode="true">
+      <interface id="fa0" name="FastEthernet0" mac="AA:BB:00:00:00:24" status="up" ip="169.254.1.36" subnet="255.255.0.0" ipv6Addresses="fe80::a8bb:ff:fe00:24/64" />
+      <interface id="rs232" name="RS-232" mac="AA:BB:00:00:00:25" status="up" />
+    </device>
+    <device id="pc-1790670372936-2" type="pc" name="PC2" x="549" y="1227.5" dhcpMode="true">
+      <interface id="fa0" name="FastEthernet0" mac="AA:BB:00:00:00:26" status="up" ip="169.254.1.38" subnet="255.255.0.0" ipv6Addresses="fe80::a8bb:ff:fe00:26/64" />
+      <interface id="rs232" name="RS-232" mac="AA:BB:00:00:00:27" status="up" />
+    </device>
+    <device id="router-1790670473800-1" type="router" name="Router1" x="250" y="250" ipv6UnicastRouting="false">
+      <interface id="gig0" name="GigabitEthernet0/0" mac="AA:BB:00:00:00:28" status="down" ipv6Addresses="fe80::a8bb:ff:fe00:28/64" />
+      <interface id="gig1" name="GigabitEthernet0/1" mac="AA:BB:00:00:00:29" status="down" ipv6Addresses="fe80::a8bb:ff:fe00:29/64" />
+      <interface id="gig2" name="GigabitEthernet0/2" mac="AA:BB:00:00:00:2A" status="down" ipv6Addresses="fe80::a8bb:ff:fe00:2a/64" />
+      <interface id="gig3" name="GigabitEthernet0/3" mac="AA:BB:00:00:00:2B" status="down" ipv6Addresses="fe80::a8bb:ff:fe00:2b/64" />
+      <interface id="ser0" name="Serial0/0/0" mac="" status="down" />
+      <interface id="ser1" name="Serial0/0/1" mac="" status="down" />
+      <interface id="console0" name="Console0" mac="AA:BB:00:00:00:2C" status="down" />
+    </device>
+  </devices>
+  <connections>
+    <connection id="conn-1790670394509-0" sourceDevice="router-1790670320904-0" sourceInterface="gig0" targetDevice="switch-1790670336974-0" targetInterface="fa1" cableType="straight" />
+    <connection id="conn-1790670438557-1" sourceDevice="switch-1790670336974-0" sourceInterface="fa2" targetDevice="server-1790670347403-0" targetInterface="fa0" cableType="straight" />
+    <connection id="conn-1790670451927-2" sourceDevice="switch-1790670336974-0" sourceInterface="fa3" targetDevice="pc-1790670355581-0" targetInterface="fa0" cableType="straight" />
+    <connection id="conn-1790670457380-3" sourceDevice="switch-1790670336974-0" sourceInterface="fa4" targetDevice="pc-1790670372936-2" targetInterface="fa0" cableType="straight" />
+    <connection id="conn-1790670461725-4" sourceDevice="switch-1790670336974-0" sourceInterface="fa5" targetDevice="pc-1790670370190-1" targetInterface="fa0" cableType="straight" />
+  </connections>
+</topology>
