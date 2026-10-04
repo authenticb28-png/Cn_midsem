@@ -255,7 +255,7 @@ window.UNITS["unit08"] = {
             ["Offline use", "needs the cached copies", "everything is local, good offline"],
             ["Direction (slides)", "two-way sync client ↔ server", "one-way server → client"],
             ["Server storage", "high (mail stays)", "low (mail removed)"],
-            ["Typical commands", "LOGIN, SELECT INBOX, FETCH, STORE +FLAGS (\\\\Seen), SEARCH, LOGOUT", "USER, PASS, STAT, LIST, RETR, DELE, QUIT"]
+            ["Typical commands", "LOGIN, SELECT INBOX, FETCH, STORE +FLAGS (\\Seen), SEARCH, LOGOUT", "USER, PASS, STAT, LIST, RETR, DELE, QUIT"]
           ],
           caption: "IMAP vs POP3 (WB-L07 p10–13, plus RFC 9051 and RFC 1939 for the commands)." },
         { type: "seq", left: "POP3 client", right: "POP3 server (port 110)", caption: "A POP3 download-and-delete session (RFC 1939). Deletions marked with DELE take effect at QUIT (the UPDATE state).",
