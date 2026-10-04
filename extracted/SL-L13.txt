@@ -1,0 +1,274 @@
+Addressing the World IPv4,
+Classful History, and CIDR
+
+
+
+
+        Computer Networks
+                             1
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+Network Layer: IP Addressing
+
+
+
+
+                               3
+Recap
+    Users                              Servers
+
+
+
+
+                       Load Balancer
+
+
+            Internet
+
+
+
+
+                                                 4
+Recap
+
+
+
+
+        5
+IP Address
+
+
+An IP address is a unique identifier
+assigned to each device connected
+to the internet or a local network.
+“IP” stands for “Internet Protocol,”
+the set of rules for sending data
+between devices on networks.
+
+
+
+
+                                       6
+IPv4 Addressing
+   Think of the IPv4 address as a simple, four-part postal code:
+    [Country Code].[State Code].[City Code].[Street Number].
+
+
+
+
+                                                                   7
+IPv4 Addressing
+ The first major version, which still
+ powers most of the internet today.
+ Structure: A 32-bit number.
+ Format: Represented as four 8-bit
+ numbers (octets), separated by dots.
+ Example: 192.168.1.1
+ Each of the four numbers can range
+ from 0 to 255.
+
+
+
+                                        8
+History of IPv4 address management
+
+
+
+
+                                     9
+History of
+IPv4 Address
+Classes
+
+  "The city model is divided
+ into three structured zones:
+    A (Massive districts for
+    giant developments), B
+  (Medium districts for mid-
+     sized projects), and C
+  (Small plots for local use)."
+
+
+
+
+                                  10
+IPv4 Address Classes A, B and C
+
+                           172.16.1.10
+                             Network ID   Host ID
+
+
+
+
+                                                    11
+Classful IPv4                Class   Bit Allocation (32 bits total)
+addresses
+                                     0NNNNNNN.HHHHHHHH.HHHHHHHH.HHHHHHHH (1 bit
+                                     class ID + 7 network bits + 24 host bits)
+                                 A
+                                     Range: 0.0.0.0 to 127.255.255.255 Networks: ~128 | Hosts
+    "The classes had a               per network: ~16.7 million
+  significant amount of
+                                     10NNNNNN.NNNNNNNN.HHHHHHHH.HHHHHHHH (2 bits
+difference in available IP
+                                     class ID + 14 network bits + 16 host bits)
+addresses for hosts. This
+                                 B
+meant practically a lot of           Range: 128.0.0.0 to 191.255.255.255 Networks: ~16,000 |
+IPv4 addresses remained              Hosts per network: ~65,000
+       unassigned"
+                                     110NNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH (3 bits
+                                     class ID + 21 network bits + 8 host bits)
+                                 C
+                                     Range: 192.0.0.0 to 223.255.255.255 Networks: ~2 million |
+                                     Hosts per network: 254
+                                                                                                  12
+Think about how many potential devices in
+a flat Class A network?
+
+
+
+For class A and Class B, that’s too
+many devices to be managed by a
+single router!
+
+
+                                            13
+The Journey of a Packet to 9.10.10.10
+Step 1: Core Router Recognition
+Core routers identify 9.10.10.10 belongs to 9.0.0.0 Class A network
+Route packet using network ID to appropriate gateway
+Step 2: Gateway Router Processing
+Gateway router = entry/exit point for specific network
+Uses host ID to deliver to final destination
+The Scale Problem!
+16,777,216 individual IPs in a single Class A network
+Way too many devices for one router!
+
+
+                                                                      14
+The Crisis: The Great Address Shortage!
+ The internet grew much faster than anyone
+ predicted!
+ A company needing 500 addresses couldn't get a
+ Class C (too small) and had to take a Class B (with
+ over 65,000 addresses), wasting the rest.
+ We were running out of available IPv4 addresses.
+ In 2025, purchasing a public IPv4 address costs
+ roughly $20–$45 per address, while leasing can be
+ done for about $0.40 per IP per month.
+
+                                                       15
+Solution: Make the routing classless!
+
+
+
+
+                                        16
+CIDR Classless Inter-Domain Routing
+CIDR:
+Replaces the older Class A, B, C system
+   Networks can be created based on actual
+   host requirements instead of wasting large
+   address blocks.
+   CIDR makes it easier to divide a network into
+   smaller subnets as per need
+CIDR Format
+192.168.0.1/24
+Normal IP + "/" + Network Prefix
+   192.168.0.1 = Network address
+   /24 = Network prefix (subnet mask)
+                                                   17
+CIDR
+
+
+
+           Usable Hosts
+       2^h − 2        h=host bits
+
+
+       CIDR Base IP   Broadcast IP
+
+       192.168.1.0/24
+       Usable Hosts = 28 - 2 = 254
+                                     18
+ CIDR Examples
+
+
+
+
+This means you could request an address block of exactly the size you needed, dramatically reducing waste.
+                                                                                                             19
+CIDR
+CIDR
+       We need at least 500 IP addresses to connect 500 devices in one subnet
+
+
+
+
+                                                                                20
+Traditional network classes and their CIDRs
+
+          Class
+                      Default Subnet Mask with CIDR representations
+
+
+
+
+           A                          255.0.0.0 (/8)
+
+
+
+
+           B                        255.255.0.0 (/16)
+
+
+
+
+           C                       255.255.255.0 (/24)
+
+
+
+
+                                                                      21
+Private Addresses: Reusable not Public
+Private IP addresses are utilized in local
+networks like homes and offices.
+The same private IP range can be reused
+across different networks.
+For instance:
+   Your    home     laptop   might      have
+   192.168.1.10.
+   Another student's laptop in a different
+   city could also have 192.168.1.10.
+Both are valid as they exist in separate
+private networks.
+                                               22
+Cloud bridge: VPCs use the same CIDR math
+
+
+
+
+                                            23
+Cloud bridge: VPCs use the same CIDR math
+
+
+
+
+                                            24
+Please fill the feedback form.
+
+
+
+
+                                 25
+Thank You
+
+
+
+            26
+

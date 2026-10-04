@@ -1,0 +1,275 @@
+Networking Devices,
+Topologies and the Cloud
+Network
+
+  Computer Networks
+Join the lecture online on your dashboard
+Recap
+
+
+
+
+        3
+The why of network devices
+Connecting computers
+
+
+
+
+  3 devices: 3(3-1)/2 = 3 cables       100 devices: ......
+  10 devices: 10(10-1)/2 = 45 cables
+Instead of connecting everyone to everyone
+what if everyone connects to ONE device
+Networking Devices
+
+   Core Components of a Computer Network
+   Connect computers and other devices in a network.
+
+
+
+
+    Hub                Switch             Wireless     Access Point
+                                          Router
+Hubs in 1980s
+ Function: Broadcasts data to all
+ connected devices
+ Doesn’t recognize hardware addresses
+ (Mac Addresses)
+ Operates at the Physical Layer (Layer 1)
+
+Inefficiency: There is issue with hubs,
+where data is broadcasted to all devices
+even when only one device needs it, leading
+to inefficiency.
+What's the main real-world problem with
+using a hub in a network with many devices?
+
+           Unnecessary Traffic
+Switches since 1990s
+
+  Operates at the Data Link Layer
+  (Layer 2).
+  Connects devices within a LAN
+  and forwards data to the correct
+  device using MAC addresses.
+  Has no understanding of layer 3.
+  Ports can be configured for
+  connection routing.
+  Broadcasting could be controlled
+  using the Mac routing
+  intelligence.
+What if we want to communicate with a
+    computer in another network
+Router
+
+
+  Routes data between different
+  networks
+                                  Router
+  Operates at the Network Layer
+  (Layer 3)
+A router knows where to send packets, but
+ should every packet be allowed to enter
+Firewall
+
+  A firewall is a network security
+  device.
+  It monitors data coming in and
+  going out of the network.
+  Its main job is to protect the
+  network from unauthorized
+  access or threats.
+     Firewalls allow only authorized data
+
+
+
+
+Authorized
+What is Packet Filtering?
+
+                                    Packet from external
+                                     network to internal
+                                          network
+
+
+
+
+                           Router                             Firewall
+External                                    Packet                           Internal
+Network                                    Structure                         Network
+                  Check                                               Check
+           source/destination IP      IP    TCP/UDP    Data
+                                                                source/destination
+                 address                                           port number
+Types of Firewall
+Load Balancers
+
+                                 Req 4
+
+                        Req 1                    Server 1
+
+
+                        Req 2        Req 5
+
+
+
+                                                  Server 2
+                         Req 3           Req 6
+
+
+              Load
+             Balancer
+   Clients
+                                                    Server 3
+Load Balancers
+
+A load balancer distributes incoming
+network traffic across multiple
+servers to prevent any single server
+from being overwhelmed.
+
+Major companies like Netflix,
+Google, Amazon, and Facebook use
+load balancers to maintain fast and
+smooth operations, even with high
+user volumes.
+Devices Are Ready… But How Should We Connect Them
+Network Topologies
+Network topology      describes the arrangement of devices and their
+connections within a network,including how data flows.
+
+
+Types of Network Topology
+
+
+
+
+                                                 Bus             Ring
+                                               Topology        Topology
+Star topology
+ All devices are connected to a
+ central hub or switch.
+
+ Data flows from sender device to
+ the hub/switch,which then sends it
+ to the intended receiver.
+
+ Centralized structure   simplifies
+ network     diagnostics      and
+ maintenance
+
+ Popular choice for Local Area
+ Networks (LANs) due to manageable
+ design
+Mesh topology
+ In mesh topology, every network
+ device is directly connected to all
+ other devices.
+
+ This creates many paths for sending
+ data between devices.
+
+ It increased reliability because if one
+ path fails, data can take another
+ route.
+
+                                           Jokingly called spaghetti networks!
+Wireless mesh networks help with WiFi coverage
+Hybrid topology
+                                                               Ring
+                                         Star
+                                                             Topology
+                                       Topology
+
+
+
+Hybrid topology is a combination of
+two or more different types of
+topologies to    form a more complex
+and flexible network.
+
+
+
+
+                                                    Bus
+                                                  Topology
+               Suitable                                   Example
+Environment               Reason
+               Topology                                   connected devices
+
+                                                          Laptops, Printers,
+Small Office   Star       Easy setup, centralized control
+                                                          Routers
+
+                          Reliable, direct device         Smart bulbs,
+Smart Home     Mesh
+                          communication                   cameras
+
+                          Combines benefits of multiple Servers, Storage
+Data Center    Hybrid
+                          topologies                    Units
+Fault Tolerance and Scalability of
+            Topologies
+Topology   Fault Tolerance   Scalability
+
+STAR       Medium            Good
+
+MESH       High              Excellent
+
+HYBRID     High              Hard
+Hardware Meets Software
+The Evolutionary Shift
+Traditional networking relies on physical boxes,
+specialized cables, and manual configuration. In
+the modern cloud era, the logic remains the
+same, but the execution is purely software-
+defined.
+
+    Physical Box → Virtual Instance
+    Copper Cables → Virtualized Overlays
+    Manual Wiring → API / Console Clicks
+The cloud network
+Global Cloud
+AWS Foundation
+
+
+Regions: Isolated geographic areas
+(e.g., Mumbai) containing multiple
+data center clusters.
+Edge Locations: CDN endpoints
+that cache content physically closer
+to the user to reduce latency.
+
+   30+ Global Regions
+   Ultra-low latency backbone
+Redundancy: Availability Zones
+
+
+          Isolated Fault Domains                     The Multi-AZ Project
+
+  An AZ consists of one or more               This semester, you will design
+  discrete data centers with redundant        architectures that split workloads
+  power, networking, and connectivity.        across AZ-A and AZ-B.
+
+  Deploying across two or more AZs
+  ensures your application survives a         Metric: 99.9% availability is a target
+  fire, flood, or power grid failure at one   for high-availability systems.
+  site.
+The Virtual Private Cloud (VPC)
+
+Logical Isolation
+A VPC is your private, software-defined
+network in the AWS cloud. You control IP
+address ranges, subnets, and routing.
+CIDR Addressing Example:
+
+
+
+
+Subnets map to specific AZs, partitioning
+your L3 network for scale and security.
+Please fill the feedback form.
+Thanks
+for
+watching!
+

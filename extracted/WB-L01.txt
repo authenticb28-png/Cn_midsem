@@ -1,0 +1,271 @@
+ 1
+
+
+Introduction
+
+
+
+CSAI321: Computer Networks
+                             1
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+What is the Cloud?
+          Is the cloud just someone else’s computer?
+
+
+
+
+                                                       3
+What is the Cloud?
+
+
+
+
+            More like a lot of computers…
+
+
+
+
+                                            4
+What is the Cloud?
+
+
+
+
+                     A lot, lot!
+
+
+
+
+                                   5
+What is the Cloud?
+
+                                                                 And all these servers need to
+                                                                      talk to each other!
+
+
+
+
+An overhead view of the server infrastructure in Google’s data
+center in Council Bluffs, Iowa.
+                                                                                                 6
+ The cloud computing service providers - Amazon Web Services(AWS),
+Azure, Google Cloud Platform(GCP) all have super fast computer network
+
+
+
+
+               Getting all those 0s and 1s to you efficiently!
+
+
+
+                                                                         7
+But then networks
+are not new
+In 1960s, the UCLA computer tried to
+send “login,” to computer in Stanford
+Research Institute. Only “lo” got
+through before the system crashed.
+
+
+
+
+                                        8
+Network cables did get messy at times!
+
+
+
+
+                                         9
+This is not AI
+generated!
+
+
+
+  Do not touch sticky notes were
+  common in those days!
+
+
+
+
+                                   10
+Okay, so computer networks are not new...
+
+
+
+
+                                            11
+Traditionally, we have had...
+                       WAN (Wide Area Network): Covers larger
+                       geographic areas, like connecting different
+                       branch offices of a company, or even the
+                       internet itself.
+                       MAN (Metropolitan Area Network): Usually
+                       spans a city, often used by municipalities or
+                       large organizations.
+                       LAN (Local Area Network): Typically used in
+                       homes or offices to connect computers and
+                       devices within a limited area.
+                       PAN (Personal Area Network): Very short range,
+                       like connecting your smartphone to your
+                       smartwatch or wireless headphones.
+                                                                        12
+How extensive is the internet in the world?
+
+
+
+
+              Despite being called "the cloud," the internet relies on massive
+              physical infrastructure spanning the globe.597 cable systems in
+              2025
+                                                                                 13
+Why is it hard to keep them safe?
+
+    Any guesses?
+
+
+
+
+                                    14
+Fishing anchors…
+
+
+  The major cause of transatlantic network
+traffic issues are fishing anchors mistakenly
+             damaging the cables
+
+
+
+
+                                                15
+Sharks trying to attack the cables!
+
+
+
+
+                                      16
+What happens when?
+
+What happens when you tap Instagram icon?
+
+You tap the Instagram icon on your phone and a
+reel plays in under a second. List every 'thing'
+your data touched between your thumb and the
+video.
+
+The Gap:
+Most people stop at "WiFi → Instagram." The massive, intricate gap
+between that simple answer and reality is exactly what we study in this
+course.
+
+                                                                          17
+It’s 10 PM. Millions are settling in for a Netflix
+movie. Suddenly, the app starts buffering or
+fails. What’s happening behind the scenes?
+                                                     18
+Objective of the course
+
+ We are going to demystify how networks work
+      Because networks are everywhere!
+
+
+
+
+                                               19
+Top-Down Approach.
+
+
+
+
+                     20
+Why the Top-Down Approach?
+Applications First
+
+We start with what you know and use daily (Web, HTTP, DNS,
+Streaming). Understanding the requirements of these
+applications explains why we need the underlying network
+services.
+
+Drilling Down to Physical
+
+Once the application logic is clear, we progress downward
+through the Transport (TCP/UDP), Network (IP/Routing), Link,
+and Physical layers. This approach constantly answers "why"
+before "what".
+                                                               21
+Of course, GPUs are connected using
+very fast network cards!
+
+
+
+
+                                      22
+What to Expect from the Networking
+Course
+
+ Foundation                                 Hands-on Labs
+
+
+
+ How computing         How data travels
+devices talk to each
+       other                              Configure your own   Network Security
+                                               network
+
+
+
+
+                                                                                  23
+Join us on the adventure to discover how
+computer networks work
+
+
+
+
+                                           24
+Grading
+
+  Contests       20%
+
+  Projects       20%
+
+  Mid Semester   20%
+
+  End Semester   40%
+
+
+
+
+                       25
+Reference Books
+
+
+
+
+                  26
+Reference Books
+
+
+
+
+     Computer Networking       Data Communications and Networking
+   James Kurose & Keith Ross           Behrouz A. Forouzan
+                                                                    27
+Please fill in the feedback form.
+
+
+
+
+                                    28
+Thank
+You!
+
+
+        29
+30
+31
+
