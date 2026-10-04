@@ -17,7 +17,7 @@ RETRIES = 4     # maximum number of transmissions
 
 
 def lossy_ack_server(sock: socket.socket, drop_first: int, stop: threading.Event) -> None:
-    """Reply 'ACK n' to every 'SEQ n ...' datagram, except the first `drop_first` ones."""
+    """Reply 'ACK n' to every 'SEQ n payload' datagram, except the first `drop_first` ones."""
     seen = 0
     sock.settimeout(0.1)                      # wake up regularly to check the stop flag
     while not stop.is_set():

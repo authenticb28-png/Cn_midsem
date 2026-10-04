@@ -79,7 +79,7 @@ def layer4_tcp(src_ip, dst_ip, sport, dport, seq, ack, payload):
     data_offset = 5                         # 5 x 32-bit words = 20 bytes, no options
     flags = 0x18                            # PSH (0x08) + ACK (0x10)
     window = 64240
-    offset_flags = (data_offset << 12) | flags   # 4 bits offset, 3 reserved bits, 9 flag bits
+    offset_flags = (data_offset << 12) | flags   # RFC 9293: 4-bit offset, 4 reserved bits, 8 flag bits
     hdr = (be16(sport) + be16(dport) + be32(seq) + be32(ack) + be16(offset_flags) +
            be16(window) + be16(0) + be16(0))
     tcp_len = len(hdr) + len(payload)

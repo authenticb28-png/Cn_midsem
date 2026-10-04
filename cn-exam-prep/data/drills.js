@@ -1639,7 +1639,7 @@ window.DRILLS["socket"] = {
       topic: "05.3",
       q: "<p><b>Bug hunt.</b> After a few thousand calls this function fails with <code>OSError: [Errno 24] Too many open files</code>. Why?</p>",
       code: "import socket\n\ndef fetch(host, port):\n    s = socket.create_connection((host, port), timeout=2)\n    s.sendall(b'STATUS\\n')\n    return s.recv(1024)",
-      options: ["The socket is never closed, so each call leaks a file descriptor; use 'with socket.create_connection(...) as s:' or call s.close()", "recv(1024) allocates too much memory", "create_connection() can only be called once per process", "The timeout should be 0 instead of 2"],
+      options: ["The socket is never closed, so each call leaks a file descriptor; use 'with socket.create_connection((host, port), timeout=2) as s:' or call s.close()", "recv(1024) allocates too much memory", "create_connection() can only be called once per process", "The timeout should be 0 instead of 2"],
       answer: 0,
       why: ["Correct: every socket is an OS file descriptor. Closing it (or a <code>with</code> block, which closes it even on exceptions) releases the descriptor and sends FIN.", "1 KB buffers are freed normally; memory is not the issue.", "There is no such limit; the leak is the problem.", "A zero timeout makes the socket non-blocking and would break recv; it does not close anything."],
       explain: "<p>Fix: <code>with socket.create_connection((host, port), timeout=2) as s:</code>.</p>"
@@ -1654,7 +1654,7 @@ window.DRILLS["socket"] = {
       options: ["recvfrom() raises socket.timeout and nothing catches it; wrap it in try/except socket.timeout inside a retry loop", "settimeout(1.0) makes recvfrom wait forever", "UDP datagrams are never lost on a real network", "sendto() must be called after recvfrom()"],
       answer: 0,
       why: ["Correct: <code>settimeout</code> turns a blocking wait into an exception after 1 s. Catch it, resend, and give up after N attempts.", "A timeout of 1.0 means wait at most 1 second, then raise.", "UDP gives no delivery guarantee; that is why the application must retry.", "The request must be sent before waiting for its reply."],
-      explain: "<p>Fix: <code>for attempt in range(3): sendto(...); try: reply, _ = cli.recvfrom(1024); break; except socket.timeout: continue</code>. See <code>cn-practice/Drill_udp_retry.py</code>.</p>"
+      explain: "<p>Fix: <code>for attempt in range(3): cli.sendto(b'SEQ 0 hello', server); try: reply, _ = cli.recvfrom(1024); break; except socket.timeout: continue</code>. See <code>cn-practice/Drill_udp_retry.py</code>.</p>"
     },
     {
       id: "d-sock-28",
