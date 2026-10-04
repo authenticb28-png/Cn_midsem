@@ -206,3 +206,12 @@ svg { color: var(--fg); max-width: 100%; height: auto; }
   .sec { break-inside: avoid-page; border: 0; }
   details { display: block; }
 }
+
+/* long binary/hex strings and inline code must wrap on phones instead of widening the page */
+#main { overflow-wrap: anywhere; }
+:not(pre) > code { word-break: break-all; }
+.pkt-notes, .explain, .solution, .blk.text, .intuition, .callout { overflow-x: auto; }
+#main table:not(.tbl-wrap table) { max-width: 100%; }
+#main { overflow-x: clip; }
+.tbl-wrap, .pkt-wrap, .step-math, .katex-display, .blk, .q, .sec { position: relative; }
+figure.fig svg { overflow: visible; }  /* labels near the viewBox edge stay readable */

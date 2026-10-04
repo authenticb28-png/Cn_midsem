@@ -13,7 +13,7 @@ What's inside:
 
 ## Run the Python practice scripts
 ```
-python3 cn-practice/Unit09_tcp_udp_sockets_lowlevel.py     # any script; all run offline on 127.0.0.1
+python3 cn-practice/Unit09_tcp_echo.py     # any script; all run offline on 127.0.0.1
 ```
 They use only the standard library; `scapy` is optional.
 

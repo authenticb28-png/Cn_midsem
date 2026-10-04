@@ -443,7 +443,7 @@
           var blank = given === null || given === "" || (Array.isArray(given) && !given.length);
           if (q.type === "write") ok = null; else ok = blank ? false : grade(q, given);
           var got = ok ? s.marks : (ok === false && !blank && s.negative ? -s.negative : 0);
-          total += s.marks; ss.of += s.marks;
+          total += s.marks; if (q.type !== "write") ss.of += s.marks;
           var u = q.unit || "other"; byUnit[u] = byUnit[u] || { got: 0, of: 0, pending: 0 };
           if (q.type === "write") { byUnit[u].pending += s.marks; }
           else { score += got; ss.got += got; byUnit[u].got += Math.max(0, got); byUnit[u].of += s.marks; }
@@ -466,7 +466,7 @@
         return "<tr><td>" + (U ? '<a href="#/unit/' + u + '">Unit ' + U.num + " · " + U.title + "</a>" : u) + "</td><td>" + b.got + "/" + b.of + (b.pending ? " (+" + b.pending + " coding)" : "") + "</td><td>" + (p === null ? "—" : p + "%") + "</td><td>" + verdict + "</td></tr>";
       }).join("");
       var report = '<div class="report"><h2>Score report</h2><p class="big-score">' + score + " / " + gradable + " (" + pct + '%)</p><p class="muted">Section C coding questions (' + (total - gradable) + " marks) are self-marked using the model solutions.</p>" +
-        '<table class="tbl"><tr><th>Section</th><th>Score</th></tr>' + bySec.map(function (s) { return "<tr><td>" + s.name + "</td><td>" + s.got + "/" + s.of + "</td></tr>"; }).join("") + "</table>" +
+        '<table class="tbl"><tr><th>Section</th><th>Auto-marked score</th></tr>' + bySec.map(function (s) { return "<tr><td>" + s.name + "</td><td>" + s.got + "/" + s.of + "</td></tr>"; }).join("") + "</table>" +
         '<h3>Unit-by-unit weakness diagnosis</h3><table class="tbl"><tr><th>Unit</th><th>Marks</th><th>%</th><th>Verdict</th></tr>' + rows + "</table><p>Full solutions are now shown under every question.</p></div>";
       $(".mock-bar").insertAdjacentHTML("afterend", report);
       $("#submit").disabled = true; var s2 = $("#submit2"); if (s2) s2.remove();

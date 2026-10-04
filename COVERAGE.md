@@ -206,160 +206,160 @@ Math, diagram, example and code entries marked *(new)* will be authored by me, b
 
 | ID | Unit/Topic | Section title | Page(s) | Protocol Math & Derivations | Diagrams & Headers | Worked Examples | Code/Scripts | Done |
 |---|---|---|---|---|---|---|---|---|
-| 01.1 | U01 · S | Cloud = data centres; providers; history ("lo") | WB-L01 p3–12 | — | — | — | — | ☐ |
-| 01.2 | U01 · S | PAN / LAN / MAN / WAN scope | WB-L01 p12 | — | scope ladder | — | — | ☐ |
-| 01.3 | U01 · S | Submarine cables (597), cable threats | WB-L01 p13–16 | — | — | — | — | ☐ |
-| 01.4 | U01 · S | "Tap Instagram" gap; Netflix buffering; top-down approach | WB-L01 p17–21 | — | top-down layer stack | — | — | ☐ |
-| 01.5 | U01 · S | GPU cluster networking (NVLink/InfiniBand) | WB-L01 p22 | GB/s vs Gbps unit trap *(new)* | — | — | — | ☐ |
-| 01.6 | U01 · S | traceroute to Google Delhi; latency by hop | WB-L01 p30 | per-hop RTT reading | hop ladder (home → ISP → Google edge) | read the trace | `subprocess` traceroute parser *(new)* | ☐ |
-| 01.7 | U01 · R | Network of networks; nuts-and-bolts vs service view; edge/access/core; ISP tiers | SP quiz L01 Q1–Q4 | — | edge/access/core map *(new)* | — | — | ☐ |
-| 01.8 | U01 · S | AWS Region / AZ / Edge Location (vocabulary) | WB-L04 p31–32 | — | Region ⊃ AZ, edge PoPs | — | — | ☐ |
-| 02.1 | U02 · S | Circuit vs packet switching (landline vs WhatsApp) | WB-L02 p4–6 | — | reserved vs shared link | — | — | ☐ |
-| 02.2 | U02 · S | Packets = header + payload; different routes | WB-L02 p7–8 | — | packet anatomy | — | — | ☐ |
-| 02.3 | U02 · S | Store-and-forward rule | WB-L02 p8, p10 | N·L/R end-to-end *(new, X)* | store-and-forward timeline *(new)* | 3-hop example *(new)* | delay calculator | ☐ |
-| 02.4 | U02 · S | Statistical multiplexing; loss when buffer full | WB-L02 p9–10, p20 | users-supported calc *(new, X)* | — | — | — | ☐ |
-| 02.5 | U02 · S | Four delays; toll-booth caravan | WB-L02 p11–14 | d_nodal = d_proc + d_queue + d_trans + d_prop | toll-booth figure | caravan numbers *(new)* | — | ☐ |
-| 02.6 | U02 · S | Packet-size trade-off (pipelining vs overhead) | WB-L02 p15 | — | — | — | — | ☐ |
-| 02.7 | U02 · S | Transmission delay L/R | WB-L02 p16–17 | L/R with unit conversion | — | 8000 b @ 2/4/8 Mbps = 4/2/1 ms | `delays.py` | ☐ |
-| 02.8 | U02 · S | Propagation delay d/s; GEO satellite | WB-L02 p18–19 | d/s, s = 2×10⁸ (fibre) vs 3×10⁸ | GEO up/down path | 71,572 km / 3e8 ≈ 239 ms (one-way; slide wording corrected) | `delays.py` | ☐ |
-| 02.9 | U02 · S | Throughput, bottleneck link; 300 Mbps buffering scenario | WB-L02 p21–22 | min(R₁…Rₙ); file time = F/min R | 3-link path | 10/2/5 → 2 Mbps | — | ☐ |
-| 02.10 | U02 · X | Queuing delay & traffic intensity La/R; BDP; Nyquist & Shannon | — | La/R, BDP = R·RTT, 2B log₂V, B log₂(1+SNR) | — | *(new)* | `bdp.py` | ☐ |
-| 03.1 | U03 · S | Layering via letter analogy; encapsulation (dolls, gift wrap) | WB-L03 p5–11 | — | encapsulation stack | — | — | ☐ |
-| 03.2 | U03 · S | OSI model: ISO, why learn, interoperability | WB-L03 p12–14 | — | 7-layer stack | — | — | ☐ |
-| 03.3 | U03 · S | L7 Application (waiter analogy; SMTP/HTTP/FTP/DNS…) | WB-L03 p15–17 | — | request/response | — | — | ☐ |
-| 03.4 | U03 · S | L6 Presentation (translation, compression, encryption, JPEG/MPEG) | WB-L03 p18–19; SL-L10 p3 | — | — | — | — | ☐ |
-| 03.5 | U03 · S | L5 Session (dialog control, sync, RPC/sockets) | WB-L03 p20–21 | — | — | — | — | ☐ |
-| 03.6 | U03 · S | L4 Transport (segmentation, mux, TCP/UDP) | WB-L03 p22–23 | — | — | — | — | ☐ |
-| 03.7 | U03 · S | L3 Network (IP addressing, routing, ICMP, IPSec) | WB-L03 p24–25 | — | — | — | — | ☐ |
-| 03.8 | U03 · S | L2 Data link (framing, MAC, error detection, ARP/VLAN/STP) | WB-L03 p26–27 | — | frame = header/payload/trailer | — | — | ☐ |
-| 03.9 | U03 · S | L1 Physical (bits, media, hubs) | WB-L03 p28–29 | — | — | — | — | ☐ |
-| 03.10 | U03 · S | Header order MAC \| IP \| TCP \| HTTP \| Data; PDU names | WB-L03 p15–29; WB-L07 p3; SL-L09 p4 | header-overhead % *(new)* | full encapsulation diagram | overhead calc *(new)* | `struct` encapsulation demo | ☐ |
-| 03.11 | U03 · S | TCP/IP model (4 layers) and OSI mapping; comparison | WB-L03 p30–32 | — | OSI ↔ TCP/IP (4 and 5 layer) | — | — | ☐ |
-| 03.12 | U03 · R | Service / interface / protocol; OSI mnemonic; 5-layer Kurose model; device ↔ layer | WB-L01 p31 | — | — | — | — | ☐ |
-| 04.1 | U04 · S | Why devices: full mesh n(n−1)/2 | WB-L04 p4–6 | n(n−1)/2 derivation | mesh vs star | 3→3, 10→45, 100→4950 | — | ☐ |
-| 04.2 | U04 · S | Hub (L1), Switch (L2), Router (L3) | WB-L04 p7–13 | — | device-layer ladder | — | MAC-learning switch sim *(new)* | ☐ |
-| 04.3 | U04 · S | Firewall; packet filtering; stateless vs stateful | WB-L04 p14–17 | — | filter on IP+port | rule table walk-through *(new)* | packet-filter sim *(new)* | ☐ |
-| 04.4 | U04 · S | Load balancers; ALB vs NLB preview | WB-L04 p18–19 | — | — | — | — | ☐ |
-| 04.5 | U04 · S | Topologies: star, mesh, bus, ring, hybrid; Wi-Fi mesh | WB-L04 p20–25 | links/ports per topology | 5 topology SVGs | — | — | ☐ |
-| 04.6 | U04 · S | Topology by environment; fault tolerance / scalability table | WB-L04 p26–28 | — | — | — | — | ☐ |
-| 04.7 | U04 · S | Hardware → software-defined; cloud network | WB-L04 p29–30 | — | — | — | — | ☐ |
-| 04.8 | U04 · S | VPC: 10.0.0.0/16 = 65,536; default VPC 172.31.0.0/16 | WB-L04 p33 | 2^(32−16) | VPC → subnets per AZ | — | `ipaddress` VPC demo | ☐ |
-| 04.9 | U04 · R | Collision vs broadcast domains; firewall L3–L7 | — | domain counting | hub/switch/router domain picture | count domains *(new)* | — | ☐ |
-| 04.10 | U04 · X | Framing: byte stuffing, bit stuffing | — | stuffing rules | flag/escape | *(new)* | `stuffing.py` | ☐ |
-| 04.11 | U04 · X | MAC: Pure/Slotted ALOHA (1/2e, 1/e), CSMA, CSMA/CD L_min = 2·T_p·R, BEB, CSMA/CA, Ethernet II frame | — | throughput derivations | Ethernet II frame grid | *(new)* | `aloha.py`, `beb.py` | ☐ |
-| 05.1 | U05 · S | Client/server vs P2P | WB-L05 p4–7 | P2P link count | client-server vs P2P mesh | — | — | ☐ |
-| 05.2 | U05 · S | Application layer & protocol list | WB-L05 p8–11; WB-L07 p4 | — | — | — | — | ☐ |
-| 05.3 | U05 · S | Socket API between app and transport | WB-L08 p15 | — | socket boundary | — | TCP echo client/server | ☐ |
-| 05.4 | U05 · S | HTTP stateless request–response; 4 stages | WB-L05 p13; WB-L08 p16–18 | — | — | — | — | ☐ |
-| 05.5 | U05 · S | Request: request line, headers, empty line, body | WB-L05 p14–18; WB-L08 p19–23 | Content-Length counting | request-message grid | `GET /index.html HTTP/1.1` | raw-socket HTTP GET | ☐ |
-| 05.6 | U05 · S | Response: status line, headers, body; status codes | WB-L05 p19–23; WB-L08 p24–27 | — | response-message grid | 200/201/301/302/403/404/500 | response parser | ☐ |
-| 05.7 | U05 · S | Statelessness, cookies, session tokens | WB-L05 p24 | — | — | — | — | ☐ |
-| 05.8 | U05 · S | HTTP/1.0 vs 1.1 (keep-alive, Host, HoL, pipelining) | WB-L05 p25–31 | non-persistent 2RTT + t vs persistent RTT per object *(R)* | HoL timeline | page with N objects *(new)* | — | ☐ |
-| 05.9 | U05 · S | HTTP/2 (binary framing, multiplexing, server push) | WB-L05 p32–35 | — | streams over 1 TCP | — | — | ☐ |
-| 05.10 | U05 · S | HTTP/3 over QUIC; stack comparison; DevTools h2/h3 | WB-L05 p36–38 | — | HTTP/2/TLS/TCP vs HTTP/3/QUIC/UDP | — | — | ☐ |
-| 05.11 | U05 · S | HoL comparison: 1.1 (6 conns) / 2 (TCP HoL) / 3 (per stream) | WB-L05 p38–40 | — | 3-panel HoL | — | — | ☐ |
-| 05.12 | U05 · S | REST (83%), verb → CRUD, OpenAPI/Swagger | WB-L05 p41–42 | — | — | — | `http.client` REST calls | ☐ |
-| 05.13 | U05 · S | APIs: Bezos mandate, Google Maps, Weather API | WB-L08 p33–39 | — | — | — | — | ☐ |
-| 05.14 | U05 · R/X | HPACK; 0-RTT; FTP active vs passive | — | — | FTP control/data ports | — | — | ☐ |
-| 06.1 | U06 · S | HTTP is plain text; HTTPS = HTTP + TLS; padlock meaning | WB-L06 p4–7 | — | — | — | — | ☐ |
-| 06.2 | U06 · S | Crypto goals: confidentiality, integrity, authentication | WB-L06 p8–11 | — | — | — | — | ☐ |
-| 06.3 | U06 · S | Symmetric vs asymmetric; key-distribution problem | WB-L06 p12–15 | key counts n(n−1)/2 vs 2n *(new)* | enc/dec pipeline | — | — | ☐ |
-| 06.4 | U06 · S | Caesar cipher; substitution-cipher challenge | WB-L08 p96–98 | shift mod 26 | cipher wheel | shift-3 example; challenge → shift 17 | `caesar.py` brute force | ☐ |
-| 06.5 | U06 · S | Alice/Bob/Mallory; MITM; tampering, eavesdropping, impersonation | WB-L08 p99–103 | — | MITM key-substitution sequence | — | — | ☐ |
-| 06.6 | U06 · S | Certificates (*.canva.com), look-alike domains, CA chain | WB-L06 p16–17, p22 | — | chain leaf → intermediate → root *(R)* | — | `ssl` cert inspector | ☐ |
-| 06.7 | U06 · S | TLS handshake (5-step WB-L06 / 6-step WB-L08) over TCP | WB-L06 p18–24; WB-L08 p104–110 | RTT count TCP + TLS 1.2 vs 1.3 *(R)* | TCP + TLS sequence chart | — | `ssl.wrap_socket` client | ☐ |
-| 06.8 | U06 · R | TLS 1.3 ≈ 1-RTT; ACM; TLS termination at ALB | SL-L12 p12 | — | — | — | — | ☐ |
-| 07.1 | U07 · S | Why DNS; Justdial analogy | WB-L08 p4–5 | — | — | — | — | ☐ |
-| 07.2 | U07 · S | Record types A/AAAA/MX(priority)/NS/CNAME/TXT; zone table with TTL | WB-L08 p5–6 | — | zone table | MX priority choice | `dnspython`-free resolver *(new)* | ☐ |
-| 07.3 | U07 · S | Distributed hierarchy; root/TLD/authoritative | WB-L08 p7, p10 | — | DNS tree | — | — | ☐ |
-| 07.4 | U07 · S | Lookup walk-through (www.amazon.com; newtonschool.co) | WB-L08 p8, p117; SL-L09 p3, p15 | — | 6-/8-step iterative diagrams | — | raw UDP DNS query with `struct` | ☐ |
-| 07.5 | U07 · S | Local DNS server; caching | WB-L08 p11, p31 | — | — | — | — | ☐ |
-| 07.6 | U07 · R | Recursive vs iterative; TTL & slow propagation; Route 53 policies | WB-L08 p12 (demo card) | TTL expiry timing *(new)* | recursive vs iterative | policy-choice MCQs | `socket.getaddrinfo` | ☐ |
-| 08.1 | U08 · S | Email architecture; SMTP push, ports 25/587/465; relays; MailHog | WB-L07 p5–8 | — | sender → SMTP → receiver MS → IMAP/POP3 | — | `smtplib` to local debug server | ☐ |
-| 08.2 | U08 · S | IMAP (143/993, sync) vs POP3 (110/995, download-delete) | WB-L07 p9–14 | — | IMAP vs POP3 diagram | — | — | ☐ |
-| 08.3 | U08 · S | Caching: hit/miss, stale, first vs later requests | WB-L07 p15–18, p28 | hit-ratio avg delay *(new, X)* | cache flow | — | — | ☐ |
-| 08.4 | U08 · S | Cache-Control `public, max-age=3600`; browser/proxy/CDN layers | WB-L07 p19–20 | freshness age calc *(new)* | caching layers | — | header parser | ☐ |
-| 08.5 | U08 · S | Netflix Open Connect; CDN analogy; how a CDN works; players; benefits; Fastly 2021 | WB-L07 p21–29 | — | edge/PoP/origin | — | — | ☐ |
-| 08.6 | U08 · R | MUA/MTA; ETag/If-None-Match → 304; pull vs push CDN; DNS steering; CloudFront | — | — | conditional GET sequence | — | `http.server` 304 demo | ☐ |
-| 09.1 | U09 · S | Layer 4 role (end hosts only) | SL-L09 p4–5; SL-L11 p3 | — | — | — | — | ☐ |
-| 09.2 | U09 · S | Ports & sockets (apartment analogy), socket = IP + port, netstat | SL-L09 p6–8 | — | — | — | list sockets | ☐ |
-| 09.3 | U09 · S | Multiplexing / demultiplexing | SL-L09 p9–10; WB-L08 p121–125 | — | mux/demux tree | — | multi-port UDP server | ☐ |
-| 09.4 | U09 · S | Port ranges & common services | WB-L08 p126–127 | 2¹⁶ = 65,536 | port pyramid | — | — | ☐ |
-| 09.5 | U09 · S | UDP: connectionless; 8-byte header; length includes header | SL-L09 p12–14; WB-L08 p115 | length = 8 + payload | UDP header grid | parse a UDP header | `struct` UDP pack/unpack; UDP chat | ☐ |
-| 09.6 | U09 · S | UDP use cases: DNS, video, gaming, SNMP, TFTP, DHCP; QUIC | SL-L09 p15–16; WB-L08 p133–135 | — | QUIC streams | — | — | ☐ |
-| 09.7 | U09 · S | TCP 3-way handshake (ISN 100/350) | SL-L09 p17–20 | seq/ack arithmetic | 3-way timing chart | ISN 100/350 trace | TCP client/server | ☐ |
-| 09.8 | U09 · S | TCP 4-way teardown | SL-L09 p21; SL-L10 p6 | — | FIN/ACK chart + TIME_WAIT *(R)* | — | — | ☐ |
-| 09.9 | U09 · S | Sequence numbers, cumulative ACKs, retransmission | SL-L09 p22–23 | next-expected-byte arithmetic | seq/ack ladder | 101–200 → ACK 201 | — | ☐ |
-| 09.10 | U09 · S | TCP segment header fields & flags | SL-L09 p24–25 | header length = data offset × 4 | full 20-byte TCP header bit grid | decode a hex header *(new)* | `struct` TCP header parser | ☐ |
-| 09.11 | U09 · S | Speed vs reliability: UDP vs TCP | SL-L09 p26; WB-L08 p113 | — | — | — | — | ☐ |
-| 09.12 | U09 · X | UDP pseudo-header checksum; TCP state machine; TIME_WAIT = 2·MSL | — | 16-bit 1's-complement sum | pseudo-header grid | *(new)* | `udp_checksum.py` | ☐ |
-| 10.1 | U10 · S | Building reliability; TCP features recap | SL-L10 p3–6 | — | — | — | — | ☐ |
-| 10.2 | U10 · S | Checksum (8-bit, end-around carry, 1's complement, all-1s check) | SL-L10 p8–10 | full derivation (**corrected**) | column addition | 10010011 + 01010110 → checksum 00010110 | `checksum.py` | ☐ |
-| 10.3 | U10 · S | RTT definition; ping near vs far | SL-L10 p11–12 | avg RTT from samples | RTT on handshake chart | 25.893 ms vs 446.721 ms | ping parser | ☐ |
-| 10.4 | U10 · S | Need for flow control | SL-L10 p14 | — | — | — | — | ☐ |
-| 10.5 | U10 · S | Stop-and-wait; ACK N+1; utilization formula | SL-L10 p15–16 | U = T_f/(T_f + 2T_p) → 1/(1+2a) | Kurose S&W timing | numericals *(new)* | S&W over UDP with timeout/retry | ☐ |
-| 10.6 | U10 · S | Sliding window; window-4 trace | SL-L10 p17–18 | U = N·T_f/(T_f+2T_p), capped at 1 | window strip | window-4 trace | sliding-window sim | ☐ |
-| 10.7 | U10 · S | Zero window, probes, exponential backoff | SL-L10 p19–21 | backoff 1, 2, 4, 8 s | zero-window ladder + packet/time plot | trace | — | ☐ |
-| 10.8 | U10 · S | Go-Back-N (packet 5 lost trace) | SL-L10 p22–23 | retransmission count; W ≤ 2ⁿ−1 *(R)* | GBN 7-phase trace | trace | `gbn_sim.py` | ☐ |
-| 10.9 | U10 · S | Selective Repeat (NAK 2) | SL-L10 p24–25 | W ≤ 2ⁿ⁻¹ *(R)* | SR timing | trace | `sr_sim.py` | ☐ |
-| 10.10 | U10 · R/X | GBN vs SR window derivation; SACK; η = N/(1+2a) | — | full derivation | ambiguity counter-example | *(new)* | — | ☐ |
-| 10.11 | U10 · X | 16-bit Internet checksum, 2-D parity, CRC (mod-2), Hamming (7,4) | — | all step-by-step | CRC long division; Hamming positions | *(new)* | `crc.py`, `hamming.py`, `parity2d.py` | ☐ |
-| 10.12 | U10 · X | RTT estimation (EWMA α = 1/8, β = 1/4, TimeoutInterval), Karn; Nagle/Clark | — | Jacobson/Karels | — | *(new)* | `rtt_estimator.py` | ☐ |
-| 11.1 | U11 · S | Recap: delivery time, pipelining, sliding window | SL-L11 p3–5 | t = L/R + d_prop | — | — | — | ☐ |
-| 11.2 | U11 · S | Flow control vs congestion (sprinkler, cars) | SL-L11 p6–7 | — | — | — | — | ☐ |
-| 11.3 | U11 · S | cwnd (initial 10); timeout special cases | SL-L11 p8–9 | — | — | — | — | ☐ |
-| 11.4 | U11 · S | Three phases; transitions | SL-L11 p10 | — | phase state machine | — | — | ☐ |
-| 11.5 | U11 · S | Slow start doubling; ssthresh = cwnd/2; end of slow start | SL-L11 p11–13 | 2^k growth; RTTs to reach W | cwnd vs RTT graph | 1, 2, 4, 8, 9, 10, 11, 12 | `cwnd_sim.py` | ☐ |
-| 11.6 | U11 · S | Congestion avoidance; MSS | SL-L11 p13–14 | +1 MSS/RTT | — | — | — | ☐ |
-| 11.7 | U11 · S | AIMD; sawtooth | SL-L11 p15–16 | avg throughput 0.75·W/RTT *(X)* | sawtooth curve | — | — | ☐ |
-| 11.8 | U11 · S | Fast retransmit & fast recovery; 16 → 17 → 18 → 9 → 10 trace | SL-L11 p17–20 | halving | 3-dup-ACK ladder | trace (event relabelled, see UNCLEAR) | — | ☐ |
-| 11.9 | U11 · S | TCP CUBIC (Wmax, Linux default) | SL-L11 p21 | — | cubic curve | — | — | ☐ |
-| 11.10 | U11 · R | Rate ≈ min(cwnd, rwnd)/RTT; Tahoe vs Reno | — | throughput formula | Tahoe vs Reno curves | GATE-style cwnd traces *(new)* | `cwnd_sim.py` (both variants) | ☐ |
-| 12.1 | U12 · S | Motivation; LB definition & goals | SL-L12 p4–6 | — | — | — | — | ☐ |
-| 12.2 | U12 · S | NLB L4: 4-tuple, ZIP analogy, forwarding example, source IP preserved | SL-L12 p6–9 | — | NLB forwarding (203.0.113.10:51514 → …) | worked forwarding | round-robin / hash LB sim | ☐ |
-| 12.3 | U12 · S | ALB L7: path routing /api/*, /web/*; DNS name vs static IP; console | SL-L12 p10–11 | — | ALB routing diagram | — | path-router sim | ☐ |
-| 12.4 | U12 · S | TLS termination | SL-L12 p12 | — | HTTPS → ALB → HTTP | — | — | ☐ |
-| 12.5 | U12 · S | NLB vs ALB table (8 rows) | SL-L12 p13; WB-L04 p19 | — | comparison table | — | — | ☐ |
-| 12.6 | U12 · S | Target groups; health checks (GET /health 30 s); self-healing | SL-L12 p14–17 | detection time = interval × threshold *(R)* | — | — | health-check poller | ☐ |
-| 12.7 | U12 · S | Elasticity; Auto Scaling Group | SL-L12 p18–20 | instances needed = ⌈load/capacity⌉ *(new)* | ASG scale-out | 500 vs 50,000 users | — | ☐ |
-| 12.8 | U12 · S | AZ failure; multi-AZ; HA; ELB + ASG + RDS Multi-AZ | SL-L12 p21–25 | availability 1−(1−p)ⁿ *(X)* | multi-AZ HA diagram | — | — | ☐ |
-| 12.9 | U12 · S | Final architecture GSLB → regional → zonal → backend | SL-L12 p26 | — | 4-tier LB diagram | capstone trace *(R)* | — | ☐ |
-| 13.1 | U13 · S | IP address; private vs public; postal analogy | SL-L13 p3–6 | — | — | — | — | ☐ |
-| 13.2 | U13 · S | IPv4 32 bits, octets, decimal ↔ binary | SL-L13 p7–8 | positional binary | 32-bit strip | 192.168.0.1 | `ip_bin.py` | ☐ |
-| 13.3 | U13 · S | Classful A/B/C: leading bits, ranges, bit split, counts | SL-L13 p9–13 | 2⁷−2, 2²⁴−2, 2¹⁴, 2¹⁶−2, 2²¹, 2⁸−2 | class bit diagrams | class identification | `classful.py` | ☐ |
-| 13.4 | U13 · S | Scale problem; packet to 9.10.10.10 | SL-L13 p14 | — | core vs gateway routing | — | — | ☐ |
-| 13.5 | U13 · S | Exhaustion; 500-host company; IPv4 market price | SL-L13 p15 | waste = 65,534 − 500 | — | — | — | ☐ |
-| 13.6 | U13 · S | CIDR notation; mask ↔ prefix; network/broadcast/first/last | SL-L13 p16–18 | AND with mask; host bits all 1 | network/host split | 192.168.1.0/24 | `subnet_calc.py` (bitwise + `ipaddress`) | ☐ |
-| 13.7 | U13 · S | CIDR table /8 … /32 | SL-L13 p19 | 2^(32−n) and −2 | — | 8-row table | — | ☐ |
-| 13.8 | U13 · S | Sizing for 500 devices → /23 | SL-L13 p20–21 | ⌈log₂(N+2)⌉ | — | 500 → /23 (base corrected to 192.168.0.0) | — | ☐ |
-| 13.9 | U13 · S | RFC 1918 private ranges; NAT preview | SL-L13 p22 | range sizes | — | — | `is_private` checks | ☐ |
-| 13.10 | U13 · S | Cloud bridge: VPC 10.0.0.0/16 → /24 subnets; console /20 → 4091 | SL-L13 p23–24 | 4096 − 5 | VPC carve diagram | — | — | ☐ |
-| 13.11 | U13 · X | Supernetting/aggregation; IPv4 header (14 fields); fragmentation; IPv6 header | — | offset/8, MF, checksum | IPv4 and IPv6 header grids | 4000 B over MTU 1500 then 620 | `ipv4_header.py`, `fragment.py` | ☐ |
-| 14.1 | U14 · S | Why subnet; definition | SL-L14 p3–5 | — | — | — | — | ☐ |
-| 14.2 | U14 · S | Borrowing bits: 2^k subnets, 2^(h−k) each | SL-L14 p6 | derivation | Network\|Subnet\|Host split | /24 + 2 → /26 | `subnet_split.py` | ☐ |
-| 14.3 | U14 · S | Magic number (256 − 192 = 64); 4 × /26 table | SL-L14 p7–8 | block size | — | 10.0.0.0/24 → 4 subnets | — | ☐ |
-| 14.4 | U14 · S | Public vs private subnets; route table decides | SL-L14 p9–11 | — | IGW vs NAT paths | — | — | ☐ |
-| 14.5 | U14 · S | 3-tier VPC (web/app/db), security rationale, 2 AZs | SL-L14 p12–14 | — | 3-tier × 2-AZ diagram | — | VPC planner | ☐ |
-| 14.6 | U14 · S | AWS 5 reserved IPs (.0 .1 .2 .3 .255); /24 → 251; /20 → 4091 | SL-L14 p15–17 | 2^(32−n) − 5 | reserved-address strip | /24, /20, /28 | — | ☐ |
-| 14.7 | U14 · S | AWS CIDR limits /16–/28 | SL-L14 p18–19 | — | — | /29 rejected | — | ☐ |
-| 14.8 | U14 · S | Design constraints: no overlap, fit in VPC, immutable size | SL-L14 p20 | overlap test | — | 10.0.1.0/24 vs 10.0.1.128/25 | `overlaps()` checker | ☐ |
-| 14.9 | U14 · X | VLSM allocation drills | — | largest-first allocation | — | *(new)* | `vlsm.py` | ☐ |
-| 15.1 | U15 · S | NAT: border router swaps source IP; before/after header | SL-L15 p4–6 | — | NAT rewrite diagram | — | NAT table sim | ☐ |
-| 15.2 | U15 · S | PAT: one public IP, unique outside ports; translation table | SL-L15 p7–10; WB-L08 p128–132 | max sessions ≈ port range | PAT table | 3-row PAT table | `pat_sim.py` | ☐ |
-| 15.3 | U15 · S | NAT gains vs breaks; quiz | SL-L15 p11–12 | — | — | — | — | ☐ |
-| 15.4 | U15 · S | One-to-one NAT table | WB-L08 p129 | — | inside local ↔ inside global | — | — | ☐ |
-| 15.5 | U15 · S | DHCP lease contents; DORA; on-the-wire addresses | SL-L15 p13–16 | — | DORA ladder | 0.0.0.0 → 255.255.255.255 | DHCP Discover packer (`struct`) | ☐ |
-| 15.6 | U15 · S | Route tables; longest-prefix match; 0.0.0.0/0 | SL-L15 p17–19 | prefix compare | route-table lookup | 10.0.1.55 → 10.0.1.0/24 | `lpm.py` (bitwise + `ipaddress`) | ☐ |
-| 15.7 | U15 · S | IGW; public subnet route; console | SL-L15 p20–23 | — | VPC + IGW | — | — | ☐ |
-| 15.8 | U15 · S | NAT Gateway (outbound only); public vs private route tables; quiz | SL-L15 p24–27 | — | 2-AZ VPC with NAT GW | — | — | ☐ |
-| 15.9 | U15 · S | Activity: Be the NAT box (port collision) | SL-L15 p28–29 | — | — | port collision | — | ☐ |
-| 15.10 | U15 · S | Key takeaways; next: ICMP, IPv6 | SL-L15 p30–31 | — | — | — | — | ☐ |
-| 15.11 | U15 · L | Labs: DHCP + relay (`ip helper-address`); Gaming LAN; Industrial multi-segment | SP labs | pool sizing | lab topologies | lab IP tables | — | ☐ |
-| 15.12 | U15 · L | Lab: VLAN trunking & router-on-a-stick | SP lab | — | trunk diagram | — | — | ☐ |
-| 15.13 | U15 · L | Lab: static NAT (`ip nat inside source static`, 100.1.1.0/29) | SP lab | /29 → 6 usable | — | — | — | ☐ |
-| 15.14 | U14 · L | Labs: AWS custom VPC 10.20.0.0/16 + IGW; security group web-sg | SP labs | — | — | concept tags | — | ☐ |
-| 15.15 | U15 · R/X | DHCP UDP 67/68, relay; ARP; ICMP (ping, traceroute TTL); DV (Bellman-Ford, count-to-infinity, split horizon, poison reverse, RIP); LS (Dijkstra table, OSPF); BGP | — | Bellman-Ford iterations, Dijkstra tables | DV exchange tables; Dijkstra tree | *(new)* | `dijkstra.py`, `bellman_ford.py`, raw ICMP ping | ☐ |
-| Q.1 | All · L | 17 quiz MCQs from the Study Pack (L01, L02, L03, L04, L08, L10 quizzes) | SP `4 - MCQs.md` | — | — | — | — | ☐ |
+| 01.1 | U01 · S | Cloud = data centres; providers; history ("lo") | WB-L01 p3–12 | — | — | — | — | ✅ |
+| 01.2 | U01 · S | PAN / LAN / MAN / WAN scope | WB-L01 p12 | — | scope ladder | — | — | ✅ |
+| 01.3 | U01 · S | Submarine cables (597), cable threats | WB-L01 p13–16 | — | — | — | — | ✅ |
+| 01.4 | U01 · S | "Tap Instagram" gap; Netflix buffering; top-down approach | WB-L01 p17–21 | — | top-down layer stack | — | — | ✅ |
+| 01.5 | U01 · S | GPU cluster networking (NVLink/InfiniBand) | WB-L01 p22 | GB/s vs Gbps unit trap *(new)* | — | — | — | ✅ |
+| 01.6 | U01 · S | traceroute to Google Delhi; latency by hop | WB-L01 p30 | per-hop RTT reading | hop ladder (home → ISP → Google edge) | read the trace | `subprocess` traceroute parser *(new)* | ✅ |
+| 01.7 | U01 · R | Network of networks; nuts-and-bolts vs service view; edge/access/core; ISP tiers | SP quiz L01 Q1–Q4 | — | edge/access/core map *(new)* | — | — | ✅ |
+| 01.8 | U01 · S | AWS Region / AZ / Edge Location (vocabulary) | WB-L04 p31–32 | — | Region ⊃ AZ, edge PoPs | — | — | ✅ |
+| 02.1 | U02 · S | Circuit vs packet switching (landline vs WhatsApp) | WB-L02 p4–6 | — | reserved vs shared link | — | — | ✅ |
+| 02.2 | U02 · S | Packets = header + payload; different routes | WB-L02 p7–8 | — | packet anatomy | — | — | ✅ |
+| 02.3 | U02 · S | Store-and-forward rule | WB-L02 p8, p10 | N·L/R end-to-end *(new, X)* | store-and-forward timeline *(new)* | 3-hop example *(new)* | delay calculator | ✅ |
+| 02.4 | U02 · S | Statistical multiplexing; loss when buffer full | WB-L02 p9–10, p20 | users-supported calc *(new, X)* | — | — | — | ✅ |
+| 02.5 | U02 · S | Four delays; toll-booth caravan | WB-L02 p11–14 | d_nodal = d_proc + d_queue + d_trans + d_prop | toll-booth figure | caravan numbers *(new)* | — | ✅ |
+| 02.6 | U02 · S | Packet-size trade-off (pipelining vs overhead) | WB-L02 p15 | — | — | — | — | ✅ |
+| 02.7 | U02 · S | Transmission delay L/R | WB-L02 p16–17 | L/R with unit conversion | — | 8000 b @ 2/4/8 Mbps = 4/2/1 ms | `delays.py` | ✅ |
+| 02.8 | U02 · S | Propagation delay d/s; GEO satellite | WB-L02 p18–19 | d/s, s = 2×10⁸ (fibre) vs 3×10⁸ | GEO up/down path | 71,572 km / 3e8 ≈ 239 ms (one-way; slide wording corrected) | `delays.py` | ✅ |
+| 02.9 | U02 · S | Throughput, bottleneck link; 300 Mbps buffering scenario | WB-L02 p21–22 | min(R₁…Rₙ); file time = F/min R | 3-link path | 10/2/5 → 2 Mbps | — | ✅ |
+| 02.10 | U02 · X | Queuing delay & traffic intensity La/R; BDP; Nyquist & Shannon | — | La/R, BDP = R·RTT, 2B log₂V, B log₂(1+SNR) | — | *(new)* | `bdp.py` | ✅ |
+| 03.1 | U03 · S | Layering via letter analogy; encapsulation (dolls, gift wrap) | WB-L03 p5–11 | — | encapsulation stack | — | — | ✅ |
+| 03.2 | U03 · S | OSI model: ISO, why learn, interoperability | WB-L03 p12–14 | — | 7-layer stack | — | — | ✅ |
+| 03.3 | U03 · S | L7 Application (waiter analogy; SMTP/HTTP/FTP/DNS…) | WB-L03 p15–17 | — | request/response | — | — | ✅ |
+| 03.4 | U03 · S | L6 Presentation (translation, compression, encryption, JPEG/MPEG) | WB-L03 p18–19; SL-L10 p3 | — | — | — | — | ✅ |
+| 03.5 | U03 · S | L5 Session (dialog control, sync, RPC/sockets) | WB-L03 p20–21 | — | — | — | — | ✅ |
+| 03.6 | U03 · S | L4 Transport (segmentation, mux, TCP/UDP) | WB-L03 p22–23 | — | — | — | — | ✅ |
+| 03.7 | U03 · S | L3 Network (IP addressing, routing, ICMP, IPSec) | WB-L03 p24–25 | — | — | — | — | ✅ |
+| 03.8 | U03 · S | L2 Data link (framing, MAC, error detection, ARP/VLAN/STP) | WB-L03 p26–27 | — | frame = header/payload/trailer | — | — | ✅ |
+| 03.9 | U03 · S | L1 Physical (bits, media, hubs) | WB-L03 p28–29 | — | — | — | — | ✅ |
+| 03.10 | U03 · S | Header order MAC \| IP \| TCP \| HTTP \| Data; PDU names | WB-L03 p15–29; WB-L07 p3; SL-L09 p4 | header-overhead % *(new)* | full encapsulation diagram | overhead calc *(new)* | `struct` encapsulation demo | ✅ |
+| 03.11 | U03 · S | TCP/IP model (4 layers) and OSI mapping; comparison | WB-L03 p30–32 | — | OSI ↔ TCP/IP (4 and 5 layer) | — | — | ✅ |
+| 03.12 | U03 · R | Service / interface / protocol; OSI mnemonic; 5-layer Kurose model; device ↔ layer | WB-L01 p31 | — | — | — | — | ✅ |
+| 04.1 | U04 · S | Why devices: full mesh n(n−1)/2 | WB-L04 p4–6 | n(n−1)/2 derivation | mesh vs star | 3→3, 10→45, 100→4950 | — | ✅ |
+| 04.2 | U04 · S | Hub (L1), Switch (L2), Router (L3) | WB-L04 p7–13 | — | device-layer ladder | — | MAC-learning switch sim *(new)* | ✅ |
+| 04.3 | U04 · S | Firewall; packet filtering; stateless vs stateful | WB-L04 p14–17 | — | filter on IP+port | rule table walk-through *(new)* | packet-filter sim *(new)* | ✅ |
+| 04.4 | U04 · S | Load balancers; ALB vs NLB preview | WB-L04 p18–19 | — | — | — | — | ✅ |
+| 04.5 | U04 · S | Topologies: star, mesh, bus, ring, hybrid; Wi-Fi mesh | WB-L04 p20–25 | links/ports per topology | 5 topology SVGs | — | — | ✅ |
+| 04.6 | U04 · S | Topology by environment; fault tolerance / scalability table | WB-L04 p26–28 | — | — | — | — | ✅ |
+| 04.7 | U04 · S | Hardware → software-defined; cloud network | WB-L04 p29–30 | — | — | — | — | ✅ |
+| 04.8 | U04 · S | VPC: 10.0.0.0/16 = 65,536; default VPC 172.31.0.0/16 | WB-L04 p33 | 2^(32−16) | VPC → subnets per AZ | — | `ipaddress` VPC demo | ✅ |
+| 04.9 | U04 · R | Collision vs broadcast domains; firewall L3–L7 | — | domain counting | hub/switch/router domain picture | count domains *(new)* | — | ✅ |
+| 04.10 | U04 · X | Framing: byte stuffing, bit stuffing | — | stuffing rules | flag/escape | *(new)* | `stuffing.py` | ✅ |
+| 04.11 | U04 · X | MAC: Pure/Slotted ALOHA (1/2e, 1/e), CSMA, CSMA/CD L_min = 2·T_p·R, BEB, CSMA/CA, Ethernet II frame | — | throughput derivations | Ethernet II frame grid | *(new)* | `aloha.py`, `beb.py` | ✅ |
+| 05.1 | U05 · S | Client/server vs P2P | WB-L05 p4–7 | P2P link count | client-server vs P2P mesh | — | — | ✅ |
+| 05.2 | U05 · S | Application layer & protocol list | WB-L05 p8–11; WB-L07 p4 | — | — | — | — | ✅ |
+| 05.3 | U05 · S | Socket API between app and transport | WB-L08 p15 | — | socket boundary | — | TCP echo client/server | ✅ |
+| 05.4 | U05 · S | HTTP stateless request–response; 4 stages | WB-L05 p13; WB-L08 p16–18 | — | — | — | — | ✅ |
+| 05.5 | U05 · S | Request: request line, headers, empty line, body | WB-L05 p14–18; WB-L08 p19–23 | Content-Length counting | request-message grid | `GET /index.html HTTP/1.1` | raw-socket HTTP GET | ✅ |
+| 05.6 | U05 · S | Response: status line, headers, body; status codes | WB-L05 p19–23; WB-L08 p24–27 | — | response-message grid | 200/201/301/302/403/404/500 | response parser | ✅ |
+| 05.7 | U05 · S | Statelessness, cookies, session tokens | WB-L05 p24 | — | — | — | — | ✅ |
+| 05.8 | U05 · S | HTTP/1.0 vs 1.1 (keep-alive, Host, HoL, pipelining) | WB-L05 p25–31 | non-persistent 2RTT + t vs persistent RTT per object *(R)* | HoL timeline | page with N objects *(new)* | — | ✅ |
+| 05.9 | U05 · S | HTTP/2 (binary framing, multiplexing, server push) | WB-L05 p32–35 | — | streams over 1 TCP | — | — | ✅ |
+| 05.10 | U05 · S | HTTP/3 over QUIC; stack comparison; DevTools h2/h3 | WB-L05 p36–38 | — | HTTP/2/TLS/TCP vs HTTP/3/QUIC/UDP | — | — | ✅ |
+| 05.11 | U05 · S | HoL comparison: 1.1 (6 conns) / 2 (TCP HoL) / 3 (per stream) | WB-L05 p38–40 | — | 3-panel HoL | — | — | ✅ |
+| 05.12 | U05 · S | REST (83%), verb → CRUD, OpenAPI/Swagger | WB-L05 p41–42 | — | — | — | `http.client` REST calls | ✅ |
+| 05.13 | U05 · S | APIs: Bezos mandate, Google Maps, Weather API | WB-L08 p33–39 | — | — | — | — | ✅ |
+| 05.14 | U05 · R/X | HPACK; 0-RTT; FTP active vs passive | — | — | FTP control/data ports | — | — | ✅ |
+| 06.1 | U06 · S | HTTP is plain text; HTTPS = HTTP + TLS; padlock meaning | WB-L06 p4–7 | — | — | — | — | ✅ |
+| 06.2 | U06 · S | Crypto goals: confidentiality, integrity, authentication | WB-L06 p8–11 | — | — | — | — | ✅ |
+| 06.3 | U06 · S | Symmetric vs asymmetric; key-distribution problem | WB-L06 p12–15 | key counts n(n−1)/2 vs 2n *(new)* | enc/dec pipeline | — | — | ✅ |
+| 06.4 | U06 · S | Caesar cipher; substitution-cipher challenge | WB-L08 p96–98 | shift mod 26 | cipher wheel | shift-3 example; challenge → shift 17 | `caesar.py` brute force | ✅ |
+| 06.5 | U06 · S | Alice/Bob/Mallory; MITM; tampering, eavesdropping, impersonation | WB-L08 p99–103 | — | MITM key-substitution sequence | — | — | ✅ |
+| 06.6 | U06 · S | Certificates (*.canva.com), look-alike domains, CA chain | WB-L06 p16–17, p22 | — | chain leaf → intermediate → root *(R)* | — | `ssl` cert inspector | ✅ |
+| 06.7 | U06 · S | TLS handshake (5-step WB-L06 / 6-step WB-L08) over TCP | WB-L06 p18–24; WB-L08 p104–110 | RTT count TCP + TLS 1.2 vs 1.3 *(R)* | TCP + TLS sequence chart | — | `ssl.wrap_socket` client | ✅ |
+| 06.8 | U06 · R | TLS 1.3 ≈ 1-RTT; ACM; TLS termination at ALB | SL-L12 p12 | — | — | — | — | ✅ |
+| 07.1 | U07 · S | Why DNS; Justdial analogy | WB-L08 p4–5 | — | — | — | — | ✅ |
+| 07.2 | U07 · S | Record types A/AAAA/MX(priority)/NS/CNAME/TXT; zone table with TTL | WB-L08 p5–6 | — | zone table | MX priority choice | `dnspython`-free resolver *(new)* | ✅ |
+| 07.3 | U07 · S | Distributed hierarchy; root/TLD/authoritative | WB-L08 p7, p10 | — | DNS tree | — | — | ✅ |
+| 07.4 | U07 · S | Lookup walk-through (www.amazon.com; newtonschool.co) | WB-L08 p8, p117; SL-L09 p3, p15 | — | 6-/8-step iterative diagrams | — | raw UDP DNS query with `struct` | ✅ |
+| 07.5 | U07 · S | Local DNS server; caching | WB-L08 p11, p31 | — | — | — | — | ✅ |
+| 07.6 | U07 · R | Recursive vs iterative; TTL & slow propagation; Route 53 policies | WB-L08 p12 (demo card) | TTL expiry timing *(new)* | recursive vs iterative | policy-choice MCQs | `socket.getaddrinfo` | ✅ |
+| 08.1 | U08 · S | Email architecture; SMTP push, ports 25/587/465; relays; MailHog | WB-L07 p5–8 | — | sender → SMTP → receiver MS → IMAP/POP3 | — | `smtplib` to local debug server | ✅ |
+| 08.2 | U08 · S | IMAP (143/993, sync) vs POP3 (110/995, download-delete) | WB-L07 p9–14 | — | IMAP vs POP3 diagram | — | — | ✅ |
+| 08.3 | U08 · S | Caching: hit/miss, stale, first vs later requests | WB-L07 p15–18, p28 | hit-ratio avg delay *(new, X)* | cache flow | — | — | ✅ |
+| 08.4 | U08 · S | Cache-Control `public, max-age=3600`; browser/proxy/CDN layers | WB-L07 p19–20 | freshness age calc *(new)* | caching layers | — | header parser | ✅ |
+| 08.5 | U08 · S | Netflix Open Connect; CDN analogy; how a CDN works; players; benefits; Fastly 2021 | WB-L07 p21–29 | — | edge/PoP/origin | — | — | ✅ |
+| 08.6 | U08 · R | MUA/MTA; ETag/If-None-Match → 304; pull vs push CDN; DNS steering; CloudFront | — | — | conditional GET sequence | — | `http.server` 304 demo | ✅ |
+| 09.1 | U09 · S | Layer 4 role (end hosts only) | SL-L09 p4–5; SL-L11 p3 | — | — | — | — | ✅ |
+| 09.2 | U09 · S | Ports & sockets (apartment analogy), socket = IP + port, netstat | SL-L09 p6–8 | — | — | — | list sockets | ✅ |
+| 09.3 | U09 · S | Multiplexing / demultiplexing | SL-L09 p9–10; WB-L08 p121–125 | — | mux/demux tree | — | multi-port UDP server | ✅ |
+| 09.4 | U09 · S | Port ranges & common services | WB-L08 p126–127 | 2¹⁶ = 65,536 | port pyramid | — | — | ✅ |
+| 09.5 | U09 · S | UDP: connectionless; 8-byte header; length includes header | SL-L09 p12–14; WB-L08 p115 | length = 8 + payload | UDP header grid | parse a UDP header | `struct` UDP pack/unpack; UDP chat | ✅ |
+| 09.6 | U09 · S | UDP use cases: DNS, video, gaming, SNMP, TFTP, DHCP; QUIC | SL-L09 p15–16; WB-L08 p133–135 | — | QUIC streams | — | — | ✅ |
+| 09.7 | U09 · S | TCP 3-way handshake (ISN 100/350) | SL-L09 p17–20 | seq/ack arithmetic | 3-way timing chart | ISN 100/350 trace | TCP client/server | ✅ |
+| 09.8 | U09 · S | TCP 4-way teardown | SL-L09 p21; SL-L10 p6 | — | FIN/ACK chart + TIME_WAIT *(R)* | — | — | ✅ |
+| 09.9 | U09 · S | Sequence numbers, cumulative ACKs, retransmission | SL-L09 p22–23 | next-expected-byte arithmetic | seq/ack ladder | 101–200 → ACK 201 | — | ✅ |
+| 09.10 | U09 · S | TCP segment header fields & flags | SL-L09 p24–25 | header length = data offset × 4 | full 20-byte TCP header bit grid | decode a hex header *(new)* | `struct` TCP header parser | ✅ |
+| 09.11 | U09 · S | Speed vs reliability: UDP vs TCP | SL-L09 p26; WB-L08 p113 | — | — | — | — | ✅ |
+| 09.12 | U09 · X | UDP pseudo-header checksum; TCP state machine; TIME_WAIT = 2·MSL | — | 16-bit 1's-complement sum | pseudo-header grid | *(new)* | `udp_checksum.py` | ✅ |
+| 10.1 | U10 · S | Building reliability; TCP features recap | SL-L10 p3–6 | — | — | — | — | ✅ |
+| 10.2 | U10 · S | Checksum (8-bit, end-around carry, 1's complement, all-1s check) | SL-L10 p8–10 | full derivation (**corrected**) | column addition | 10010011 + 01010110 → checksum 00010110 | `checksum.py` | ✅ |
+| 10.3 | U10 · S | RTT definition; ping near vs far | SL-L10 p11–12 | avg RTT from samples | RTT on handshake chart | 25.893 ms vs 446.721 ms | ping parser | ✅ |
+| 10.4 | U10 · S | Need for flow control | SL-L10 p14 | — | — | — | — | ✅ |
+| 10.5 | U10 · S | Stop-and-wait; ACK N+1; utilization formula | SL-L10 p15–16 | U = T_f/(T_f + 2T_p) → 1/(1+2a) | Kurose S&W timing | numericals *(new)* | S&W over UDP with timeout/retry | ✅ |
+| 10.6 | U10 · S | Sliding window; window-4 trace | SL-L10 p17–18 | U = N·T_f/(T_f+2T_p), capped at 1 | window strip | window-4 trace | sliding-window sim | ✅ |
+| 10.7 | U10 · S | Zero window, probes, exponential backoff | SL-L10 p19–21 | backoff 1, 2, 4, 8 s | zero-window ladder + packet/time plot | trace | — | ✅ |
+| 10.8 | U10 · S | Go-Back-N (packet 5 lost trace) | SL-L10 p22–23 | retransmission count; W ≤ 2ⁿ−1 *(R)* | GBN 7-phase trace | trace | `gbn_sim.py` | ✅ |
+| 10.9 | U10 · S | Selective Repeat (NAK 2) | SL-L10 p24–25 | W ≤ 2ⁿ⁻¹ *(R)* | SR timing | trace | `sr_sim.py` | ✅ |
+| 10.10 | U10 · R/X | GBN vs SR window derivation; SACK; η = N/(1+2a) | — | full derivation | ambiguity counter-example | *(new)* | — | ✅ |
+| 10.11 | U10 · X | 16-bit Internet checksum, 2-D parity, CRC (mod-2), Hamming (7,4) | — | all step-by-step | CRC long division; Hamming positions | *(new)* | `crc.py`, `hamming.py`, `parity2d.py` | ✅ |
+| 10.12 | U10 · X | RTT estimation (EWMA α = 1/8, β = 1/4, TimeoutInterval), Karn; Nagle/Clark | — | Jacobson/Karels | — | *(new)* | `rtt_estimator.py` | ✅ |
+| 11.1 | U11 · S | Recap: delivery time, pipelining, sliding window | SL-L11 p3–5 | t = L/R + d_prop | — | — | — | ✅ |
+| 11.2 | U11 · S | Flow control vs congestion (sprinkler, cars) | SL-L11 p6–7 | — | — | — | — | ✅ |
+| 11.3 | U11 · S | cwnd (initial 10); timeout special cases | SL-L11 p8–9 | — | — | — | — | ✅ |
+| 11.4 | U11 · S | Three phases; transitions | SL-L11 p10 | — | phase state machine | — | — | ✅ |
+| 11.5 | U11 · S | Slow start doubling; ssthresh = cwnd/2; end of slow start | SL-L11 p11–13 | 2^k growth; RTTs to reach W | cwnd vs RTT graph | 1, 2, 4, 8, 9, 10, 11, 12 | `cwnd_sim.py` | ✅ |
+| 11.6 | U11 · S | Congestion avoidance; MSS | SL-L11 p13–14 | +1 MSS/RTT | — | — | — | ✅ |
+| 11.7 | U11 · S | AIMD; sawtooth | SL-L11 p15–16 | avg throughput 0.75·W/RTT *(X)* | sawtooth curve | — | — | ✅ |
+| 11.8 | U11 · S | Fast retransmit & fast recovery; 16 → 17 → 18 → 9 → 10 trace | SL-L11 p17–20 | halving | 3-dup-ACK ladder | trace (event relabelled, see UNCLEAR) | — | ✅ |
+| 11.9 | U11 · S | TCP CUBIC (Wmax, Linux default) | SL-L11 p21 | — | cubic curve | — | — | ✅ |
+| 11.10 | U11 · R | Rate ≈ min(cwnd, rwnd)/RTT; Tahoe vs Reno | — | throughput formula | Tahoe vs Reno curves | GATE-style cwnd traces *(new)* | `cwnd_sim.py` (both variants) | ✅ |
+| 12.1 | U12 · S | Motivation; LB definition & goals | SL-L12 p4–6 | — | — | — | — | ✅ |
+| 12.2 | U12 · S | NLB L4: 4-tuple, ZIP analogy, forwarding example, source IP preserved | SL-L12 p6–9 | — | NLB forwarding (203.0.113.10:51514 → …) | worked forwarding | round-robin / hash LB sim | ✅ |
+| 12.3 | U12 · S | ALB L7: path routing /api/*, /web/*; DNS name vs static IP; console | SL-L12 p10–11 | — | ALB routing diagram | — | path-router sim | ✅ |
+| 12.4 | U12 · S | TLS termination | SL-L12 p12 | — | HTTPS → ALB → HTTP | — | — | ✅ |
+| 12.5 | U12 · S | NLB vs ALB table (8 rows) | SL-L12 p13; WB-L04 p19 | — | comparison table | — | — | ✅ |
+| 12.6 | U12 · S | Target groups; health checks (GET /health 30 s); self-healing | SL-L12 p14–17 | detection time = interval × threshold *(R)* | — | — | health-check poller | ✅ |
+| 12.7 | U12 · S | Elasticity; Auto Scaling Group | SL-L12 p18–20 | instances needed = ⌈load/capacity⌉ *(new)* | ASG scale-out | 500 vs 50,000 users | — | ✅ |
+| 12.8 | U12 · S | AZ failure; multi-AZ; HA; ELB + ASG + RDS Multi-AZ | SL-L12 p21–25 | availability 1−(1−p)ⁿ *(X)* | multi-AZ HA diagram | — | — | ✅ |
+| 12.9 | U12 · S | Final architecture GSLB → regional → zonal → backend | SL-L12 p26 | — | 4-tier LB diagram | capstone trace *(R)* | — | ✅ |
+| 13.1 | U13 · S | IP address; private vs public; postal analogy | SL-L13 p3–6 | — | — | — | — | ✅ |
+| 13.2 | U13 · S | IPv4 32 bits, octets, decimal ↔ binary | SL-L13 p7–8 | positional binary | 32-bit strip | 192.168.0.1 | `ip_bin.py` | ✅ |
+| 13.3 | U13 · S | Classful A/B/C: leading bits, ranges, bit split, counts | SL-L13 p9–13 | 2⁷−2, 2²⁴−2, 2¹⁴, 2¹⁶−2, 2²¹, 2⁸−2 | class bit diagrams | class identification | `classful.py` | ✅ |
+| 13.4 | U13 · S | Scale problem; packet to 9.10.10.10 | SL-L13 p14 | — | core vs gateway routing | — | — | ✅ |
+| 13.5 | U13 · S | Exhaustion; 500-host company; IPv4 market price | SL-L13 p15 | waste = 65,534 − 500 | — | — | — | ✅ |
+| 13.6 | U13 · S | CIDR notation; mask ↔ prefix; network/broadcast/first/last | SL-L13 p16–18 | AND with mask; host bits all 1 | network/host split | 192.168.1.0/24 | `subnet_calc.py` (bitwise + `ipaddress`) | ✅ |
+| 13.7 | U13 · S | CIDR table /8 … /32 | SL-L13 p19 | 2^(32−n) and −2 | — | 8-row table | — | ✅ |
+| 13.8 | U13 · S | Sizing for 500 devices → /23 | SL-L13 p20–21 | ⌈log₂(N+2)⌉ | — | 500 → /23 (base corrected to 192.168.0.0) | — | ✅ |
+| 13.9 | U13 · S | RFC 1918 private ranges; NAT preview | SL-L13 p22 | range sizes | — | — | `is_private` checks | ✅ |
+| 13.10 | U13 · S | Cloud bridge: VPC 10.0.0.0/16 → /24 subnets; console /20 → 4091 | SL-L13 p23–24 | 4096 − 5 | VPC carve diagram | — | — | ✅ |
+| 13.11 | U13 · X | Supernetting/aggregation; IPv4 header (14 fields); fragmentation; IPv6 header | — | offset/8, MF, checksum | IPv4 and IPv6 header grids | 4000 B over MTU 1500 then 620 | `ipv4_header.py`, `fragment.py` | ✅ |
+| 14.1 | U14 · S | Why subnet; definition | SL-L14 p3–5 | — | — | — | — | ✅ |
+| 14.2 | U14 · S | Borrowing bits: 2^k subnets, 2^(h−k) each | SL-L14 p6 | derivation | Network\|Subnet\|Host split | /24 + 2 → /26 | `subnet_split.py` | ✅ |
+| 14.3 | U14 · S | Magic number (256 − 192 = 64); 4 × /26 table | SL-L14 p7–8 | block size | — | 10.0.0.0/24 → 4 subnets | — | ✅ |
+| 14.4 | U14 · S | Public vs private subnets; route table decides | SL-L14 p9–11 | — | IGW vs NAT paths | — | — | ✅ |
+| 14.5 | U14 · S | 3-tier VPC (web/app/db), security rationale, 2 AZs | SL-L14 p12–14 | — | 3-tier × 2-AZ diagram | — | VPC planner | ✅ |
+| 14.6 | U14 · S | AWS 5 reserved IPs (.0 .1 .2 .3 .255); /24 → 251; /20 → 4091 | SL-L14 p15–17 | 2^(32−n) − 5 | reserved-address strip | /24, /20, /28 | — | ✅ |
+| 14.7 | U14 · S | AWS CIDR limits /16–/28 | SL-L14 p18–19 | — | — | /29 rejected | — | ✅ |
+| 14.8 | U14 · S | Design constraints: no overlap, fit in VPC, immutable size | SL-L14 p20 | overlap test | — | 10.0.1.0/24 vs 10.0.1.128/25 | `overlaps()` checker | ✅ |
+| 14.9 | U14 · X | VLSM allocation drills | — | largest-first allocation | — | *(new)* | `vlsm.py` | ✅ |
+| 15.1 | U15 · S | NAT: border router swaps source IP; before/after header | SL-L15 p4–6 | — | NAT rewrite diagram | — | NAT table sim | ✅ |
+| 15.2 | U15 · S | PAT: one public IP, unique outside ports; translation table | SL-L15 p7–10; WB-L08 p128–132 | max sessions ≈ port range | PAT table | 3-row PAT table | `pat_sim.py` | ✅ |
+| 15.3 | U15 · S | NAT gains vs breaks; quiz | SL-L15 p11–12 | — | — | — | — | ✅ |
+| 15.4 | U15 · S | One-to-one NAT table | WB-L08 p129 | — | inside local ↔ inside global | — | — | ✅ |
+| 15.5 | U15 · S | DHCP lease contents; DORA; on-the-wire addresses | SL-L15 p13–16 | — | DORA ladder | 0.0.0.0 → 255.255.255.255 | DHCP Discover packer (`struct`) | ✅ |
+| 15.6 | U15 · S | Route tables; longest-prefix match; 0.0.0.0/0 | SL-L15 p17–19 | prefix compare | route-table lookup | 10.0.1.55 → 10.0.1.0/24 | `lpm.py` (bitwise + `ipaddress`) | ✅ |
+| 15.7 | U15 · S | IGW; public subnet route; console | SL-L15 p20–23 | — | VPC + IGW | — | — | ✅ |
+| 15.8 | U15 · S | NAT Gateway (outbound only); public vs private route tables; quiz | SL-L15 p24–27 | — | 2-AZ VPC with NAT GW | — | — | ✅ |
+| 15.9 | U15 · S | Activity: Be the NAT box (port collision) | SL-L15 p28–29 | — | — | port collision | — | ✅ |
+| 15.10 | U15 · S | Key takeaways; next: ICMP, IPv6 | SL-L15 p30–31 | — | — | — | — | ✅ |
+| 15.11 | U15 · L | Labs: DHCP + relay (`ip helper-address`); Gaming LAN; Industrial multi-segment | SP labs | pool sizing | lab topologies | lab IP tables | — | ✅ |
+| 15.12 | U15 · L | Lab: VLAN trunking & router-on-a-stick | SP lab | — | trunk diagram | — | — | ✅ |
+| 15.13 | U15 · L | Lab: static NAT (`ip nat inside source static`, 100.1.1.0/29) | SP lab | /29 → 6 usable | — | — | — | ✅ |
+| 15.14 | U14 · L | Labs: AWS custom VPC 10.20.0.0/16 + IGW; security group web-sg | SP labs | — | — | concept tags | — | ✅ |
+| 15.15 | U15 · R/X | DHCP UDP 67/68, relay; ARP; ICMP (ping, traceroute TTL); DV (Bellman-Ford, count-to-infinity, split horizon, poison reverse, RIP); LS (Dijkstra table, OSPF); BGP | — | Bellman-Ford iterations, Dijkstra tables | DV exchange tables; Dijkstra tree | *(new)* | `dijkstra.py`, `bellman_ford.py`, raw ICMP ping | ✅ |
+| Q.1 | All · L | 17 quiz MCQs from the Study Pack (L01, L02, L03, L04, L08, L10 quizzes) | SP `4 - MCQs.md` | — | — | — | — | ✅ |
 
 **Totals:** 154 rows: 131 from class slides (S), 5 from labs/quizzes (L), 7 researched syllabus gaps (R), 8 GATE extras (X), and 3 mixed (R/X). Every row will get at least one practice question.
 
