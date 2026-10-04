@@ -584,6 +584,125 @@ window.UNITS["unit15"] = {
           explain: "<p>244 leaseable addresses (.11 to .254).</p>" }
       ]
     }
+    // =====================================================================================
+    ,{
+      id: "15-E",
+      title: "Lab walkthrough: Static NAT, publishing internal servers (CN_LAB_NAT_D)",
+      badge: "lab",
+      source: "Study Pack lab A7 CN_LAB_NAT_D (01 Oct; 3 - Coding & Lab Questions.md); RFC 3022",
+      covers: ["15.13"],
+      blocks: [
+        { type: "intuition", title: "A public phone extension that always rings one desk",
+          html: "<p><b>Analogy.</b> The college publishes three public numbers. Calls to 100.1.1.3 always ring the Office server's desk, 100.1.1.4 the Admin desk, and 100.1.1.5 the Staff desk. The mapping is printed in the directory, so it works for incoming calls as well as outgoing ones. Compare PAT, where an entry exists only after someone inside dials out.</p>" +
+                "<p><b>Definition (lab text, verbatim).</b> <i>Static NAT in a sentence: <code>ip nat inside source static &lt;private&gt; &lt;public&gt;</code> tells the router \"any packet arriving for &lt;public&gt; on the outside should go to &lt;private&gt; inside, and vice-versa.\" It's always one-to-one.</i> In RFC 3022 terms this is <b>Basic NAT with a static binding</b>. The router needs to know which interfaces are <b>inside</b> (the three VLAN subinterfaces) and which is <b>outside</b> (the WAN port Gi0/3). It translates only packets that cross from one to the other.</p>" },
+        { type: "callout", kind: "warning", title: "You scored 0/20 on this lab: the usual reasons it fails",
+          html: "<ol><li><b>Missing <code>ip nat inside</code></b> on one or more subinterfaces (Gi0/2.10, .20, .30), or <b>missing <code>ip nat outside</code></b> on Gi0/3. Without both roles the router never translates.</li><li><b>Static mappings typed in interface mode</b>. <code>ip nat inside source static</code> is a <b>global</b> command.</li><li><b>No default routes</b>. Router0 needs <code>ip route 0.0.0.0 0.0.0.0 100.1.1.2</code>, and the task list also asks Router1 for <code>ip route 0.0.0.0 0.0.0.0 100.1.1.1</code>.</li><li><b>Wrong cable</b> on Router0 Gi0/3 ↔ Router1 Gi0/0. The lab says to use a <b>crossover</b>.</li><li><b>Wrong mask</b> on the WAN: it is /29 = 255.255.255.248, not /24.</li><li><b>Not running <code>ipconfig</code> on every PC</b> before Run Tests. The grader checks the live DHCP lease state.</li></ol>" },
+        { type: "figure", caption: "CN_LAB_NAT_D topology. Inside: three VLANs on a trunk to Router0 Gi0/2. Outside: WAN 100.1.1.0/29 to Router1, and the external client PC6.",
+          html: "<svg viewBox='0 0 640 250' width='100%' role='img' aria-label='Static NAT lab topology'>" +
+                "<rect x='8' y='8' width='300' height='234' rx='10' fill='none' stroke='var(--ok)' stroke-dasharray='6 4'/><text x='18' y='26' fill='var(--ok)' font-size='12'>INSIDE (ip nat inside)</text>" +
+                "<rect x='330' y='8' width='302' height='234' rx='10' fill='none' stroke='var(--bad)' stroke-dasharray='6 4'/><text x='340' y='26' fill='var(--bad)' font-size='12'>OUTSIDE (ip nat outside)</text>" +
+                "<rect x='200' y='95' width='130' height='60' rx='8' fill='none' stroke='var(--warn)' stroke-width='2'/><text x='265' y='117' text-anchor='middle' fill='currentColor' font-size='13'>Router0</text><text x='265' y='134' text-anchor='middle' fill='var(--muted)' font-size='10'>Gi0/2.10/.20/.30</text><text x='265' y='148' text-anchor='middle' fill='var(--muted)' font-size='10'>Gi0/3 100.1.1.1/29</text>" +
+                "<rect x='40' y='100' width='120' height='40' rx='6' fill='none' stroke='var(--accent)' stroke-width='2'/><text x='100' y='124' text-anchor='middle' fill='currentColor' font-size='12'>ManagedSwitch0</text>" +
+                "<line x1='160' y1='120' x2='200' y2='120' stroke='var(--accent)' stroke-width='4'/><text x='164' y='112' fill='var(--accent)' font-size='10'>trunk</text>" +
+                "<text x='20' y='175' fill='currentColor' font-size='11'>VLAN 10 Office: Server0 10.0.10.2, PC0, PC1</text><text x='20' y='195' fill='currentColor' font-size='11'>VLAN 20 Admin: Server1 10.0.20.2, PC2, PC3</text><text x='20' y='215' fill='currentColor' font-size='11'>VLAN 30 Staff: Server2 10.0.30.2, PC4, PC5</text>" +
+                "<rect x='440' y='95' width='120' height='60' rx='8' fill='none' stroke='var(--warn)' stroke-width='2'/><text x='500' y='117' text-anchor='middle' fill='currentColor' font-size='13'>Router1</text><text x='500' y='134' text-anchor='middle' fill='var(--muted)' font-size='10'>Gi0/0 100.1.1.2/29</text><text x='500' y='148' text-anchor='middle' fill='var(--muted)' font-size='10'>Gi0/1 192.168.100.1/24</text>" +
+                "<line x1='330' y1='125' x2='440' y2='125' stroke='var(--muted)' stroke-width='3'/><text x='345' y='117' fill='currentColor' font-size='10'>crossover, WAN /29</text>" +
+                "<rect x='450' y='190' width='100' height='36' rx='6' fill='none' stroke='var(--accent)' stroke-width='2'/><text x='500' y='212' text-anchor='middle' fill='currentColor' font-size='11'>SW1 → PC6</text><line x1='500' y1='155' x2='500' y2='190' stroke='var(--muted)' stroke-width='2'/>" +
+                "<text x='345' y='60' fill='currentColor' font-size='11'>public: 100.1.1.3 → Server0</text><text x='345' y='76' fill='currentColor' font-size='11'>100.1.1.4 → Server1, 100.1.1.5 → Server2</text>" +
+                "</svg>" },
+        { type: "table", head: ["Segment", "Interface", "IP / mask", "DHCP pool", "Server (static) → public NAT IP", "Page text"],
+          rows: [
+            ["Office VLAN 10", "Router0 Gi0/2.10", "10.0.10.1 / 255.255.255.0", "OFFICE", "Server0 10.0.10.2 → <b>100.1.1.3</b>", "Office Server"],
+            ["Admin VLAN 20", "Router0 Gi0/2.20", "10.0.20.1 / 255.255.255.0", "ADMIN", "Server1 10.0.20.2 → <b>100.1.1.4</b>", "Admin Server"],
+            ["Staff VLAN 30", "Router0 Gi0/2.30", "10.0.30.1 / 255.255.255.0", "STAFF", "Server2 10.0.30.2 → <b>100.1.1.5</b>", "Staff Server"],
+            ["WAN (Router0)", "Router0 Gi0/3", "100.1.1.1 / 255.255.255.248", "none", "", ""],
+            ["WAN (Router1)", "Router1 Gi0/0", "100.1.1.2 / 255.255.255.248", "none", "", ""],
+            ["External LAN", "Router1 Gi0/1", "192.168.100.1 / 255.255.255.0", "EXTERNAL", "PC6 (DHCP)", ""] ],
+          caption: "Addressing from the lab sheet. Switch ports: Fa0/1 trunk; Fa0/2–4 VLAN 10 (Server0, PC0, PC1); Fa0/5–7 VLAN 20 (Server1, PC2, PC3); Fa0/8–10 VLAN 30 (Server2, PC4, PC5). VLAN names Office, Admin, Staff." },
+        { type: "derivation", title: "Why the WAN is a /29 and who gets which address",
+          steps: [
+            { tex: "32 - 29 = 3\\ \\text{host bits}", why: "A /29 fixes 29 bits; 3 bits remain for hosts." },
+            { tex: "2^3 = 8\\ \\text{addresses: } 100.1.1.0 \\text{ to } 100.1.1.7", why: "Each host bit doubles the block." },
+            { tex: "8 - 2 = 6\\ \\text{usable: } .1 \\text{ to } .6", why: ".0 is the network address and .7 is the broadcast." },
+            { tex: "\\text{mask} = 256 - 8 = 248 \\Rightarrow 255.255.255.248", why: "The last octet of the mask is 256 minus the block size." },
+            { tex: ".1 = \\text{Router0},\\ .2 = \\text{Router1},\\ .3/.4/.5 = \\text{NAT},\\ .6 = \\text{spare}", why: "The lab's hint: 2 router interfaces + 3 public NAT addresses = 5 of the 6 usable." } ] },
+        { type: "text",
+          html: "<p><b>Step-by-step configuration.</b> The lab is in 'discovery mode': it gives no commands, only <code>ip nat ?</code>, <code>ip route ?</code> and <code>ip nat inside source static ?</code> hints. Below is a complete Router0 configuration built from the lab's tasks 2, 3, 5, 6, 10 and 11, with the reason for each block.</p>" +
+                "<p><b>Step 1: ManagedSwitch0</b> (task 8). Create the VLANs, make the trunk, assign the access ports.</p><pre><code>vlan 10\n name Office\nvlan 20\n name Admin\nvlan 30\n name Staff\nexit\ninterface FastEthernet0/1\n switchport mode trunk\ninterface range FastEthernet0/2 - 4\n switchport mode access\n switchport access vlan 10\ninterface range FastEthernet0/5 - 7\n switchport mode access\n switchport access vlan 20\ninterface range FastEthernet0/8 - 10\n switchport mode access\n switchport access vlan 30\nend</code></pre><p>(If your simulator lacks <code>interface range</code>, configure each port one by one, as in lab A2.)</p>" +
+                "<p><b>Step 2: Router0 inside interfaces</b> (tasks 2 and 10). Bring the physical port up, then give each subinterface its VLAN tag, its gateway IP and the <b>inside</b> role.</p><pre><code>enable\nconfigure terminal\ninterface GigabitEthernet0/2\n no shutdown\n exit\ninterface GigabitEthernet0/2.10\n encapsulation dot1Q 10\n ip address 10.0.10.1 255.255.255.0\n ip nat inside\n exit\ninterface GigabitEthernet0/2.20\n encapsulation dot1Q 20\n ip address 10.0.20.1 255.255.255.0\n ip nat inside\n exit\ninterface GigabitEthernet0/2.30\n encapsulation dot1Q 30\n ip address 10.0.30.1 255.255.255.0\n ip nat inside\n exit</code></pre>" +
+                "<p><b>Step 3: Router0 outside interface</b> (tasks 3 and 10). This is the WAN port, with the /29 mask and the <b>outside</b> role.</p><pre><code>interface GigabitEthernet0/3\n ip address 100.1.1.1 255.255.255.248\n ip nat outside\n no shutdown\n exit</code></pre>" +
+                "<p><b>Step 4: default route on Router0</b> (task 5). Anything not inside goes to Router1.</p><pre><code>ip route 0.0.0.0 0.0.0.0 100.1.1.2</code></pre>" +
+                "<p><b>Step 5: DHCP pools on Router0</b> (task 6).</p><pre><code>ip dhcp pool OFFICE\n network 10.0.10.0 255.255.255.0\n default-router 10.0.10.1\n exit\nip dhcp pool ADMIN\n network 10.0.20.0 255.255.255.0\n default-router 10.0.20.1\n exit\nip dhcp pool STAFF\n network 10.0.30.0 255.255.255.0\n default-router 10.0.30.1\n exit</code></pre><p>Optional safety line on real IOS (not asked by the lab): <code>ip dhcp excluded-address 10.0.10.1 10.0.10.2</code> (and the same for .20 and .30), so that no PC is leased a server's static .2.</p>" +
+                "<p><b>Step 6: the three static NAT mappings</b> (task 11). These are <b>global</b> configuration commands, typed after leaving interface mode.</p><pre><code>ip nat inside source static 10.0.10.2 100.1.1.3\nip nat inside source static 10.0.20.2 100.1.1.4\nip nat inside source static 10.0.30.2 100.1.1.5\nend</code></pre>" +
+                "<p><b>Step 7: Router1</b> (tasks 4, 5 and 7).</p><pre><code>enable\nconfigure terminal\ninterface GigabitEthernet0/0\n ip address 100.1.1.2 255.255.255.248\n no shutdown\n exit\ninterface GigabitEthernet0/1\n ip address 192.168.100.1 255.255.255.0\n no shutdown\n exit\nip route 0.0.0.0 0.0.0.0 100.1.1.1\nip dhcp pool EXTERNAL\n network 192.168.100.0 255.255.255.0\n default-router 192.168.100.1\n exit\nend</code></pre>" +
+                "<p><b>Step 8: hosts</b> (tasks 9 and 12). Give Server0/1/2 their static IPs and gateways (10.0.x0.2/24, gw 10.0.x0.1), turn HTTP on and set the page texts 'Office Server', 'Admin Server' and 'Staff Server'. Set PC0–PC5 and PC6 to DHCP and run <code>ipconfig</code> on every one of them.</p>" +
+                "<p><b>Step 9: verify.</b> On Router0, <code>show ip nat translations</code> must list three static entries:</p><pre><code>Pro  Inside global   Inside local   Outside local   Outside global\n---  100.1.1.3       10.0.10.2      ---             ---\n---  100.1.1.4       10.0.20.2      ---             ---\n---  100.1.1.5       10.0.30.2      ---             ---</code></pre><p>Then check PC0 <code>ipconfig</code> → 10.0.10.0/24, gw 10.0.10.1; PC6 <code>ipconfig</code> → 192.168.100.0/24, gw 192.168.100.1; PC6 browser <code>http://100.1.1.3</code> → Office Server and <code>http://100.1.1.4</code> → Admin Server. While PC6 is browsing, extra <code>tcp</code> rows appear in the table showing PC6's address and port in the outside columns. If something fails, use <code>show ip interface brief</code> (are all interfaces up/up?) and <code>show running-config</code>.</p>" },
+        { type: "table", head: ["Hop", "Source", "Destination", "What happened"],
+          rows: [
+            ["1. PC6 → Router1", "192.168.100.2:1025", "100.1.1.3:80", "PC6 (first EXTERNAL lease, ephemeral port as an example) sends the HTTP SYN to its gateway"],
+            ["2. Router1 → Router0", "192.168.100.2:1025", "100.1.1.3:80", "100.1.1.3 is inside Router1's connected 100.1.1.0/29; Router0 answers ARP for the NAT addresses on Gi0/3"],
+            ["3. Router0 outside → inside", "192.168.100.2:1025", "<b>10.0.10.2</b>:80", "packet arrived on an <i>outside</i> interface for an inside-global address, so the destination is rewritten to the inside-local address and routed to Gi0/2.10 (VLAN 10)"],
+            ["4. Server0 reply → Router0", "10.0.10.2:80", "192.168.100.2:1025", "Server0 replies to its gateway 10.0.10.1"],
+            ["5. Router0 inside → outside", "<b>100.1.1.3</b>:80", "192.168.100.2:1025", "reply goes inside → outside, so the source is rewritten back to 100.1.1.3; default route via 100.1.1.2"],
+            ["6. Router1 → PC6", "100.1.1.3:80", "192.168.100.2:1025", "PC6 sees a reply from the address it contacted, so TCP accepts it"] ],
+          caption: "Packet walk for PC6 browsing http://100.1.1.3. Static NAT rewrites only IP addresses; the ports pass through unchanged." },
+        { type: "cheat", title: "Static NAT lab",
+          items: [ "Interface roles: <code>ip nat inside</code> on Gi0/2.10, Gi0/2.20, Gi0/2.30; <code>ip nat outside</code> on Gi0/3.",
+                   "Global mappings: <code>ip nat inside source static 10.0.10.2 100.1.1.3</code>, <code>10.0.20.2 100.1.1.4</code>, <code>10.0.30.2 100.1.1.5</code>.",
+                   "Defaults: Router0 <code>ip route 0.0.0.0 0.0.0.0 100.1.1.2</code>; Router1 <code>ip route 0.0.0.0 0.0.0.0 100.1.1.1</code>.",
+                   "100.1.1.0/29: mask 255.255.255.248, 8 addresses, 6 usable (.1–.6), broadcast .7.",
+                   "Verify: <code>show ip nat translations</code> (3 static rows), <code>show ip interface brief</code>.",
+                   "Inside local = private (10.0.10.2); inside global = public (100.1.1.3)." ] },
+        { type: "worked", title: "Debug the classic half-working lab", tag: "University-Midsem-style",
+          problem: "<p>After configuring the lab, PC6 loads <code>http://100.1.1.3</code> (Office Server) but <code>http://100.1.1.4</code> times out. <code>show ip nat translations</code> lists all three static entries. Which single missing line explains this, and what exactly happens to the packets?</p>",
+          steps: [
+            { text: "The mappings exist and VLAN 10 works, so the WAN, the default routes, Gi0/3 <code>ip nat outside</code> and Gi0/2.10 are all fine.", why: "Rule out everything that the working 100.1.1.3 path already uses." },
+            { text: "Suspect Gi0/2.20, VLAN 20's subinterface. If it lacks <code>ip nat inside</code>, the SYN from PC6 is still translated on the way in (it arrives on an outside interface, so its destination becomes 10.0.20.2), and Server1 receives it.", why: "The outside-to-inside rewrite is triggered by the interface the packet arrives on." },
+            { text: "Server1's SYN-ACK enters Router0 on Gi0/2.20, which has no NAT role. The router does not translate it, so the reply leaves Gi0/3 with source 10.0.20.2 instead of 100.1.1.4.", why: "Inside-to-outside translation only happens for packets that come in on an interface marked inside." },
+            { text: "PC6 receives a SYN-ACK from 10.0.20.2, which does not match its connection to 100.1.1.4, so it is discarded and the browser times out.", why: "TCP matches segments by the full 4-tuple." },
+            { text: "Fix: <code>interface GigabitEthernet0/2.20</code> → <code>ip nat inside</code>. Then confirm with the PC6 browser.", why: "This is exactly the lab's own hint: check the mapping or the Gi0/2.20 subinterface configuration." } ],
+          answer: "<b>Gi0/2.20 is missing <code>ip nat inside</code></b>. The request is translated, but the reply leaves untranslated (source 10.0.20.2), so PC6 drops it." },
+        { type: "code", file: "Unit15_lpm_ipaddress.py", level: "high", title: "Check the /29 arithmetic (and APIPA) with ipaddress",
+          note: "Asserts mask 255.255.255.248, hosts 100.1.1.1–100.1.1.6 and broadcast 100.1.1.7. Unit15_pat_nat.py part 4 prints the three ip nat inside source static lines." },
+        { type: "traps",
+          items: [ "<code>ip nat inside</code> and <code>ip nat outside</code> are <b>interface</b> commands. <code>ip nat inside source static</code> is <b>global</b>.",
+                   "Order inside <code>ip nat inside source static</code>: <b>private first, public second</b>.",
+                   "A /29 has 6 usable addresses, not 8. The router IPs .1 and .2 use two of them, which leaves .3–.6.",
+                   "Static NAT is one-to-one and works for <b>inbound</b> connections. PAT (<code>overload</code>) would not let PC6 reach the servers.",
+                   "Router0's subinterfaces are inside; Gi0/2 itself has no IP and no NAT role.",
+                   "A router-to-router link in this simulator needs a <b>crossover</b> cable." ] }
+      ],
+      practice: [
+        { id: "u15-E-1", type: "num", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>How many usable host addresses does the WAN subnet 100.1.1.0/29 have? (Integer.)</p>",
+          answer: 6, tol: 0, unit: "hosts", verify: "2**(32-29) - 2",
+          steps: [ { tex: "2^{32-29} = 8", why: "3 host bits." }, { tex: "8 - 2 = 6", why: "Minus the network (.0) and broadcast (.7) addresses." } ],
+          explain: "<p>.1–.6: Router0, Router1, three NAT IPs and one spare.</p>" },
+        { id: "u15-E-2", type: "text", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>Write the dotted-decimal subnet mask for /29.</p>",
+          answer: "255.255.255.248", verify: "'255.255.255.' + str(256 - 2**3)",
+          explain: "<p>Block size 8, so the last octet is 256 − 8 = 248.</p>" },
+        { id: "u15-E-3", type: "text", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>Write the exact IOS global command that publishes Server2 (10.0.30.2) at its public address in this lab.</p>",
+          answer: "ip nat inside source static 10.0.30.2 100.1.1.5",
+          explain: "<p>Private first, then public. Server2 is in Staff VLAN 30 and maps to 100.1.1.5.</p>" },
+        { id: "u15-E-4", type: "mcq", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>On Router0, which interface gets <code>ip nat outside</code>?</p>",
+          options: ["GigabitEthernet0/2", "GigabitEthernet0/2.10", "GigabitEthernet0/3", "Router1 GigabitEthernet0/0"], answer: 2,
+          why: ["The physical trunk port carries inside VLANs and has no IP.", "That subinterface is an inside interface.", "Correct: the WAN port 100.1.1.1/29 faces Router1 and the outside world.", "Router1 does no NAT in this lab."],
+          explain: "<p>Inside: Gi0/2.10, .20, .30. Outside: Gi0/3.</p>" },
+        { id: "u15-E-5", type: "msq", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>Which statements about this lab's static NAT are true? (Select all that apply.)</p>",
+          options: ["PC6 can open a connection to 100.1.1.4 without any inside host sending first", "All three servers could share 100.1.1.3 with plain static NAT", "show ip nat translations shows the three static entries even before any traffic", "The inside global address of Server0 is 100.1.1.3", "Static NAT rewrites the TCP port numbers"], answer: [0, 2, 3],
+          why: ["Static mappings are permanent, so inbound connections work. That is the whole point of publishing servers.", "Sharing one public IP needs ports (PAT or port forwarding); static NAT is one-to-one.", "Static entries are configured, not learned.", "Inside global = the public address used for the inside host.", "Plain static NAT changes only the IP addresses."],
+          explain: "<p>One-to-one, permanent, address-only translation.</p>" },
+        { id: "u15-E-6", type: "mcq", tag: "University-Midsem-style", topic: "15.13",
+          q: "<p>Everything is configured except the default route on Router0. What happens when PC6 browses http://100.1.1.3?</p>",
+          options: ["It works, because Router1 has a default route", "The request reaches Server0, but Router0 has no route to 192.168.100.0/24 for the reply, so it fails", "Router0 drops the request because it cannot translate", "PC6 gets an APIPA address"], answer: 1,
+          why: ["Router1's route helps only the forward direction.", "Correct. The reply to 192.168.100.2 needs a route out of Gi0/3; with no default route and no specific route, Router0 drops it.", "Translation does not depend on the routing table for the inbound rewrite.", "PC6 is served by Router1's EXTERNAL pool and is unaffected."],
+          explain: "<p>Both directions need routes. Hence the lab's task 5: default routes on <b>both</b> routers.</p>" }
+      ]
+    }
     // @@NEXT@@
   ]
 };

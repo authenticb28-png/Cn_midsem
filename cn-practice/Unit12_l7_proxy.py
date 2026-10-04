@@ -4,7 +4,7 @@ COVERAGE ids: 12.3, 12.5, 12.6, 12.2
 Source: SL-L12 p10 (ALB path rules /api/* -> TG: api, /web/* -> TG: web), p13 (ALB is HTTP-aware; source IP
         reaches the backend "via headers"), p15-17 (target groups, GET /health, automatic removal);
         AWS ALB docs (round robin default, X-Forwarded-For header, HTTP 503 when a target group has no
-        healthy targets); RFC 9110 (HTTP semantics).
+        registered targets); RFC 9110 (HTTP semantics).
 
 Run:    python3 Unit12_l7_proxy.py
 
@@ -122,6 +122,9 @@ def make_proxy(rules):
                 return self.reply(404, b"no listener rule matches this path")   # ALB default action
             port = tg.pick()
             if port is None:
+                # Simplification: a real ALB "fails open" when every registered target is unhealthy
+                # (it then sends traffic to all of them) and answers 503 only when the group has no
+                # registered targets. Returning 503 here makes the empty healthy set visible.
                 return self.reply(503, b"no healthy targets in " + tg.name.encode())
             up = http.client.HTTPConnection("127.0.0.1", port, timeout=2)
             up.request("GET", self.path, headers={"X-Forwarded-For": self.client_address[0],

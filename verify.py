@@ -64,7 +64,8 @@ SAFE = {"math": math, "int": int, "float": float, "round": round, "min": min, "m
 def safe_eval(expr):
     if "__" in expr or "import" in expr or "open(" in expr:
         raise ValueError("forbidden token")
-    return eval(expr, {"__builtins__": {}}, dict(SAFE))
+    g = dict(SAFE); g["__builtins__"] = {}
+    return eval(expr, g)   # builtins as globals so generator expressions and lambdas can see them
 
 def norm_text(s):
     s = re.sub(r"\s+", " ", str(s).strip().lower())
