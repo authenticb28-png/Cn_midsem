@@ -216,6 +216,8 @@
     if (!/^[-+]?(\d+\.?\d*|\.\d+)(e[-+]?\d+)?$/i.test(t)) return NaN;
     return parseFloat(t);
   }
+  /* `unit` is either a measurement unit ("ms") or, on mock questions, a course unit id ("unit09") */
+  function mu(q) { return q.unit && !/^unit\d{2}$/.test(q.unit) ? q.unit : ""; }
   function grade(q, given) {
     if (q.type === "mcq") return given === q.answer;
     if (q.type === "msq") {
@@ -240,7 +242,7 @@
         return '<li class="' + (ok ? "ok" : "no") + '"><b>' + String.fromCharCode(65 + i) + (ok ? " ✔" : " ✘") + "</b> " + (q.why[i] || "") + "</li>";
       }).join("") + "</ul>";
     } else if (q.type === "num") {
-      h += '<p><b>Answer:</b> ' + q.answer + (q.unit ? " " + esc(q.unit) : "") + (q.tol ? ' <span class="muted">(accepted ±' + q.tol + ")</span>" : "") + "</p>";
+      h += '<p><b>Answer:</b> ' + q.answer + (mu(q) ? " " + esc(mu(q)) : "") + (q.tol ? ' <span class="muted">(accepted ±' + q.tol + ")</span>" : "") + "</p>";
     } else if (q.type === "text") {
       h += '<p><b>Answer:</b> <code>' + esc(q.answer) + "</code>" + (q.accept && q.accept.length ? ' <span class="muted">(also accepted: ' + q.accept.map(esc).join(", ") + ")</span>" : "") + "</p>";
     } else if (q.type === "write") {
@@ -266,7 +268,7 @@
         return '<label class="opt"><input type="' + t + '" name="' + name + '" value="' + i + '"> <span class="ol">' + String.fromCharCode(65 + i) + ".</span> <span>" + o + "</span></label>";
       }).join("") + "</div>";
     }
-    if (q.type === "num") return '<div class="ans-row"><input class="ans" type="text" inputmode="decimal" placeholder="number' + (q.unit ? " (" + esc(q.unit) + ")" : "") + '"> ' + (q.unit ? '<span class="muted">' + esc(q.unit) + "</span>" : "") + "</div>";
+    if (q.type === "num") return '<div class="ans-row"><input class="ans" type="text" inputmode="decimal" placeholder="number' + (mu(q) ? " (" + esc(mu(q)) + ")" : "") + '"> ' + (mu(q) ? '<span class="muted">' + esc(mu(q)) + "</span>" : "") + "</div>";
     if (q.type === "text") return '<div class="ans-row"><input class="ans wide" type="text" placeholder="your answer"></div>';
     if (q.type === "write") return '<textarea class="ans code-in" rows="10" spellcheck="false" placeholder="Write your Python here">' + esc(q.starter || "") + "</textarea>";
     return "";
