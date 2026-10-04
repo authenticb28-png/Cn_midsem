@@ -1,0 +1,395 @@
+OSI and TCP/IP
+   Models
+
+ Computer Networks
+                     1
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+RECAP
+
+     Packet > Circuit Switching                           Store-and-Forward Rule
+
+ Data is split into chunks, sharing links             Routers must fully receive, verify, and buffer an
+
+ dynamically. Far more efficient for bursty traffic   entire packet before pushing the first bit to the
+
+ than reserving idle, dedicated paths.                next hop in the journey.
+
+
+
+
+     The Anatomy of Delay                                     Throughput & Bottlenecks
+
+ Every packet ensures Processing, Queuing,            Your end-to-end speed isn't your ISP plan, it's
+ Transmission (pushing bits), and Propagation         strictly capped by the single slowest bottleneck
+ (physical travel) times.                             link in your entire network path.
+
+                                                                                                          3
+Objective of Today’s Class
+
+
+
+         How data travels across the network
+
+
+
+
+                                               4
+Sending a Letter
+
+You write it, put it in an envelope,
+and hand it to the postal service.
+
+Does the mail carrier care about
+the letter's contents?
+
+                No
+What if they do?
+
+
+
+                                       5
+Concept of Layering
+
+
+
+
+                      6
+Let’s Send a letter:
+
+
+
+
+                       7
+Encapsulation
+
+
+
+
+                8
+Ever seen this toy?
+Encapsulation acts like a nesting
+doll. As data moves down the
+sender's stack, each layer wraps
+the data above with its own
+header.
+
+On the receiver's side,
+decapsulation reverses the
+process: each layer strips its
+specific header and hands the
+payload up.
+
+                                    9
+Can you see Encapsulation?
+
+
+
+
+                             10
+Theoretical Concept of Layering in
+      Computer Networks
+
+
+
+                                     11
+The OSI Model
+
+  The OSI (Open Systems Interconnection)
+  model divides network communication
+  into layers to simplify the process.
+
+  Developed by the ISO (International
+  Organization for Standardization).
+
+  Think of the OSI model as wrapping a gift -
+  you add layers of wrapping (gift paper,
+  box, ribbon) going out, and unwrap them
+  in reverse order when received.
+
+
+                                                12
+Why Learn the OSI Model?
+
+ Every app you use: WhatsApp, games, Netflix, runs on
+ it. Learn it once, and the internet stops being magic.
+ One map for a messy problem: it splits "send data
+ across the world" into 7 clean layers.
+ The industry's shared language: "that's a Layer 4 issue",
+ know what it means, sound like a pro in interviews..
+ Foundation for everything: cybersecurity, cloud, AI
+ infra, backend: all built on these 7 layers.
+
+
+
+                                                             13
+Importance
+  Provides a standard for network communication.
+  Ensures interoperability between different systems and devices.
+
+
+
+
+                                                                    14
+Layer 7- Application Layer
+
+
+
+
+ Data
+
+
+
+                             15
+Layer 7- Application Layer
+ Restaurant                      Waiter
+              Chef
+
+                       Request
+
+
+
+
+     Waiter
+                     Response
+                                          Customer
+
+                                                     16
+Layer 7- Application Layer
+  The Application Layer delivers network
+  services directly to end-users and
+  facilitates applications such as web
+  browsers, email, and file transfers.
+
+  Think of the Application Layer as a
+  waiter in a restaurant: it takes your
+  order (user request), relays it to the                   Request      ...
+                                             Application
+  kitchen (network), and returns with          Layer                   www
+  your food (data). Its role is to connect                 Response
+  the user to the service efficiently.                                Website
+
+
+
+
+                                                                                17
+Layer 6- Presentation Layer
+
+
+
+
+          Beautification
+(you want it be presented likewise )
+                                       Translation       Encryption
+                                       (your system want it be likewise )
+                                                                            18
+Layer 6- Presentation Layer
+
+  The Presentation Layer formats,
+  encrypts, and compresses data to
+  ensure it is readable and secure for
+  the receiving application.              ASCII text to    Encoding images
+                                          unicode          based on type:
+                                          zip and unzip       PNG
+  The Presentation Layer is like a        Encryption and      JPEG
+                                                              GIF
+  translator who converts, formats, and   decryption
+
+  secures messages so that both sender
+  and receiver can understand each
+  other, even if they "speak different
+  languages."
+
+
+                                                                             19
+Layer 5- Session Layer
+                              Like a Courtroom:
+                         Judge saying: Order! Order!
+                          and continuity of sessions
+
+
+                                 Dialog Control
+
+
+
+
+                                Synchronization
+
+
+                                                       20
+Layer 5- Session Layer
+  The    Session    Layer establishes,
+  manages,         and     terminates
+  communication sessions between two         Session Layer
+  devices in a network.
+
+  The Session Layer is like a moderator
+  in a panel it starts the call, keeps the
+  connection going smoothly, and ends
+  it when you're done. It manages the
+  conversation between two systems.
+
+
+
+
+                                                             21
+Layer 4- Transport Layer
+
+
+      Message                 Reassembled Message
+
+
+
+
+Encapsulated with detailed
+src and destination address          Receiver
+                                                    22
+Layer 4- Transport Layer
+  The Transport Layer ensures
+  reliable and efficient delivery of
+  data between two devices over a
+  network.
+
+  Imagine multiple conversations
+  happening over the same phone
+  line multiplexing ensures each
+  message    reaches   the  right
+  recipient.
+
+
+                                       23
+Layer 3- Network Layer
+
+
+
+
+    Navigation       Send Packets from Point A->B
+
+
+                                                    24
+Layer 3- Network Layer
+
+ The Network Layer is responsible for
+ logical addressing and forwarding of
+ data packets across different networks.
+ The Network Layer is like a GPS system
+ that finds the best route for delivery
+ trucks (data packets) to reach the
+ destination.
+ It handles addressing and routing,
+ just like choosing best roads to reach
+ the right destination fastest and
+ secure.
+
+
+                                           25
+Layer 2- Data Link Layer
+
+
+
+
+    Error Check            Media access Control
+                              One at a time!
+
+                                                  26
+Layer 2- Data Link Layer
+
+ The Data Link Layer ensures reliable
+ data transfer between two directly
+ connected nodes(edge) and handles
+ error detection and MAC addressing.
+
+ It ensures data is sent safely and
+ correctly  between   two    directly
+ connected devices.
+
+
+
+
+                                        27
+Layer 1- Physical Layer
+     0
+ 1       1
+     0
+
+
+
+
+     Co-axial Cable   Fiber Optic Cable   Radio Waves
+
+
+                                                        28
+Layer 1- Physical Layer
+
+  Physical Layer transmits raw bits
+  over a physical medium such as
+  cables, radio waves, or fiber optics.
+
+  Physical Layer is like the roads, wires,
+  or signals the postman uses to move
+  around.
+
+
+
+
+                                             29
+The Practical Foundational Framework
+             TCP/IP Model
+
+
+
+                                       30
+Introduction to TCP/IP Model
+
+
+ The TCP/IP model is a layered
+ framework that defines how data
+ is transmitted over the internet
+ using standard protocols like TCP
+ and IP.
+
+
+
+
+                                     31
+Comparison b/w OSI & TCP/IP
+
+   S No.                   OSI Model                                TCP/IP Model
+
+
+           Open System Interconnection                Transmission Control Protocol/ Internet
+    1
+                                                      Protocol
+
+
+    2      7 different layers                         4 different layers
+
+
+           Developed by ISO (International Standard   Developed by DARPA (Defense Advanced
+    3
+           Organisation)                              Research Projects Agency)
+
+
+                                                      Used in actual data transmission
+    4      Conceptual Model
+                                                      between different computers.
+
+
+
+                                                                                                32
+Thanks
+for
+watching!
+
+            33
+Please fill the feedback form.
+
+
+
+
+                                 34
+

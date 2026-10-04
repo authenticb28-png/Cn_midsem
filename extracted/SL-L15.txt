@@ -1,0 +1,287 @@
+NAT, PAT & DHCP — and
+How VPC Route Tables
+Wire It Together
+
+  by Vikas Kumar
+  CSAI Computer Networks
+Join the lecture online on your dashboard
+Recap
+Subnetting
+
+
+
+
+             02
+How Does Your Phone Browse on a Private IP?
+
+
+
+  Private subnets can't be reached from the Internet.
+
+
+  Yet your phone on home WiFi has a private IP…
+
+
+  …and still loads every website just fine.
+
+
+
+
+                                                        02
+           NAT
+Rewriting addresses at the border.
+What Does NAT Actually Do?
+
+ On the way out, the router swaps the private
+ source IP for a public one.
+ On the way back, it reverses the swap, restoring
+ the private IP.
+
+
+
+
+                   The reply only finds its way home because the router remembers the swap.
+
+                                                                                              05
+Ten Devices, One Public IP — All at Once?
+
+
+
+
+           Everyone streaming, scrolling, gaming — through a single address. How?
+
+                                                                                    03
+            PAT
+Rewriting addresses at the border.
+PAT- Port Address Translation
+
+ Add the port number to the translation — not
+ just the IP.
+ One public IP can now serve many hosts at
+ the same time.
+ This is exactly what your home router
+ does every second.
+
+
+
+
+                      Same public IP, a different port each — that is the whole trick.
+
+                                                                                         06
+What's Inside the Translation Table?
+
+
+
+
+      Two hosts reused port 51000 — the outside port is the key that routes each reply home.
+
+                                                                                               07
+What Do We Gain, What Do We Break?
+
+
+We gain                                           We break
+
+
+ Conserves scarce public IPv4 addresses.           End-to-end reachability is gone.
+
+ Hides internal hosts — a security side-effect.    Inbound now needs explicit setup.
+
+
+
+
+                                                                                       08
+Two laptops behind one home IP both open the same
+website. What field lets the NAT box tell their replies
+                         apart?
+
+               The port number — that's PAT.
+
+
+
+
+                                                          09
+           DHCP
+Addresses, handed out automatically.
+Who Configures Every New Device?
+
+Nobody types IP settings by hand. One DHCP lease delivers four things at once:
+
+
+
+
+                       A lease expires — so addresses get renewed and recycled over time.
+
+                                                                                            11
+Meet DORA: The Four-Step Handshake
+
+
+
+
+          Discover and Request are broadcasts — the whole subnet hears them.
+
+                                                                               12
+What Does DORA Look Like on the Wire?
+
+ Capture on any subnet and you'll see
+ the four frames.
+ Discover and Request go to
+ 255.255.255.255.
+ The address comes from a Lecture
+ 14 subnet range.
+
+
+
+
+                         The clearest broadcast handshake you'll capture all term.
+
+                                                                                     13
+Routing Tables
+  The decision at every hop.
+What Is a Route Table, Really?
+
+
+  Just a list: destination prefix   → next hop.
+  The router checks it for every single packet.
+  The most specific match wins — longest-
+  prefix match.
+
+
+
+
+                  No magic — a lookup table the router reads by specificity, top match wins.
+
+                                                                                               15
+Where Does "Everything Else" Go?
+
+  0.0.0.0/0 is the default route — the catch-all.
+
+
+  When prefixes overlap, the longest one wins.
+
+
+  So where does a packet to 10.0.1.55 go?
+
+
+
+
+                      Specificity beats generality — the longest prefix wins, every time.
+
+                                                                                            16
+The AWS Picture
+IGW, NAT Gateway & VPC route tables.
+How Does a VPC Touch the Internet (IGW)?
+
+
+ An IGW attaches your VPC to the Internet.
+
+
+ A public subnet routes 0.0.0.0/0   → IGW.
+ Its instances can be reached both ways.
+
+
+
+
+                           "Public subnet" simply means: has a route to the IGW.
+
+                                                                                   18
+How Does a VPC Touch the Internet (IGW)?
+
+
+
+
+               "Public subnet" simply means: has a route to the IGW.
+
+                                                                       18
+How Does a VPC Touch the Internet (IGW)?
+
+
+
+
+                                           18
+Outbound Only — The NAT Gateway
+ The NAT Gateway lives in a public subnet.
+ A private subnet routes 0.0.0.0/0   → NAT GW.
+ Instances get updates out — but stay
+ unreachable in.
+
+
+
+
+                             Updates flow out; attackers can't flow in.
+
+                                                                          19
+Outbound Only — The NAT Gateway
+
+
+
+
+              Updates flow out; attackers can't flow in.
+
+                                                           19
+Public vs. Private Route Table — Spot the Difference
+
+
+
+
+      Same VPC. One word in one row changes who reaches the Internet — and who reaches you.
+
+                                                                                              20
+A private-subnet server needs OS updates but must
+never accept inbound connections. Which gateway,
+                  and what route?
+
+
+            NAT Gateway · 0.0.0.0/0 → NAT GW
+
+
+
+
+                                                    21
+Activity: Be the NAT Box
+ Five minutes. One translation table. Everyone plays.
+Be the NAT Box — Then Break It
+
+1   Cast the room: one NAT router at the board, four inside hosts with private IPs, instructor = the Internet.
+
+2   Each host sends a request card; the NAT student rewrites source   → one public IP + a unique port, and logs it.
+3   Replies come back to the public IP + port — route each one home using only the table.
+
+4   The twist: reuse a port on purpose   → collision → feel exactly why every mapping must be unique.
+
+
+
+
+                  Same logic you just performed runs as the AWS NAT Gateway in the console.
+
+                                                                                                                      23
+Key Takeaways
+
+  NAT/PAT lets many private hosts share one public IP by rewriting address + port — the
+  reason your whole house browses through one ISP address.
+
+  DHCP (DORA) auto-leases address + mask + gateway + DNS from your subnet's
+  range.
+  In AWS the route table is the switch: 0.0.0.0/0   → IGW makes a subnet public; 0.0.0.0/0 →
+  NAT GW gives a private subnet outbound-only Internet.
+
+
+
+
+                                                                                               24
+Next Up: ICMP, then IPv6
+
+  We've leaned on ping & traceroute all term — they ride on
+  ICMP.
+
+  Next: ICMP properly, and the diagnostics it
+  powers.
+  Then IPv6 — the long-term answer to the exhaustion that
+  made NAT necessary.
+
+
+
+
+                                                              25
+Please fill the feedback form.
+Thank You
+

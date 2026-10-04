@@ -1,0 +1,425 @@
+Application Layer:
+Architecture,
+Protocols and
+APIs.
+CSAI321:Computer Networks
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+Lecture Roadmap
+
+
+   Network Architectures       The Evolution of HTTP
+   Application Layer
+                               Head-of-Line (HoL) Blocking
+   HTTP - The Web's Language
+                               HTTP2.0 and HTTP3.0
+   HTTP Methods Overview
+                               REST Principles
+
+
+
+
+                                                             3
+Network architecture
+
+
+
+
+                       4
+Network architecture
+
+
+
+
+  Client/Server: Centralized architecture where powerful servers store data
+  and process requests for multiple dependent clients.
+                                                                              5
+Network architecture
+
+
+
+
+  Peer-to-Peer (P2P): Decentralized model where all devices ("peers") act as
+  both clients and servers with equal privileges
+                                                                               6
+How do these systems actually talk to each other over the network?
+
+                                                                     7
+Recap
+
+
+
+
+        8
+The Application Layer
+
+
+
+
+                        9
+ The Application Layer
+
+
+
+
+The Application Layer (Layer 7) is direct interface between software programs (web
+browsers and email clients) and the underlying network, interpreting user
+commands and enabling data exchange across systems.
+
+                                                                                     10
+The Application Layer Protocols
+
+
+
+
+                                  11
+HTTP: The Web’s Language
+
+
+
+
+                           12
+HTTP - The Web's Language
+
+HTTP is a stateless request–response protocol.
+
+   Client (browser) sends a REQUEST to a
+   server.
+   Server processes and sends back a
+   RESPONSE.
+   Each exchange is independent the server
+   remembers nothing between requests.
+
+
+
+                                                 13
+Breakdown of HTTP Requests
+
+   These messages are structured in a     HTTP Request
+   way       that      includes      a
+   request/response    line,   headers,
+   and optionally, a body.                Request Line
+
+                                            Headers
+
+                                             Body
+
+                                                         14
+HTTP Requests Breakdown:
+                                Request message
+
+
+          Request      GET /index.html HTTP/1.1
+             Line
+                       Host: example.com
+          Headers      User-Agent: Chrome
+                       Accept-Language: en-us
+                       ...
+        Empty Line
+
+             Body      optional, e.g. form data, json for
+                       POST, PUT reqs
+
+
+
+                                                            15
+HTTP Requests Breakdown:
+Request Line:
+   The request line contains three parts:
+      Method: The type of operation the client wants the server to perform (e.g.,
+      GET, POST, PUT, DELETE).
+      URL: The resource or endpoint on the server that the client is requesting
+      (e.g., /index.html, /api/data).
+      HTTP Version: The version of HTTP being used (e.g., HTTP/1.1 or HTTP/2).
+   Example:
+      GET /index.html HTTP/1.1
+
+                                                                                    16
+HTTP Requests Breakdown:
+Headers:
+   Headers provide additional information about the request or about the client’s
+   capabilities
+   Common headers include:
+      User-Agent: Information about the client software (browser, app, etc.)
+      Host: The domain name of the server
+      Content-Type: The type of data the client is sending (for POST or PUT
+      requests)
+      Accept: The types of data the client can process (e.g., text/html,
+      application/json)
+
+                                                                                    17
+HTTP Requests Breakdown:
+
+ Body (optional):
+    The body contains the actual data being sent by the client (such as form
+    data, JSON payload, etc.).
+    This is only included for certain methods like POST, PUT, or PATCH.
+
+
+ Example (for POST request):
+ { "username": "user1", "password": "password123" }
+
+
+
+
+                                                                               18
+Breakdown of HTTP Responses
+
+                                         HTTP Response
+
+  These messages are structured in a
+  way       that      includes      a
+                                          Status Line
+  request/response    line,   headers,
+  and optionally, a body.
+                                           Headers
+
+                                             Body
+
+                                                         19
+HTTP Responses Breakdown:
+                               Response message
+
+
+        Status Line    HTTP/1.1 200 OK
+
+                       Content-Type: text/html
+          Headers      Content-Length: 88
+                       Server: Apache/2.4.2
+                       ...
+        Empty Line
+
+             Body      <html><body><h1>Welcome to
+                       Example.com</h1></body></html>
+
+
+
+                                                        20
+HTTP Status codes:
+ 1. 200 OK – The request was successful, and the
+  server returned the requested resource.
+ 2. 301 Moved Permanently – The resource has
+  been permanently moved to a new URL.
+ 3. 302 Found – Temporary redirection to
+  another URL.
+ 4. 403 Forbidden – The server understood the
+  request but refuses to authorize it.
+ 5. 404 Not Found – The server can’t find the
+  requested resource.
+ 6. 500 Internal Server Error
+                                                   21
+HTTP Responses Breakdown:
+Status Line:
+   The status line consists of:
+      HTTP Version: The HTTP version used in the response.
+      Status Code: A 3-digit code indicating the result of the request (e.g.,
+      200, 404, 500).
+      Status Message: A short description of the status code (e.g., OK, Not
+      Found, Internal Server Error).
+Example:
+HTTP/1.1 200 OK
+
+
+                                                                                22
+HTTP Response Message Breakdown:
+Headers:
+   Response headers contain metadata about the response, similar
+   to request headers.
+   Common headers include:
+      Content-Type: The type of data being sent in the body (e.g.,
+      text/html, application/json).
+      Content-Length: The length of the body in bytes.
+      Server: Information about the server software.
+      Date: The date and time the response was sent.
+
+               Same goes with the BODY for the response. It is similar to request BODY
+                                                                                         23
+If HTTP is stateless, how does your shopping
+                 cart stay full?
+
+
+               Cookies & Session tokens!
+                                               24
+         HTTP Generations
+
+The transition from HTTP/1.0 to HTTP/3
+
+
+                                         25
+The Online Shopping
+ Delivery Problem
+
+
+Imagine you order a male outfit
+online: A Shirt, Pants, Shoes, and
+Socks (these are your HTML, CSS,
+JS, and Images which we request
+from server).
+How you perfer to have its delivery?
+
+
+
+ Our perfrence is answer to the why of HTTP versions.
+
+                                                        27
+Meet – HTTP/1.0 (1996)
+HTTP 1.0 is the truck can only carry one item per
+trip, and must return to HQ before delivering
+the next item. A massive waste of time.
+
+  Carries one request at a time.
+  Every file (HTML, image, CSS) = new
+  connection.
+   ❌  No persistent TCP connection.
+   ❗  Slow, repetitive, and inefficient.
+Quote:
+  “I deliver one file at a time. It can get tiring!
+Meet – HTTP/1.1 (1997)
+
+The One-Truck Convoy (Keep-Alive): Truck
+arrives at your house with all 4 items but
+Unloads/Deliver it One by One.
+    Introduced:
+        Keep-Alive connections
+        Caching and Host Headers
+    Improved performance but had head-of-line
+    blocking.
+
+
+
+https://captive.apple.com
+Meet – HTTP/1.1 (1997)
+
+
+
+ ONE CONNECTION · responses must exit in order (FIFO) →
+
+
+    slow image   ⌛         CSS        JS        icon      ← all blocked, even though they’re ready
+HTTP/1.1 Pipelining (optional)
+   Responses must arrive in the same order as
+   requests (FIFO - First In, First Out)
+   Only safe methods can be pipelined (GET,
+   HEAD, OPTIONS)
+   No POST/PUT - these might have side effects
+   as they alter the state of destination.
+
+Quote:
+ “Multiple requests can be made without waiting
+for response for previous request”
+Meet – HTTP/2 (2015)
+Instead of serving your meal one by one. I will
+Prefer to serve you entire tray and now you
+choose what to eat.
+
+   HTTP/2 is the second major version of
+   HTTP, aimed at enhancing data transfer
+   performance between clients and servers.
+
+   It improves upon HTTP/1.1 by addressing
+   its limitations, particularly in terms of
+   performance.
+https://en.wikipedia.org/wiki/HTTP_pipelining
+HTTP/2
+
+
+
+
+       Binary Protocol | Multiplexing | Server Push
+   https://manningbooks.medium.com/http-1-1-vs-http-2-vs-http-2-with-push-91f7d497ddbe
+HTTP/2 Solutions
+HTTP/2 Features:
+
+   Uses single TCP connection.
+   Binary Protocol: Uses a binary format for message
+   encoding, unlike the text-based HTTP. That is the
+   framing layer.
+   Multiplexing: Enables simultaneous requests and
+   responses over one connection.
+   Server Push: Allows servers to send resources to
+   clients proactively without explicit requests.
+What if a service like this?
+
+
+
+
+You order 3 item at restro and their entire staff started serving only you and
+everything you ordered is having their seperate kitchen window and dedicated
+staffs.
+HTTP/3 using QUIC (June 2022)
+HTTP/3 Features:
+
+    Latest version of the HTTP protocol
+    Built on QUIC, a UDP-based transport
+    protocol instead of TCP developed by
+    Google
+    Multiplexed streams without blocking
+    Designed to solve head-of-line blocking
+
+
+
+
+cloudflare.com
+HTTP/3 using QUIC (June 2022)
+
+
+
+
+cloudflare.com
+HTTP/3 using QUIC (June 2022)
+Transition
+
+       HTTP/1.1                        HTTP/2                         HTTP/3
+       6separateTCP connections        Manystreams multiplexed        streams
+       to fake parallelism             on one TCP connection          QUICover UDP — truly
+                                                                      independent
+
+
+
+
+                                                                                        only this
+                                                           all                          one waits
+                                        1 lost TCP
+                                                      →    streams
+                                        segment
+                                                           stall
+
+
+
+                                       App-level HoL fixed — TCP-    Loss is isolated to its
+       Costly: 6× setup, 6× overhead                                 own stream
+                                       level remains
+ We understand the Client-Server model,
+  where a browser requests a page from a
+server, But what happens when Application
+    need to communicate with another
+               Applications?
+
+
+                                            40
+REST APIs
+
+
+
+
+  A Q4 2024 analysis estimating 83% of all public APIs use REST architecture
+Why use OpenAPI?
+
+
+
+
+                   https://petstore3.swagger.io
+Please fill the feedback form.
+
+
+
+
+                                 43
+Thanks
+for
+watching!
+

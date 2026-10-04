@@ -1,0 +1,205 @@
+Cloud Load Balancing:
+ ALB vs. NLB, Elastic
+ Load Balancing, and
+   High Availability
+Join the lecture online on your dashboard
+Recap
+TCP Congestion Control
+
+
+
+
+ TCP is a polite driver.
+ Its mission: Get your data to its destination as fast as possible, but without
+ causing a traffic jam for everyone else.
+         Can Our Website Survive the Internet
+
+Imagine:
+   10,000 users are trying to access
+   your website.
+   One server suddenly crashes.
+Load Balancer
+A load balancer distributes incoming network
+traffic across multiple servers to ensure high
+availability, reliability, scalability, and optimal
+application performance.
+Load Balancer
+        How load balancer makes its decision
+
+  On the basis of two approaches:
+
+
+
+
+Network Load Balancer         Application Load Balancer
+Network Load Balancer(NLB)
+
+           Recap: The Transport Tuple
+           A TCP/UDP connection is identified by a 4-tuple: Source IP,
+                 Source Port, Destination IP, Destination Port.
+
+
+ NLB = Network Load Balancer operating at Transport Layer.
+
+ It sees TCP/UDP packets — not HTTP requests, not URLs, not headers.
+
+ Analogy: A postal sorter who reads only the ZIP code, not the letter inside.
+Network Load Balancer(NLB)
+Network Load Balancer(NLB)
+ Benefits
+    Ultra-high throughput
+    Very low latency
+    Preserves client source IP
+    Excellent for TCP/UDP workloads
+
+ Limitations
+ Suppose we have:
+     company.com/api/users            company.com/images/logo.png
+
+ Can NLB distinguish them
+
+        Because NLB cannot read URL
+Application Load Balancer(ALB)
+
+ALB = Application Load Balancer
+operates at Application Layer.
+
+ALB understands
+   HTTP Requests
+   URLs
+   Headers
+   Cookies
+   Host Names
+Application Load Balancer(ALB)
+TLS Termination
+ HTTPS requires:
+
+      TLS Handshake
+      Encryption
+      Certificates
+
+       ALB can handle this.
+
+ Client
+  │  HTTPS
+  ▼
+  ALB
+ (TLS Termination)
+  │  HTTP
+  ▼
+ Backend
+NLB vs ALB
+     Feature                  NLB       ALB
+
+     Layer                    4         7
+
+     TCP/UDP                  Yes       No
+
+     HTTP Aware               No        Yes
+
+     URL Routing              No        Yes
+
+     Header Inspection        No        Yes
+
+     TLS Termination          Limited   Yes
+
+     Source IP Preservation   Yes       Usually via headers
+
+     Latency                  Lowest    Slightly higher
+Problem
+
+
+          If server S1 crashes,
+          how does the load balancer know not to send
+          traffic there?
+Target Group
+
+
+The Target Group acts as the health-
+monitoring layer between the Load
+Balancer and the servers, allowing the
+Load Balancer to know which servers
+are healthy and which should be
+avoided.
+Health Checks
+   The Load Balancer periodically sends test requests to targets.
+   Example: GET /health, every: 30 sec
+
+Step-by-step
+1. LB sends probe
+2. Server responds
+3. LB marks Healthy
+4. Traffic continues
+Automatic Removal (Self-Healing)
+Traffic no longer goes to unhealthy server.
+From self healing to scalability
+Health Checks
+  ↓
+Remove Failed Servers
+  ↓
+Self-Healing
+                                              Elasticity
+But a new challenge appears:                  Elasticity means:
+                                              Increase capacity when demand
+Morning Traffic = 500 Users                   rises
+Evening Traffic = 50,000 Users                Decrease capacity when demand
+                                              falls
+Question:
+Should we keep 100 servers running all day?
+No.
+Elasticity
+Auto Scaling Group
+An Auto Scaling Group automatically: Launches instances
+                                     Terminates instances
+                                    Maintains desired capacity
+
+ When traffic increases suddenly:
+           Scaling Out
+
+         Before    After
+
+        EC2-1      EC2-1
+                   EC2-2
+                   EC2-3
+Problem — Data Center Failure
+
+Suppose all servers are in: us-east-1a
+Everything works until:
+   Power Failure
+   Network Failure
+   Storage Failure
+
+Entire application is down.
+Availability Zone
+
+An Availability Zone (AZ) is: A
+physically separate AWS data
+center.
+Example:
+us-east-1a
+us-east-1b     Each AZ is isolated
+us-east-1c
+Multi-Availability Zones
+High Availability
+
+
+ High Availability means: Service remains available even when components fail.
+ Principle
+ No Single Point of Failure                       Question:
+
+ ❌❌
+ Examples
+    One server
+                                    What if the load balancer itself fails?
+
+
+  ❌ One AZ
+    One database
+                                                   Answer:
+                                         ALB is managed by AWS
+                                     and deployed across multiple AZs
+High Availability
+Final Architecture Diagram
+Please fill the feedback form.
+Thank You
+

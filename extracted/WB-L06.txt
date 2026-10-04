@@ -1,0 +1,230 @@
+HTTPS and The
+TLS Handshake:
+Securing the Web
+
+CSAI321:Computer Networks
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+Lecture Roadmap
+
+             Understanding HTTP over TLS: HTTPS
+
+             Cryptography and its goals
+
+             Encryption and its types
+
+             TLS handshake Flow
+
+             CA’s, Chain of trust
+
+             Discover HTTPS in AWS
+
+
+                                                  3
+Recap
+
+
+
+
+                          Data With TLS(Transport Layer security)
+
+
+        Plain text Data
+
+
+                                                                    4
+HTTP plain text by design
+
+
+  HTTP lacks built-in security, making
+  it vulnerable unless using HTTPS.
+                                           insecure
+
+  Anyone that can capture the traffic
+  can figure out the content of the
+  communication between the client
+                                         HTTP
+  and the server.
+HTTPS = HTTP + TLS
+ HTTPS is a secure version of HTTP for safe
+ communication over networks.
+
+ It used SSL( Secure Socket Layer)
+ historically
+ These using TLS(Transport Layer Security)
+ protocols to encrypt data between client
+ and server, enhancing security compared
+ to HTTP.
+
+                                              SSL/ TLS
+The Padlock Question
+
+
+ What does   🔒 mean in browser?
+ Safe website?      ❌
+ Encrypted connection? ✅
+
+ Verified identity?   ✅
+                                  7
+What does TLS actually provide?
+      Security using Cryptography
+
+
+
+
+                                    8
+Cryptography
+
+
+ The Practice of securing
+ information by converting
+ readable text into unreadable
+ code (ciphertext) and back
+ again.
+
+
+
+
+                                 9
+Core Goals of Cryptography
+
+ Confidentiality (Privacy): Ensures that
+ information is accessible only to
+ authorized parties. “No eavesdropping”
+
+ Integrity: Guarantees that data remains
+ accurate and hasn't been altered during
+ transit or storage. “No tampering”
+
+ Authentication: Verifies the identities of
+ both the sender and the receiver.
+ “Verified identity”
+                                              10
+How do we achieve these goals?
+
+
+
+
+                                 11
+Encryption and Decryption
+Symmetric Encryption
+Analyze: whats the Issue in using symmetic
+               encryption?
+             how to share the key Securely?
+
+
+
+
+                                              14
+Asymmetric Encryption
+How Do I Trust this Server?
+
+
+      micrоsоft.com
+           vs
+      microsoft.com
+
+
+
+
+                      Certificate
+What is a Certificate?
+How HTTPS Works
+
+    Client
+                               Server
+
+
+                 SSL/ TLS
+
+
+                            Digital Certificate
+    Public Key
+                            Private Key
+How HTTPS Works
+
+
+
+
+    https://medium.com/@rocky.bhatia86/in-the-expansive-universe-of-the-internet-where-the-exchange-of-information-is-ceaseless-the-1ffcdad011d1
+TLS Handshake Overview
+
+
+Step 1: ClientHello
+
+Client offers TLS versions,
+cipher suites, random nonce.
+
+
+
+
+“I can speak TLS 1.3 or TLS 1.2.
+I will use XYZ algorithm for PQR purposes.
+This is Number once a 32-byte string.”
+                                             20
+TLS Handshake Overview
+
+Step 2: ServerHello + Certificate
+Server hello is picked cipher
+and its certificate (public key +
+CA signatures).
+
+“Out of your options XYZ for PQR
+purposes, we will use this
+following bundle of algorithms to
+encrypt our session and this is my
+identity issued by following
+authority.”
+                                     21
+Authentication:
+
+Step 3: ServerHello + Certificate
+
+Client validates the certificate
+chain. This will stop Man in the
+middle attack.
+
+
+“Send reuest for certificate
+validation to CA” if its valid client
+can trust if not client shows
+website is not secure.”
+
+                                        22
+Key Exchange:
+Step 4: Key Exchange
+
+
+
+
+Client and Server derive a shared
+session key
+
+
+
+
+                                    23
+Data Sharing on Secure Channel
+
+
+
+
+Step 4: Communication Start with
+Encrypted application data being
+shared.
+
+
+
+
+                                   24
+Please fill the feedback form.
+
+
+
+
+                                 25
+

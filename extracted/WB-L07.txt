@@ -1,0 +1,261 @@
+Email Protocols (SMTP,
+POP3, IMAP) CDNs and
+       Caching
+
+   CSAI321:Computer Networks
+Join the lecture online on your dashboard
+Recap
+
+
+
+
+        3
+Application Layer Protocols
+
+
+
+
+                              4
+Email Server Protocol
+
+
+
+
+                        5
+How SMTP Works:
+
+ The email client (e.g., Gmail app,
+ Outlook) connects to the SMTP
+ server.
+
+ SMTP pushes the message from the
+ sender to the receiver’s mail server.
+
+ The receiver then uses POP3 or
+ IMAP to retrieve the email.
+SMTP (Simple Mail Transfer Protocol)
+  Sends email from sender server
+  to recipient servers
+
+  Push-based protocol
+
+  Uses TCP, Ports: 25 / 587 / 465
+
+SMTP in the Real World:
+
+  Sendgrid, Mailchimp, Mailgun
+  integrations us SMTP Relays
+Mailhog
+
+
+
+
+          8
+Email Clients Protocol
+
+
+
+
+                         9
+IMAP (Internet Message Access Protocol)
+
+  Manages email directly on the server
+                                                                  IMAP Mail       IMAP User
+                                                                    Server          Agent
+  Suitable for multi-device access
+                                                                                 Messages
+                                           Sender
+  Supports folders, partial downloads       User      SMTP Mail               managed remotely
+                                            Agent      Server
+
+  Uses Port 143, Secure (IMAPS): 993
+                                                                   POP Mail        POP User
+
+  Connection Type: Two-way sync (client   ↔ server)                 Server          Agent
+
+
+
+                                                                                  Messages
+                                                                                 Downloaded
+How IMAP Works:
+ Your email client connects to the
+ server using IMAP.
+
+ You view and manage emails without
+ downloading them completely.
+
+ Changes      (read/unread,     folders,
+ deletions) are reflected on the server
+ and synced across all devices.
+
+ You can access email folders (Inbox,
+ Sent, Drafts, etc.) as organized on the
+ server.
+POP3 (Post Office Protocol v3)
+
+ Downloads email to local client
+ and deletes from server
+
+ Best for offline access, but poor
+ sync across devices
+
+ Uses Port 110, Secure (POP3S):
+ 995
+
+ Connection       Type:   One-way
+ (server→ client)
+How POP3 Works:
+
+ Your email client connects to the
+ mail server using POP3.
+
+ It downloads the emails from the
+ server.
+
+ It deletes the emails from the
+ server after downloading.
+
+ Emails are now available on your
+ local device only.
+How POP3 Works:
+
+ Your email client connects to the
+ mail server using POP3.
+
+ It downloads the emails from the
+ server.
+
+ It deletes the emails from the
+ server after downloading.
+
+ Emails are now available on your
+ local device only.
+Application layer Quick and efficient
+   Content delivering Methods
+
+
+
+                                        15
+Imagine:
+
+
+
+
+           Same content
+           requested repeatedly.
+           Solution?
+Caching
+                                            Cache Miss
+ The process of storing
+ copies of data in a
+ temporary,        high-speed
+ storage layer so that future
+ requests for that same data
+ can be served much faster
+ than fetching it from the
+ original, slower source.
+                                Cache Hit
+Caching Behavior
+
+ Caching behavior refers to how
+ data is stored temporarily
+ (cached) and retrieved to
+ improve performance and
+ reduce latency.
+
+ It’s widely used in networking,
+ browsers, web servers, CDNs,
+ and applications.
+Cache-Control
+ Format
+  Cache-Control: public, max-age=3600
+Layers of Caching
+
+                     Browser Caching
+
+
+
+
+       Proxy Cache
+
+
+                                       CDN Cache
+Netflix Open Connect
+
+
+
+
+  The storage in Netflix Open Connect Appliances at ISP sites (points of
+                      presence) holds up to 350 TB!
+Content Delivery Network (CDN)
+
+ A CDN is like a chain of grocery stores
+ Instead of traveling to faraway farms, shoppers visit a local store
+ Local stores stock food from distant farms, saving time and effort
+ Similarly, CDNs cache web content closer to users
+ Result: Webpages load faster, just like shopping takes minutes, not days
+How a CDN Works:
+A user requests content (e.g., video or
+image) from a website.
+
+The nearest edge server serves the
+request instead of the origin server.
+
+If not cached, the edge server retrieves
+it from the origin and caches it.
+
+Benefits include faster load times,
+reduced    bandwidth   usage,  and
+improved availability.
+ Content Delivery Network (CDN)
+
+
+
+
+Geographically distributed servers, delivers content from the nearest edge
+server, reduces latency, saves bandwidth
+Content Delivery Network (CDN)
+Origin in the Late 1990s: CDNs emerged to solve web congestion and latency
+issues caused by growing internet usage and media-rich content, with Akamai
+pioneering the space in 1998.
+
+Major Players Today: Key providers include Akamai, Cloudflare, Amazon
+CloudFront, Netflix Open Connect, Google Cloud CDN, Microsoft Azure CDN, and
+Fastly.
+
+You can use a tool to verify what CDNs a particular website is using: CDNPlanet
+Content Delivery Network (CDN)
+
+Use Cases
+
+Websites, video streaming, software
+downloads, gaming, mobile apps
+
+Examples
+
+Cloudflare,    Akamai,    Amazon
+CloudFront, Google Cloud CDN
+Benefits of CDN :
+How Caching Works
+A client requests a resource (e.g., image, CSS file).
+The server responds and may include cache-control headers.
+The client stores the resource in its local cache.
+On the next request, the client checks:
+Is the cached copy still valid (not expired)?
+If valid -> use from cache (no network trip).
+If expired -> revalidate or fetch again.
+Fastly outage in 2021
+
+
+
+  Fastly Outage Overview (June 2021): A misconfiguration in Fastly’s network
+  triggered a widespread outage, taking down major websites like Reddit, Amazon,
+  and The New York Times.
+  Impact on Internet Users: The outage highlighted how reliant the modern
+  internet is on CDNs, as users experienced disruptions and slow load times across
+  multiple platforms.
+Please fill the feedback form.
+Thanks
+for
+watching!
+

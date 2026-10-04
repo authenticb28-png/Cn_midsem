@@ -1,0 +1,214 @@
+Subnetting in Practice — and
+  Designing an AWS VPC
+
+
+
+
+         Computer Networks
+                               1
+Join the lecture online on your dashboard
+
+
+
+
+                                            2
+Recap
+CIDR
+IP Address
+
+      172.16.1.10
+       Network ID   Host ID
+
+
+
+
+                              3
+One large network becomes difficult to
+              manage
+
+
+
+                                         4
+Subnetting = Dividing One Network
+
+
+Subnetting means splitting one
+big   network   into   smaller
+networks.
+
+
+
+
+                                    5
+Borrowing Host Bits
+                                Now borrow k host bits for
+                                      subnetting.
+We do subnetting by borrowing
+bits from the host part.
+
+
+CIDR Block has two parts:
+Network Bits + Host Bits
+Example: 10.0.0.0/24
+   /24 means 24 network bits
+   32 - 24 = 8 host bits
+
+
+
+                                                             6
+Magic Number Shortcut
+
+                       Worked example: 10.0.0.0/24 → four /26s
+
+     10.0.0.0/26           10.0.0.64/26                10.0.0.128/26   10.0.0.192/26
+        0-63                  64-127                      128-191         192-255
+
+                                  Block size = 64
+                   Network addresses jump by 64: .0, .64, .128, .192
+
+
+
+  For /26, subnet mask is: 255.255.255.192
+  Magic number: 256 - 192 = 64
+  So subnet blocks jump by 64: .0, .64, .128, .192
+
+
+                                                                                       7
+Network, Usable Range, Broadcast
+ Four /26 Subnets from 10.0.0.0/24
+
+
+    Subnet     Network         Usable Range              Broadcast
+
+
+             1 10.0.0.0/26     10.0.0.1 – 10.0.0.62      10.0.0.63
+
+
+             2 10.0.0.64/26    10.0.0.65 – 10.0.0.126    10.0.0.127
+
+
+             3 10.0.0.128/26   10.0.0.129 – 10.0.0.190   10.0.0.191
+
+
+             4 10.0.0.192/26   10.0.0.193 – 10.0.0.254   10.0.0.255
+
+
+
+
+                                                                      8
+Not Every Subnet Should Face the Internet
+
+
+
+
+                                            9
+Public vs Private Subnets
+
+In a VPC, subnets can be public or
+private.
+A subnet become public because its
+route table has a path to the Internet
+Gateway.
+A subnet is private if its route table
+does not send:
+0.0.0.0/0   → Internet Gateway
+
+                                         10
+What Makes a Subnet Public or Private
+Public Subnet→ Route Table → IGW → Internet
+             → Route Table → NAT → Internet
+Private Subnet
+
+
+
+
+                                              11
+3-Tier Architecture
+
+
+Web tier: Public subnet
+App tier: Private subnet
+Database tier: Private subnet
+
+
+
+
+                                12
+Why This Keeps Corporate Data Safe
+Public Entry, Private Data
+
+
+Public subnet is for controlled entry.
+Private subnets protect:
+   application logic
+   internal services
+   databases
+   corporate data
+
+
+
+
+                                         13
+Duplicate Subnets Across Multiple AZs
+ For availability, repeat the same tiers across at least 2 Availability Zones.
+ Example:
+
+
+
+
+                                                                                 14
+The AWS Reality — 5 Reserved IPs &
+          Constraints
+
+
+
+                                     15
+The AWS Reality: Not All IPs Are Usable
+ In normal subnetting, we calculate total addresses.
+ In AWS, every subnet loses 5 reserved IP addresses. So usable IP count is always:
+ Total IPs - 5
+
+
+                                                               Traditional thinking:
+                                                             /24 → 254 usable hosts
+                                                                   AWS reality:
+                                                               /24→   251 usable IPs
+
+
+
+
+                                                                                       16
+Demo: AWS Shows Available IPs
+AWS CIDR Size Limits
+AWS allows IPv4 CIDR block sizes from: /16 to /28
+   Largest block: /16 and Smallest block: /28
+   You cannot create very tiny subnets like /29 or /30
+
+
+
+
+                                                         18
+AWS CIDR Size Limits
+
+
+
+
+                       19
+Subnet Design Constraints
+
+
+
+
+                            20
+Please fill the feedback form.
+
+
+
+
+                                 21
+Thank You
+
+
+
+            22
+

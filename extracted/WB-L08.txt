@@ -1,0 +1,1174 @@
+DNS : The Internet's Phone
+ Book, and AWS Route 53
+
+
+
+    CSAI321:Computer Networks
+Join the lecture online on your dashboard
+Recap
+
+
+
+
+        Secure the connection   Efficent Communication methods
+                                            (Caching)
+But How to reach a server?
+
+Domain Name?       ❌
+Address of server? ✅
+
+
+
+                             4
+What is The address of server?
+Lets Understand DNS
+
+Analogy: DNS Records as Justdial Listings
+
+A business listing on Justdial typically shows:
+    Address / Location
+    Operating Hours
+    Services Offered
+    Contact Numbers
+What is The address of server?
+
+A DNS records provide:
+   IP Address (A / AAAA Record) – like
+   the shop’s address
+   Mail Exchange (MX Record) – like
+   the shop’s phone number for calls
+   Name Servers (NS Record)
+   Optional Records (TXT, CNAME, etc.)
+Domain Name System (DNS)
+                         A Distributed, Hierarchical Database
+
+
+
+ DNS scales by using many servers
+ worldwide
+ Organized in a hierarchical structure
+ No single server holds all mappings
+ Three main classes of DNS servers:
+    Root DNS servers
+    Top-Level Domain (TLD) DNS servers
+    Authoritative DNS servers
+
+
+                                                                7
+How DNS Lookup Works
+Example: www.amazon.com
+
+
+
+
+ 1. Client contacts Root DNS server  → returns IP addresses of TLD servers (.com)
+ 2. Client contacts TLD server (.com) → returns IP of authoritative server (amazon.com)
+ 3. Client contacts authoritative server (amazon.com) → returns IP of www.amazon.com
+                                                                                          8
+             Demo:
+Lets do NSlookup for Google.com
+
+
+
+                                  9
+Classes of DNS Servers
+Root DNS Servers:
+   ~1000+ instances worldwide
+   Provide IPs of TLD servers
+TLD DNS Servers:
+   Handle domains like .com, .org, .edu, plus country codes (.in, .jp,
+   etc.)
+   Maintained by registries (e.g., Verisign for .com)
+   Provide IPs of authoritative servers
+Authoritative DNS Servers:
+   Hold DNS records for organizations (e.g., amazon.com,
+   newtonschool.co)
+   Map hostnames     → IP addresses                                      10
+Local DNS Servers
+                    Not part of hierarchy, but central to
+                    DNS operation at scale
+                    Provided by ISPs (residential &
+                    institutional)
+                    Acts as a proxy: forwards client
+                    queries into hierarchy
+                    Usually close to the client (LAN or few
+                    hops away)
+
+
+
+                                                              11
+Demo: create DNS records in AWS Route 53
+
+
+
+
+                                           12
+Please fill the feedback form.
+
+
+
+
+                                 13
+Thanks
+for
+watching!
+
+            14
+Socket API as an Interface b/w the
+Application and Transport Layers
+                                                Application
+   The Socket API is a toolkit enabling apps
+   to communicate with the OSI model's
+   transport layer.
+                                                 Socket API
+   It serves as a bridge for apps to connect
+   with other systems using protocols like
+   TCP and UDP.                                Transport Layer
+
+                                                                 15
+Application Layer Protocols
+
+   HTTP - Hypertext Transfer Protocol
+   HTTPS - Hypertext Transfer Protocol Secure
+   HTTP/2
+
+
+
+
+                                                16
+HTTP
+                Connection
+                 Request
+                 Response
+                   Close
+
+
+
+
+Client   Stages in an HTTP transaction   Server
+                                                  17
+HTTP
+ HTTP is a stateless protocol operating over TCP.
+
+
+Stateless Nature of HTTP:
+ Each HTTP request is independent, treated as a new
+ request with no memory of prior interactions.
+
+
+ The server does not retain information about previous
+
+ client requests or sessions.
+
+                                                         18
+Breakdown of HTTP Messages
+
+  HTTP messages consist of requests                 HTTP Message
+  (sent from the client to the server)
+  and responses (sent from the                  Request        Response
+
+  server to the client).                      Request Line     Status Line
+
+  These messages are structured in a                      Headers
+  way        that          includes      a
+  request/response         line,   headers,                Body
+  and optionally, a body.
+                                                                             19
+HTTP Request Message Breakdown:
+                                       Message request
+
+
+
+        Request Line   GET /index.html HTTP/1.1
+
+
+                       Host: example.com
+                       User-Agent: Chrome
+            Headers
+                       Accept-Language: en-us
+                       ...
+
+
+         Empty Line
+
+
+               Body    optional, e.g. form data, json
+
+
+
+
+                                                         20
+HTTP Request Message Breakdown:
+Request Line:
+   The request line contains three parts:
+      Method: The type of operation the client wants the server to perform (e.g.,
+      GET, POST, PUT, DELETE).
+      URL: The resource or endpoint on the server that the client is requesting
+      (e.g., /home, /api/data).
+      HTTP Version: The version of HTTP being used (e.g., HTTP/1.1 or HTTP/2).
+      Example:
+      GET /index.html HTTP/1.1
+
+
+
+                                                                                    21
+HTTP Request Message Breakdown:
+Headers:
+   Headers provide additional information about the request or about the client’s
+   capabilities.
+   Common headers include:
+       User-Agent: Information about the client software (browser, app, etc.).
+       Host: The domain name of the server.
+       Content-Type: The type of data the client is sending (for POST or PUT
+       requests).
+       Accept: The types of data the client can process (e.g., text/html,
+       application/json).
+
+                                                                                    22
+HTTP Request Message Breakdown:
+ Body (optional):
+    The body contains the actual data being sent by the client (such as form
+    data, JSON payload, etc.).
+    This is only included for certain methods like POST, PUT, or PATCH.
+ Example (for POST request):
+ json
+ { "username": "user1", "password": "password123" }
+
+
+
+
+                                                                               23
+HTTP Response Message
+Breakdown:
+
+
+
+
+                        24
+HTTP Response Message
+Breakdown:
+ Status Line:
+    The status line consists of:
+       HTTP Version: The HTTP version used in the response.
+       Status Code: A 3-digit code indicating the result of the request (e.g.,
+       200, 404, 500).
+       Status Message: A short description of the status code (e.g., OK, Not
+       Found, Internal Server Error).
+ Example:
+ HTTP/1.1 200 OK
+                                                                                 25
+HTTP Response Message
+Breakdown:
+   Headers:
+      Response headers contain metadata about the response, similar
+      to request headers.
+      Common headers include:
+         Content-Type: The type of data being sent in the body (e.g.,
+         text/html, application/json).
+         Content-Length: The length of the body in bytes.
+         Server: Information about the server software.
+         Date: The date and time the response was sent.
+                                                                        26
+HTTP Response Message
+Breakdown:
+Body (optional):
+      The body of the response contains the actual data being returned by the
+      server (e.g., HTML, JSON, an image, etc.).
+Example:
+css
+<html><body><h1>Welcome to Example.com</h1></body></html>
+
+
+
+
+                                                                                27
+Domain Name System (DNS)
+                         A Distributed, Hierarchical Database
+
+
+
+ DNS scales by using many servers
+ worldwide
+ Organized in a hierarchical structure
+ No single server holds all mappings
+ Three main classes of DNS servers:
+    Root DNS servers
+    Top-Level Domain (TLD) DNS servers
+    Authoritative DNS servers
+
+
+                                                                28
+How DNS Lookup Works
+Example: www.amazon.com
+
+
+
+
+ 1. Client contacts Root DNS server  → returns IP addresses of TLD servers (.com)
+ 2. Client contacts TLD server (.com) → returns IP of authoritative server (amazon.com)
+ 3. Client contacts authoritative server (amazon.com) → returns IP of www.amazon.com
+                                                                                          29
+Classes of DNS Servers
+Root DNS Servers:
+   ~1000+ instances worldwide
+   Provide IPs of TLD servers
+TLD DNS Servers:
+   Handle domains like .com, .org, .edu, plus country codes (.in, .jp,
+   etc.)
+   Maintained by registries (e.g., Verisign for .com)
+   Provide IPs of authoritative servers
+Authoritative DNS Servers:
+   Hold DNS records for organizations (e.g., amazon.com,
+   newtonschool.co)
+   Map hostnames     → IP addresses                                      30
+Local DNS Servers
+
+                    Not part of hierarchy, but central to DNS
+                    operation at scale
+                    Provided by ISPs (residential &
+                    institutional)
+                    Acts as a proxy: forwards client queries
+                    into hierarchy
+                    Usually close to the client (LAN or few
+                    hops away)
+
+
+                                                                31
+Demo: create DNS records in AWS Route 53
+
+
+
+
+                                           32
+Let’s discuss about APIs a bit
+
+
+
+
+                                 33
+Client Server Paradigm
+
+
+
+                  Response
+ Client
+
+
+          Query                       Fetch
+
+
+
+                                              Data
+                             Server
+                                                     34
+Jeff Bezos: API Mandate in 2002
+                                                    (paraphrased)
+
+
+All teams will henceforth expose their data and
+functionality through service interfaces.
+Teams must communicate with each other through these
+service interfaces.
+No other communication is allowed other than service
+interfaces over the network.
+It doesn't matter what technology they use.
+All   service   interfaces   must   be   designed    to    be
+externalizable.
+Anyone who doesn't do this will be fired.
+
+                                                                    35
+API
+ An      API   (Application   Programming
+ Interface) is a set of protocols, routines,
+ and tools that allow different software
+ applications or systems to communicate
+ with each other over a network.
+
+
+ APIs define how software components
+                                               API
+ should interact, providing a structured
+ way for systems to send and receive
+ data.
+                                                     36
+Google Maps API
+
+
+
+
+    Location-Based Apps   Delivery Apps
+
+                                          37
+Weather App
+
+
+
+
+              38
+ Weather API
+Weather APIs offer forecasts, real-time data, and historical reports, often in JSON or
+XML formats.
+
+
+Use cases include:
+   Travel apps: (e.g., Kayak, AccuWeather) that provide weather data for trip
+   planning.
+   Smart home devices: (e.g., Nest) adjusting settings based on fetched weather
+   forecasts.
+
+
+
+                                                                                         39
+Please fill the feedback form.
+
+
+
+
+                                 40
+Thanks
+for
+watching!
+
+            41
+Socket API as an Interface b/w the
+Application and Transport Layers
+                                                Application
+   The Socket API is a toolkit enabling apps
+   to communicate with the OSI model's
+   transport layer.
+                                                 Socket API
+   It serves as a bridge for apps to connect
+   with other systems using protocols like
+   TCP and UDP.                                Transport Layer
+
+                                                                 42
+Application Layer Protocols
+
+   HTTP - Hypertext Transfer Protocol
+   HTTPS - Hypertext Transfer Protocol Secure
+   HTTP/2
+
+
+
+
+                                                43
+HTTP
+                Connection
+                 Request
+                 Response
+                   Close
+
+
+
+
+Client   Stages in an HTTP transaction   Server
+                                                  44
+HTTP
+ HTTP is a stateless protocol operating over TCP.
+
+
+Stateless Nature of HTTP:
+ Each HTTP request is independent, treated as a new
+ request with no memory of prior interactions.
+
+
+ The server does not retain information about previous
+
+ client requests or sessions.
+
+                                                         45
+Breakdown of HTTP Messages
+
+  HTTP messages consist of requests                 HTTP Message
+  (sent from the client to the server)
+  and responses (sent from the                  Request        Response
+
+  server to the client).                      Request Line     Status Line
+
+  These messages are structured in a                      Headers
+  way        that          includes      a
+  request/response         line,   headers,                Body
+  and optionally, a body.
+                                                                             46
+HTTP Request Message Breakdown:
+                                       Message request
+
+
+
+        Request Line   GET /index.html HTTP/1.1
+
+
+                       Host: example.com
+                       User-Agent: Chrome
+            Headers
+                       Accept-Language: en-us
+                       ...
+
+
+         Empty Line
+
+
+               Body    optional, e.g. form data, json
+
+
+
+
+                                                         47
+HTTP Request Message Breakdown:
+Request Line:
+   The request line contains three parts:
+      Method: The type of operation the client wants the server to perform (e.g.,
+      GET, POST, PUT, DELETE).
+      URL: The resource or endpoint on the server that the client is requesting
+      (e.g., /home, /api/data).
+      HTTP Version: The version of HTTP being used (e.g., HTTP/1.1 or HTTP/2).
+      Example:
+      GET /index.html HTTP/1.1
+
+
+
+                                                                                    48
+HTTP Request Message Breakdown:
+Headers:
+   Headers provide additional information about the request or about the client’s
+   capabilities.
+   Common headers include:
+       User-Agent: Information about the client software (browser, app, etc.).
+       Host: The domain name of the server.
+       Content-Type: The type of data the client is sending (for POST or PUT
+       requests).
+       Accept: The types of data the client can process (e.g., text/html,
+       application/json).
+
+                                                                                    49
+HTTP Request Message Breakdown:
+ Body (optional):
+    The body contains the actual data being sent by the client (such as form
+    data, JSON payload, etc.).
+    This is only included for certain methods like POST, PUT, or PATCH.
+ Example (for POST request):
+ json
+ { "username": "user1", "password": "password123" }
+
+
+
+
+                                                                               50
+HTTP Response Message
+Breakdown:
+
+
+
+
+                        51
+HTTP Response Message
+Breakdown:
+ Status Line:
+    The status line consists of:
+       HTTP Version: The HTTP version used in the response.
+       Status Code: A 3-digit code indicating the result of the request (e.g.,
+       200, 404, 500).
+       Status Message: A short description of the status code (e.g., OK, Not
+       Found, Internal Server Error).
+ Example:
+ HTTP/1.1 200 OK
+                                                                                 52
+HTTP Response Message
+Breakdown:
+   Headers:
+      Response headers contain metadata about the response, similar
+      to request headers.
+      Common headers include:
+         Content-Type: The type of data being sent in the body (e.g.,
+         text/html, application/json).
+         Content-Length: The length of the body in bytes.
+         Server: Information about the server software.
+         Date: The date and time the response was sent.
+                                                                        53
+HTTP Response Message
+Breakdown:
+Body (optional):
+      The body of the response contains the actual data being returned by the
+      server (e.g., HTML, JSON, an image, etc.).
+Example:
+css
+<html><body><h1>Welcome to Example.com</h1></body></html>
+
+
+
+
+                                                                                54
+Substitution Cipher
+Find out what the concealed message says, the shift by number is not known, you
+just have the text
+
+
+Gztkliv rsyz srrbz yrz dviv ufjk
+
+
+
+  Do it without using LLMs, online tools are
+  game! Simple python brute force script
+           would be game as well!
+Alice, Bob & Mallory from the world of
+            cryptography
+
+
+
+                                         56
+Alice & Bob & Mallory, since 1978
+Man in the middle attack
+
+
+
+
+Simply put, a MITM (Man-in-the-Middle) attack is the type of online attack where a
+         hacker gets in between a user and the website they’re visiting.
+The Challenge: Communicating Secrets in Public
+
+
+
+
+    Tampering       Eavesdropping   Impersonation
+What Mallory has to say...
+Transport Layer Security with TCP
+
+
+
+
+                                    61
+At TCP Layer, how TLS gets added
+
+1. ClientHello
+The browser initiates the handshake with:
+    Supported TLS versions
+    List of supported cipher suites (ways to
+    encrypt)
+    Random number (client_random)
+    Optional: Server name
+
+This is the browser saying, “Hey, here are the
+languages I speak. Can we talk securely?”
+At TCP Layer, how TLS gets added
+
+2. ServerHello
+The server responds with:
+    Chosen TLS version
+    Selected cipher suite
+    Its own random number (server_random)
+    Digital certificate (proves its identity)
+
+This is the server saying, “Sure, I’ll speak this
+encryption language. Here’s my ID (certificate)
+to prove I am who I say I am.”
+At TCP Layer, how TLS gets added
+
+3. Certificate Verification (on client side)
+The client checks if:
+    The certificate is valid and trusted (via CA)
+    The hostname matches
+    It’s not expired or revoked
+
+ Think of it like checking if a driver's license is
+real and matches the person.
+At TCP Layer, how TLS gets added
+
+4. Pre-Master Secret Generation
+    Client generates a Pre-Master Secret (a
+    temporary, shared value)
+    It encrypts this using the server’s public key
+    (from certificate)
+    Sends it to the server
+
+Only the server can decrypt this because only
+it has the private key.
+At TCP Layer, how TLS gets added
+
+5. Key Derivation (on both sides)
+Using:
+    Pre-Master Secret
+    client_random
+    server_random
+
+Both the client and the server derive the same
+symmetric session key, which will be used to
+encrypt communication.
+At TCP Layer, how TLS gets added
+
+
+ 6. Finished Messages
+     Client sends a “Finished” message
+     (encrypted with the new key)
+     Server sends its own “Finished” message
+
+ Now both sides know the connection is secure.
+ The handshake is complete!
+python client TLS exercises
+
+
+
+
+                              68
+UDP Protocol
+
+
+
+
+               69
+Speed vs Reliability – The UDP Trade-Off
+           Are you              Who cares
+         getting all of
+             this?
+                          UDP   just sent it
+                                  faster!
+
+
+
+
+Sender                                         Receiver
+UDP Segment
+UDP chat using nc
+
+
+
+
+                    73
+Domain Name System(DNS)
+                                                                    What is the name server for co?
+                                                                          Try 120.XX.XX.XX
+
+
+
+
+User types into the
+                                                                                        Root level DNS Server
+                                           ISP/Security product
+     browser:
+                      What is the IP for
+                      newtonschool.co?
+                                                                     What is the authoritative DNS
+  newtonschool.co                                                       for newtonschool.co
+                      It’s 99.83.190.102                           Try 80.XX.XX.XX
+
+
+
+                                            DNS Server
+                                                                                         TLD DNS Server
+
+
+
+                                                                          Try 99.83.190.102
+                                                                  What is the IP for newtonschool.co
+
+
+                                                                                     Authoritative DNS Server
+Video streaming
+ Live streaming involves watching events in real-time, such as cricket, news, or
+ gaming, Unlike buffered YouTube videos, live streams prioritize speed.
+
+ Why use udp? using UDP to send video packets quickly without delays.
+
+ If some frames are lost, they are skipped to avoid lag. The goal is to maintain a
+ smooth and instant video flow.
+Please fill the feedback form.
+Thank You
+Demultiplexing
+ Separates incoming data at the receiver's transport layer by checking the
+ destination port number on each segment.
+
+ This ensures each segment is delivered to the correct application (e.g., browser,
+ email client) on the device.
+
+
+
+
+                                                letter envelope
+
+
+
+
+         courier box
+Quick UDP Internet Connections(QUIC)
+Types of Port Numbers & Common Services
+ Port numbers are divided into three main ranges, each serving a different
+ purpose in network communication:
+
+1. Well-known Ports (0–1023): Reserved for standard services like HTTP(80),
+   HTTPS(443), FTP(21), DNS(53), and SSH(22).
+
+1. Registered Ports (1024–49151): Used by third-party applications or vendors
+   like MySQL(3306), PostgreSQL(5432), and Docker(2375).
+
+1. Dynamic/Private Ports (49152–65535): Temporarily assigned by the operating
+   system for client-side connections, such as when a browser initiates a
+   connection.
+Port Address Translation (PAT)
+ Port Address Translation (PAT) is a specific type of NAT (Network Address
+ Translation) that allows multiple devices on a local/private network to share a
+ single public IP address when accessing the internet.
+
+ Instead of assigning a separate public IP to every device, PAT uses unique port
+ numbers to track each connection. This helps conserve public IP addresses
+ and manage many connections efficiently.
+IP & Port Translation in PAT
+ PAT doesn’t just change the IP
+ address it also rewrites the port
+ numbers.
+
+ Each internal device is given a unique
+ combination of: Public IP address
+ (shared) and Unique port number
+ (per session), This allows many
+ devices to access the internet using
+ one public IP without mix-ups.
+How PAT Enables Simultaneous Connections
+ Each outgoing request is tagged with a unique port number, even if it comes
+ from the same public IP.
+
+ These unique port numbers act as IDs that help the router track multiple
+ sessions even if they’re from the same or different internal devices.
+
+ This allows dozens or even hundreds of devices to connect to different websites
+ or services at the same time, all using a single public IP.
+Server A
+
+
+
+
+Server B
+
+
+
+
+Server C
+Where UDP Shines – Use Cases
+ Online Gaming: In online gaming, real-time speed is more important than
+ perfect accuracy , it's better to lose a few data packets than experience
+ delays, as late data is often useless.
+
+ Simple Request-Response Protocols (SNMP, TFTP): SNMP(Simple Network
+ Management Protocol) uses UDP because it sends small, quick status
+ requests (like checking if a router is online) and doesn't need a connection if
+ a reply is lost, it simply retries, making it efficient for large networks.
+ TFTP(Trivial File Transfer Protocol) uses UDP because it transfers small
+ configuration or boot files in trusted local networks, where speed and
+ simplicity matter more than reliability — avoiding TCP’s overhead for faster
+ startup.
+Where UDP Shines – Use Cases
+DHCP: DHCP(Dynamic Host Configuration Protocol) uses UDP to quickly assign IP
+addresses when a device joins a network , it sends one-time requests and responses,
+relying on the application to handle any needed reliability.
+Quick UDP Internet Connections(QUIC)
+  QUIC is a modern transport protocol built on top of UDP, designed by Google.
+ It's now used in HTTP/3 to make web browsing faster and more secure by
+ combining UDP’s speed with TCP-like reliability.
+
+ Unlike TCP, QUIC avoids slow handshakes, efficiently handles packet loss, and
+ offers built-in TLS encryption, faster connection setup, and stream
+ multiplexing making it ideal for platforms like Google, YouTube, and Facebook
+ to deliver faster, more reliable performance.
+Join the lecture online on your dashboard
+TCP recap
+
+
+
+
+   transport layer: communication   network layer: communication between
+         between processes                           hosts
+         segments oriented
+HTTPS Recap
+
+
+
+
+    https://medium.com/@rocky.bhatia86/in-the-expansive-universe-of-the-internet-where-the-exchange-of-information-is-ceaseless-the-1ffcdad011d1
+How Ceaser communicated via messengers?
+
+
+
+
+                                          96
+Ceaser Cipher
+cipher is any method of transforming a
+message to conceal its meaning
+
+Raj never catches the train. Raj
+should have exercised a bit more.
+Simran was sad!
+
+                 Shift by 3 for example
+
+
+Udm qhyhu fdwfkhv wkh wudlq. Udm
+vkrxog kdyh hahuflvhg d elw pruh. Vlpudq
+zdv vdg!
+Substitution Cipher
+Find out what the concealed message says, the shift by number is not known, you
+just have the text
+
+
+Gztkliv rsyz srrbz yrz dviv ufjk
+
+
+
+  Do it without using LLMs, online tools are
+  game! Simple python brute force script
+           would be game as well!
+Alice, Bob & Mallory from the world of
+            cryptography
+
+
+
+                                         99
+Alice & Bob & Mallory, since 1978
+Man in the middle attack
+
+
+
+
+Simply put, a MITM (Man-in-the-Middle) attack is the type of online attack where a
+         hacker gets in between a user and the website they’re visiting.
+The Challenge: Communicating Secrets in Public
+
+
+
+
+    Tampering       Eavesdropping   Impersonation
+What Mallory has to say...
+Transport Layer Security with TCP
+
+
+
+
+                                    104
+At TCP Layer, how TLS gets added
+
+1. ClientHello
+The browser initiates the handshake with:
+    Supported TLS versions
+    List of supported cipher suites (ways to
+    encrypt)
+    Random number (client_random)
+    Optional: Server name
+
+This is the browser saying, “Hey, here are the
+languages I speak. Can we talk securely?”
+At TCP Layer, how TLS gets added
+
+2. ServerHello
+The server responds with:
+    Chosen TLS version
+    Selected cipher suite
+    Its own random number (server_random)
+    Digital certificate (proves its identity)
+
+This is the server saying, “Sure, I’ll speak this
+encryption language. Here’s my ID (certificate)
+to prove I am who I say I am.”
+At TCP Layer, how TLS gets added
+
+3. Certificate Verification (on client side)
+The client checks if:
+    The certificate is valid and trusted (via CA)
+    The hostname matches
+    It’s not expired or revoked
+
+ Think of it like checking if a driver's license is
+real and matches the person.
+At TCP Layer, how TLS gets added
+
+4. Pre-Master Secret Generation
+    Client generates a Pre-Master Secret (a
+    temporary, shared value)
+    It encrypts this using the server’s public key
+    (from certificate)
+    Sends it to the server
+
+Only the server can decrypt this because only
+it has the private key.
+At TCP Layer, how TLS gets added
+
+5. Key Derivation (on both sides)
+Using:
+    Pre-Master Secret
+    client_random
+    server_random
+
+Both the client and the server derive the same
+symmetric session key, which will be used to
+encrypt communication.
+At TCP Layer, how TLS gets added
+
+
+ 6. Finished Messages
+     Client sends a “Finished” message
+     (encrypted with the new key)
+     Server sends its own “Finished” message
+
+ Now both sides know the connection is secure.
+ The handshake is complete!
+python client TLS exercises
+
+
+
+
+                              111
+UDP Protocol
+
+
+
+
+               112
+Speed vs Reliability – The UDP Trade-Off
+           Are you              Who cares
+         getting all of
+             this?
+                          UDP   just sent it
+                                  faster!
+
+
+
+
+Sender                                         Receiver
+UDP Segment
+UDP chat using nc
+
+
+
+
+                    116
+Domain Name System(DNS)
+                                                                    What is the name server for co?
+                                                                          Try 120.XX.XX.XX
+
+
+
+
+User types into the
+                                                                                        Root level DNS Server
+                                           ISP/Security product
+     browser:
+                      What is the IP for
+                      newtonschool.co?
+                                                                     What is the authoritative DNS
+  newtonschool.co                                                       for newtonschool.co
+                      It’s 99.83.190.102                           Try 80.XX.XX.XX
+
+
+
+                                            DNS Server
+                                                                                         TLD DNS Server
+
+
+
+                                                                          Try 99.83.190.102
+                                                                  What is the IP for newtonschool.co
+
+
+                                                                                     Authoritative DNS Server
+Video streaming
+ Live streaming involves watching events in real-time, such as cricket, news, or
+ gaming, Unlike buffered YouTube videos, live streams prioritize speed.
+
+ Why use udp? using UDP to send video packets quickly without delays.
+
+ If some frames are lost, they are skipped to avoid lag. The goal is to maintain a
+ smooth and instant video flow.
+Please fill the feedback form.
+Thank You
+Demultiplexing
+ Separates incoming data at the receiver's transport layer by checking the
+ destination port number on each segment.
+
+ This ensures each segment is delivered to the correct application (e.g., browser,
+ email client) on the device.
+
+
+
+
+                                                letter envelope
+
+
+
+
+         courier box
+Quick UDP Internet Connections(QUIC)
+Types of Port Numbers & Common Services
+ Port numbers are divided into three main ranges, each serving a different
+ purpose in network communication:
+
+1. Well-known Ports (0–1023): Reserved for standard services like HTTP(80),
+   HTTPS(443), FTP(21), DNS(53), and SSH(22).
+
+1. Registered Ports (1024–49151): Used by third-party applications or vendors
+   like MySQL(3306), PostgreSQL(5432), and Docker(2375).
+
+1. Dynamic/Private Ports (49152–65535): Temporarily assigned by the operating
+   system for client-side connections, such as when a browser initiates a
+   connection.
+Port Address Translation (PAT)
+ Port Address Translation (PAT) is a specific type of NAT (Network Address
+ Translation) that allows multiple devices on a local/private network to share a
+ single public IP address when accessing the internet.
+
+ Instead of assigning a separate public IP to every device, PAT uses unique port
+ numbers to track each connection. This helps conserve public IP addresses
+ and manage many connections efficiently.
+IP & Port Translation in PAT
+ PAT doesn’t just change the IP
+ address it also rewrites the port
+ numbers.
+
+ Each internal device is given a unique
+ combination of: Public IP address
+ (shared) and Unique port number
+ (per session), This allows many
+ devices to access the internet using
+ one public IP without mix-ups.
+How PAT Enables Simultaneous Connections
+ Each outgoing request is tagged with a unique port number, even if it comes
+ from the same public IP.
+
+ These unique port numbers act as IDs that help the router track multiple
+ sessions even if they’re from the same or different internal devices.
+
+ This allows dozens or even hundreds of devices to connect to different websites
+ or services at the same time, all using a single public IP.
+Server A
+
+
+
+
+Server B
+
+
+
+
+Server C
+Where UDP Shines – Use Cases
+ Online Gaming: In online gaming, real-time speed is more important than
+ perfect accuracy , it's better to lose a few data packets than experience
+ delays, as late data is often useless.
+
+ Simple Request-Response Protocols (SNMP, TFTP): SNMP(Simple Network
+ Management Protocol) uses UDP because it sends small, quick status
+ requests (like checking if a router is online) and doesn't need a connection if
+ a reply is lost, it simply retries, making it efficient for large networks.
+ TFTP(Trivial File Transfer Protocol) uses UDP because it transfers small
+ configuration or boot files in trusted local networks, where speed and
+ simplicity matter more than reliability — avoiding TCP’s overhead for faster
+ startup.
+Where UDP Shines – Use Cases
+DHCP: DHCP(Dynamic Host Configuration Protocol) uses UDP to quickly assign IP
+addresses when a device joins a network , it sends one-time requests and responses,
+relying on the application to handle any needed reliability.
+Quick UDP Internet Connections(QUIC)
+  QUIC is a modern transport protocol built on top of UDP, designed by Google.
+ It's now used in HTTP/3 to make web browsing faster and more secure by
+ combining UDP’s speed with TCP-like reliability.
+
+ Unlike TCP, QUIC avoids slow handshakes, efficiently handles packet loss, and
+ offers built-in TLS encryption, faster connection setup, and stream
+ multiplexing making it ideal for platforms like Google, YouTube, and Facebook
+ to deliver faster, more reliable performance.
+

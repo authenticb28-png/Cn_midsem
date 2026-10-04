@@ -1,0 +1,281 @@
+Moving Data
+Through the Core
+
+  CSAI321:Computer Networks
+                              1
+Recap
+
+
+
+
+                                                                          The AI Network Era
+   The Physical "Cloud"             Global Infrastructure
+
+The cloud consists of millions   Connecting the world needs            Modern AI requires immense
+of physical servers in large     significant scale, with over 597      computing power, utilizing
+data centers that power our      submarine cables linking              ultra-fast networks to connect
+daily applications.              continents to deliver data rapidly.   over 10,000 GPUs for training
+                                                                       advanced models.
+Join the lecture online on your dashboard
+
+
+
+
+                                            3
+A Tale of Two Phone Calls
+
+
+
+        The Landline Call                              The WhatsApp Call
+
+
+ Grandma pauses for 10 seconds to think? That   You pause for 10 seconds? No packets sent —
+ capacity sits idle — reserved, but wasted.     that capacity is free for someone else.
+
+
+
+
+                                                                                              4
+The Road Not Taken: Circuit Switching.
+         The classic telephone model. Before any conversation could start, the network
+         reserved a dedicated end-to-end path and held it, exclusively, for the full
+         duration of the call.
+
+
+     Guaranteed                                     Wasteful for Bursty Data
+
+Once the circuit is set up, the full           Go quiet for even a few seconds, and
+reserved capacity is yours predictable,        that reserved capacity sits idle unusable
+stable, no surprises mid-call.                 by anyone else, the whole time.
+
+
+                                                                                           5
+A Tale of Two Phone Calls
+
+
+
+
+                            6
+How the Network Core Moves Data
+
+
+
+
+                                  7
+What Exactly Is a “Packet”?
+      The Idea
+Your message — a photo, a webpage, a
+                                                     Store-and-Forward Rule
+voice clip — is chopped into small,           A router must receive the entire packet before it
+independent chunks called packets.            sends even the first bit onward.
+                                                   PKT
+
+   Each packet carries a header (addressing
+   info) and a payload (your actual data).
+   Packets can take different routes to the   Receive fully → check → forward fully
+   same destination.
+   The core forwards each packet              Why it matters: no single router needs to know
+   independently — hop by hop, router to      the whole path — it just needs to know the next
+   router.                                    hop.
+                                                                                                  8
+Sharing on Demand: Statistical
+Multiplexing.
+No reservations. Links are used only when packets actually need them — and that single
+idea unlocks two superpowers.
+
+        Efficiency                                        Resilience
+
+ Real traffic is bursty — you're rarely sending   Because packets aren't tied to one fixed path,
+ data every millisecond. Packet switching lets    if a link or router fails, traffic can simply be
+ many users share one link, because it's          rerouted around the damage — nothing was
+ statistically unlikely they all burst at once.   “reserved” there to lose.
+
+ bursty users, one shared link                    rerouted around the failure
+
+
+                                                                                                     9
+Packet Switching
+
+    Packet switching gives no built-in guarantees. Packets can be delayed behind others in
+    a queue, or dropped entirely when a router's buffer fills up under load.
+
+
+
+
+      This Is the Seed of Everything TCP Does
+
+      In Weeks 5–6, we'll meet TCP — a protocol whose entire job is to paper over
+      exactly this gap: detecting loss, retransmitting, and pacing data so an
+      unreliable, best-effort core feels reliable to your applications.
+
+                                                                                             10
+Sources Of Delay
+
+
+
+
+                   11
+The Toll-Booth Caravan
+ Picture a caravan of cars arriving at a toll booth, then driving down a long highway to the next toll booth.
+
+TOLL BOOTH                               HIGHWAY                                              TOLL BOOTH
+
+
+
+
+ Each car must individually pass through the booth (one at a time, takes a fixed time each), then
+ everyone drives the highway together at the speed limit.
+
+                                                                                                                12
+Every Packet Pays Four Kinds of Delay
+
+ 1                     2                    3                   4
+Processing            Queuing              Transmission        Propagation
+Router examines       Time waiting in a    Time to push all    Time for a bit to
+the header,           buffer behind        the packet's bits   physically travel
+checks for bit        other packets.       onto the link.      the link.
+errors.
+                      variable — named     = L / R — we        = d / s — we
+tiny, ~microseconds
+                      only, not computed   compute this        compute this
+
+                                                                                   13
+Toll Booth = Transmission.
+Highway = Propagation.
+
+         Transmission Delay                                 Propagation Delay
+         “Toll-booth time”                                  “highway drive time”
+ Time spent pushing every car (every bit) through   Time spent actually driving down the highway
+ the booth, one after another, before it can even   between the two booths, at a fixed speed limit
+ start down the highway.                            — has nothing to do with how many cars there
+                                                    are.
+ Depends on: how many cars (packet size) and        Depends on: the distance between booths and
+ how fast the booth processes them (link rate).     the speed limit (signal speed).
+
+
+  MORE BOOTHS → FASTER                                 MORE LANES ≠ FASTER
+Deep Dive: Two Threads Worth Pulling
+           Why Big Tech Builds Its Own                   Why Packet Size Isn't “Bigger Is
+           Backbone                                      Better”
+ Google, Meta, and Netflix lay their own private    The relay demo hinted at this: across many hops,
+ fibre between data centers and cities —            packet size changes how much pipelining is
+ shortening the physical path their traffic must    possible.
+ travel.
+                                                    Huge packets: long waits at each hop before
+ Connects back to Lecture 1: shorter distance, in
+                                                    forwarding can start.
+ d/s terms, means lower propagation delay — the
+ edge/core story and the delay story are the same   Tiny packets: more headers, more per-packet
+ story.                                             processing overhead.
+
+                                                                                                       15
+Let's Do the Maths — Lightly
+
+
+
+
+                               16
+Transmission Delay: Pushing Bits
+Onto the Link
+                                                   Worked Example
+               L/R                             L = 8,000 bits on a link with R = 2 Mbps
+                                               8,000 ÷ 2,000,000 = 4 ms
+ packet length (bits) ÷ link rate (bits/sec)
+
+
+       Why Doubling the Link Rate Matters
+
+              2 Mbps                              4 Mbps                            8 Mbps
+             4 ms                                 2 ms                              1 ms
+
+                                                                                             17
+Propagation Delay: The Bit's Physical
+Journey
+
+
+                        d/s
+            distance (m) ÷ signal speed (≈ 2×10⁸ m/s in fibre)
+
+
+
+                                                                 18
+The 500 Mbps Link That Still Feels Slow
+
+        Geostationary Satellite Link
+It's advertised at a generous 500 Mbps. But
+your video call still has that awkward half-
+                                               ↑ 35,786 km ↑            ↓ 35,786 km ↓
+second lag where you and the other person
+keep talking over each other.
+The satellite orbits ~35,786 km above the
+                                                                EARTH
+equator. Up to the satellite, then back down
+— that's roughly 71,500 km the signal must
+travel, at the speed of light.                  ~240 ms round-trip — from physics alone
+
+
+                                                                                          19
+When Packets Don't Make It
+
+
+
+
+                             20
+Throughput: What You Actually Get
+
+        Throughput                                         Bottleneck Link
+ The rate (bits/sec) at which data is actually       End-to-end throughput ≈ the minimum link rate
+ received — not advertised, not theoretical.         anywhere on the path. The slowest hop sets the
+ What lands.                                         pace for everyone.
+
+
+ A Path With Three Links
+
+
+
+                                      2 Mbps
+             10 Mbps                                       5 Mbps
+                                     ↑ bottleneck — caps end-to-end throughput at 2 Mbps, no
+                                     matter the other links
+                                                                                                      21
+“I Pay for 300 Mbps. Why Is It Buffering?”
+🎯 Scenario: Your ISP plan says 300 Mbps. Your 4K stream is stuttering anyway. Where is the real
+bottleneck hiding? Below is the full path your data travels — each hop has a different capacity.
+Identify which one is choking your stream.
+
+
+
+ Netflix Server            Congested Link              Your ISP               Home WiFi                  Your TV
+
+
+
+
+              The 300 Mbps is your access link to the ISP — just one stop on a long path. The real bottleneck
+              could be a congested inter-network link, an overloaded Netflix server, or (very often) your own
+              home WiFi struggling with walls and interference. Next time your stream buffers, think: which hop
+              is the slowest?
+
+                                                                                                                   22
+The Core Moves Packets. But Who
+Agrees on the Format?
+ Thousands of different networks and apps need to agree on a format and order of operations — that's
+ the job of protocol layers.
+
+
+           Lecture 3: OSI and TCP/IP Models
+           The backbone model for the rest of the course — every later topic (addressing, routing,
+           transport, applications) will be framed in terms of these layers.
+
+              NEXT LECTURE
+Thanks
+for
+watching!
+
+            24
+Please fill the feedback form.
+
+
+
+
+                                 25
+
