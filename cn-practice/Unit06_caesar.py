@@ -6,10 +6,10 @@ COVERAGE rows: 06.2 (cipher pipeline), 06.3 (key counts n(n-1)/2 vs 2n), 06.4 (C
 Level: LOW - letters are turned into numbers 0..25 by hand (ord arithmetic), shifted
 mod 26 and turned back. No crypto library.
 
-  E_k(x) = (x + k) mod 26        D_k(y) = (y - k) mod 26        (A=0, B=1, ..., Z=25)
+  E_k(x) = (x + k) mod 26        D_k(y) = (y - k) mod 26        (A=0, B=1, C=2, through Z=25)
 
 Checks (all asserted):
-  * WB-L08 p97: shift 3 of "Raj never catches the train..." gives "Udm qhyhu fdwfkhv..."
+  * WB-L08 p97: shift 3 of "Raj never catches the train." gives "Udm qhyhu fdwfkhv wkh wudlq."
   * WB-L06 p9 (slide fix B22): "Hello" with a consistent shift of 2 is "Jgnnq", not "jknnq"
   * WB-L08 p98 challenge: "Gztkliv rsyz srrbz yrz dviv ufjk" was made with shift 17 and
     decodes to "picture abhi baaki hai mere dost" (found by trying all 25 shifts)

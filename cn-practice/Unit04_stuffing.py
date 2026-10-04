@@ -107,7 +107,7 @@ def main():
     assert len(worst) == 22
 
     print("\n== Bit stuffing (flag 01111110, stuff a 0 after five 1s) ==")
-    raw = "0110111111111111111110010"                       # Tanenbaum Fig 3-5 (a)
+    raw = "011011111111111111110010"                        # Tanenbaum Fig 3-5 (a)
     st = bit_stuff(raw)
     print("  data    :", raw, "(%d bits)" % len(raw))
     print("  stuffed :", st, "(%d bits, %d stuffed)" % (len(st), len(st) - len(raw)))

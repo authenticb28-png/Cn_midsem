@@ -167,6 +167,7 @@ def main():
 
     assert (len(http_header), len(body), len(app)) == (38, 5, 43)
     assert (len(seg), len(pkt), len(frame)) == (63, 83, 101)
+    assert rd16(pkt, 10) == 0x9AF0          # IPv4 header checksum, matches the hand calculation on the site
 
     print("\n=== Decapsulation (receiver walks UP the stack) ===")
     d = decapsulate(frame)

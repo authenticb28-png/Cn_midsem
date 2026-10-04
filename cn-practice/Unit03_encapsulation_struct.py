@@ -84,7 +84,7 @@ def overhead_table(payload_sizes, hdrs=(14, 20, 20), fcs=4, wire_extra=20):
     return rows
 
 
-def scapy_demo(message):
+def scapy_demo(message, our_frame):
     try:
         from scapy.all import Ether, IP, TCP as STCP, Raw   # noqa: F401
     except ImportError:
@@ -95,6 +95,8 @@ def scapy_demo(message):
            STCP(sport=80, dport=51514, seq=1000, ack=2000, flags="PA", window=64240) / Raw(load=message))
     raw = bytes(pkt)
     print("scapy built %d bytes (scapy leaves the FCS to the network card)" % len(raw))
+    assert raw == our_frame[:-4], "scapy bytes differ from our struct-built frame"
+    print("scapy bytes == our struct bytes (without the 4-byte FCS): True")
     pkt.show2()
 
 
@@ -116,7 +118,8 @@ def main():
     # cross-check with the hand-computed IPv4 header checksum shown on the site
     ipck = struct.unpack_from("!H", frame, 14 + 10)[0]
     print("IPv4 header checksum = 0x%04x" % ipck)
-    assert ipck == 0xB675
+    assert ipck == 0x9AF0
+    assert frame[-4:].hex() == "33d6e227"   # same FCS as the from-scratch CRC in Unit03_encapsulation_bytes.py
 
     print("\nipaddress view of the two endpoints:")
     for a in ("192.168.1.20", "192.168.1.10"):
@@ -129,7 +132,7 @@ def main():
     assert rows[0][1] == 64            # a 1-byte message is padded up to the 64-byte minimum frame
 
     print()
-    scapy_demo(message)
+    scapy_demo(message, frame)
     print("\nAll self-tests passed.")
 
 

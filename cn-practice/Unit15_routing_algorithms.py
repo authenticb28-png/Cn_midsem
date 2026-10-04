@@ -74,8 +74,8 @@ def print_dijkstra_table(rows, source):
     for step, (N, D, p) in enumerate(rows):
         cells = []
         for n in others:
-            # once a node is in N' (and was in N' on the previous row) the textbook leaves the cell blank
-            if step > 0 and n in rows[step - 1][0]:
+            # once a node is in N' its cost is final and Table 5.1 leaves the cell blank
+            if n in N:
                 cells.append("     -    ")
             elif D[n] == INF:
                 cells.append("   inf    ")
@@ -141,7 +141,7 @@ def distance_vector(edges):
 # ---------------------------------------------------------------------------------------------
 def count_to_infinity(poison_reverse=False, new_cost=60):
     """Nodes x, y, z. c(x,y)=4, c(y,z)=1, c(x,z)=50. We only track the route to destination x.
-    At t0 the link x-y changes from 4 to new_cost. y and z then alternate updates (y, z, y, z ...).
+    At t0 the link x-y changes from 4 to new_cost. y and z then alternate updates (y, then z, then y again, alternating).
     Returns the list of (who, new D(x), next hop) updates until no more change."""
     c_yx, c_zx, c_yz = new_cost, 50, 1
     Dy, hy = 4, "x"            # before the change y reaches x directly at cost 4
